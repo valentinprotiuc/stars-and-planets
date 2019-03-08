@@ -4,10 +4,16 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 
 import {BsDropdownModule} from 'ngx-bootstrap';
+import { NavigationComponent } from './navigation/navigation.component';
+import { StarsComponent } from './stars/stars.component';
+import { PlanetsComponent } from './planets/planets.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    NavigationComponent,
+    StarsComponent,
+    PlanetsComponent
   ],
   imports: [
     BrowserModule,
