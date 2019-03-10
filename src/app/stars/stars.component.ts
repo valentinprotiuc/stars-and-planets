@@ -10,7 +10,7 @@ import {Star} from './star.model';
 })
 export class StarsComponent implements OnInit {
 
-  private stars: Star[];
+  stars: Star[];
 
   constructor(private starService: StarService) {
   }
