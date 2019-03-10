@@ -7,17 +7,21 @@ import {BsDropdownModule} from 'ngx-bootstrap';
 import { NavigationComponent } from './navigation/navigation.component';
 import { StarsComponent } from './stars/stars.component';
 import { PlanetsComponent } from './planets/planets.component';
+import {AppRouting} from './app-routing.module';
+import { StarDetailsComponent } from './stars/star-details/star-details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavigationComponent,
     StarsComponent,
-    PlanetsComponent
+    PlanetsComponent,
+    StarDetailsComponent
   ],
   imports: [
     BrowserModule,
-    BsDropdownModule.forRoot()
+    BsDropdownModule.forRoot(),
+    AppRouting
   ],
   providers: [],
   bootstrap: [AppComponent]
