@@ -1,10 +1,14 @@
-import { Injectable } from '@angular/core';
+import {EventEmitter, Injectable} from '@angular/core';
 import {Star} from './star.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class StarService {
+
+  starSelected = new EventEmitter<Star>();
+  starListChanged = new EventEmitter<Star[]>();
+  editingStar = new EventEmitter<boolean>();
 
   private stars: Star[] = [
     new Star('Sonne', 'Gelber Zwerg', 1),
@@ -14,9 +18,28 @@ export class StarService {
 
   ];
 
-  getStars(){
+  getStars() {
     return this.stars.slice();
   }
 
-  constructor() { }
+  addStar(star: Star) {
+    this.stars.push(star);
+    this.starListChanged.emit(this.stars);
+    this.editingStar.emit(false);
+    this.starSelected.emit(star);
+  }
+
+  removeStar(star: Star) {
+    this.stars.forEach(
+      (item, index) => {
+        if (item === star) {
+          this.stars.splice(index, 1);
+          this.starListChanged.emit(this.stars);
+        }
+      }
+    );
+  }
+
+  constructor() {
+  }
 }

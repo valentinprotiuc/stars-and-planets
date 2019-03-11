@@ -11,12 +11,42 @@ import {Star} from './star.model';
 export class StarsComponent implements OnInit {
 
   stars: Star[];
+  selectedStar: Star;
+  editingStar = false;
 
   constructor(private starService: StarService) {
   }
 
   ngOnInit() {
     this.stars = this.starService.getStars();
+    this.starService.starSelected.subscribe(
+      (star: Star) => {
+        this.selectedStar = star;
+      }
+    );
+    this.starService.starListChanged.subscribe(
+      (stars: Star[]) => {
+        this.stars = stars;
+      }
+    );
+    this.starService.editingStar.subscribe(
+      (flag: boolean) => {
+        this.editingStar = flag;
+      }
+    );
   }
 
+  addStar() {
+    this.selectedStar = null;
+    this.editingStar = true;
+  }
+
+  editStar() {
+
+  }
+
+  removeStar() {
+    this.starService.removeStar(this.selectedStar);
+    this.selectedStar = null;
+  }
 }

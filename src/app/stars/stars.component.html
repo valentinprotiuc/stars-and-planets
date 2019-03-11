@@ -1,12 +1,27 @@
 <div class="row">
-  <div class="col">
+  <div class="col-md-4">
+    <div class="btn-group btn-block">
+      <button type="button" class="btn btn-outline-primary" (click)="addStar()"><span class="fa fa-plus-square-o"></span> Hinzufügen
+      </button>
+      <button type="button" class="btn btn-outline-success" (click)="editStar()"><span class="fa fa-edit"></span> Editieren</button>
+      <button type="button" class="btn btn-outline-danger" (click)="removeStar()"><span class="fa fa-minus-square-o"></span> Entfernen</button>
+    </div>
+    <hr>
+    <form action="">
+      <input class="form-control" type="text" placeholder="Suche">
+    </form>
     <ul class="list-group">
-      <a class="list-group-item" style="cursor: pointer" *ngFor="let star of stars">
-        {{star.name}}
-      </a>
+      <app-star-item *ngFor="let starItem of stars" [star]="starItem"></app-star-item>
     </ul>
   </div>
-  <div class="col">
-    <app-star-details></app-star-details>
+  <div class="col-md-8">
+    <app-star-edit *ngIf="editingStar; else altBlock"></app-star-edit>
+    <ng-template #altBlock>
+      <app-star-details *ngIf="selectedStar; else infoText" [selectedStar]="selectedStar"></app-star-details>
+      <ng-template #infoText>
+        <p>Wähle einen Stern.</p>
+      </ng-template>
+    </ng-template>
+
   </div>
 </div>
