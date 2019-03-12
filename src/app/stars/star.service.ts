@@ -33,6 +33,17 @@ export class StarService {
     this.starSelected.emit(star);
   }
 
+  editStar(star: Star) {
+    this.stars.forEach(
+      (item, index) => {
+        this.stars[index].name = star.name;
+        this.stars[index].spectralType = star.spectralType;
+        this.stars[index].solarMass = star.solarMass;
+        this.stars[index].orbitingPlanets = star.orbitingPlanets;
+      }
+    );
+  }
+
   removeStar(star: Star) {
     this.stars.forEach(
       (item, index) => {

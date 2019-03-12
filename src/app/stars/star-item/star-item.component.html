@@ -1,6 +1,17 @@
-<accordion-group>
-  <button class="btn btn-block clearfix" (click)="showStarDetails()" accordion-heading>{{star.name}}</button>
+<!--<accordion-group>
+  <button class="btn btn-secondary btn-block clearfix" (click)="showStarDetails()" accordion-heading>{{star.name}}</button>
   <ul class="list-group">
     <a class="list-group-item" *ngFor="let planetItem of star.orbitingPlanets">{{planetItem.name}}</a>
   </ul>
+</accordion-group>-->
+<!--
+<accordion-group>
+  <button class="btn btn-block clearfix" accordion-heading>{{star.name}}</button>
+  <div *ngFor="let planetItem of star.orbitingPlanets">{{planetItem.name}}</div>
 </accordion-group>
+-->
+<a type="button" class="card bg-secondary text-white" (click)="isCollapsed = !isCollapsed; showStarDetails()"
+   [attr.aria-expanded]="!isCollapsed" aria-controls="collapseBasic">{{star.name}}</a>
+<div class="card bg-dark text-white indented-1" id="collapseBasic" [collapse]="!isCollapsed"
+     *ngFor="let planet of star.orbitingPlanets">{{planet.name}}
+</div>

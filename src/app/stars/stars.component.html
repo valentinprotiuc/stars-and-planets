@@ -1,21 +1,21 @@
 <div class="row">
-  <div class="col-md-4">
+  <div class="col-md-4 limited-height">
     <div class="btn-group btn-block">
-      <button type="button" class="btn btn-outline-primary" (click)="addStar()"><span class="fa fa-plus-square-o"></span> Hinzufügen
+      <button type="button" class="btn btn-outline-primary" (click)="addStar()"><span
+        class="fa fa-plus-square-o"></span> Hinzufügen
       </button>
-      <button type="button" class="btn btn-outline-success" (click)="editStar()"><span class="fa fa-edit"></span> Editieren</button>
-      <button type="button" class="btn btn-outline-danger" (click)="removeStar()"><span class="fa fa-minus-square-o"></span> Entfernen</button>
+      <button type="button" class="btn btn-outline-success" (click)="editStar()"><span class="fa fa-edit"></span>
+        Editieren
+      </button>
+      <button type="button" class="btn btn-outline-danger" (click)="removeStar()"><span
+        class="fa fa-minus-square-o"></span> Entfernen
+      </button>
     </div>
     <hr>
     <form action="">
       <input class="form-control" type="text" placeholder="Suche">
     </form>
-    <accordion>
-      <app-star-item *ngFor="let starItem of stars" [star]="starItem"></app-star-item>
-    </accordion>
-    <!--<ul class="list-group">
-      <app-star-item *ngFor="let starItem of stars" [star]="starItem"></app-star-item>
-    </ul>-->
+    <app-nav-stars [stars]="stars"></app-nav-stars>
   </div>
   <div class="col-md-8">
     <app-star-edit *ngIf="editingStar; else altBlock"></app-star-edit>
@@ -25,6 +25,5 @@
         <p>Wähle einen Stern.</p>
       </ng-template>
     </ng-template>
-
   </div>
 </div>

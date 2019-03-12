@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, EventEmitter, OnInit} from '@angular/core';
 import {StarService} from './star.service';
 import {Star} from './star.model';
 
@@ -42,7 +42,8 @@ export class StarsComponent implements OnInit {
   }
 
   editStar() {
-
+    this.editingStar = true;
+    this.selectedStar = null;
   }
 
   removeStar() {

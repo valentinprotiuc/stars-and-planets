@@ -1,0 +1,5 @@
+.fixed-height{
+  display: block;
+  overflow-y: auto;
+  max-height: calc(100vh - 12rem);
+}

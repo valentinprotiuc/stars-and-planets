@@ -1,7 +1,3 @@
-a{
-  cursor: pointer;
-}
-
-a:hover{
-  background-color: lightyellow;
+.indented-1 {
+  padding-left: 1em;
 }
