@@ -1,3 +1,6 @@
-<a class="list-group-item" (click)="showStarDetails()">
-  {{star.name}}
-</a>
+<accordion-group>
+  <button class="btn btn-block clearfix" (click)="showStarDetails()" accordion-heading>{{star.name}}</button>
+  <ul class="list-group">
+    <a class="list-group-item" *ngFor="let planetItem of star.orbitingPlanets">{{planetItem.name}}</a>
+  </ul>
+</accordion-group>

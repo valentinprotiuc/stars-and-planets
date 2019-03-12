@@ -21,7 +21,7 @@ export class StarEditComponent implements OnInit {
 
   addToList() {
     this.starService.addStar(
-      new Star(this.starName.nativeElement.value, this.starClass.nativeElement.value, this.solarMass.nativeElement.value)
+      new Star(this.starName.nativeElement.value, this.starClass.nativeElement.value, this.solarMass.nativeElement.value, [])
     );
   }
 }

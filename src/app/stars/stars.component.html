@@ -10,9 +10,12 @@
     <form action="">
       <input class="form-control" type="text" placeholder="Suche">
     </form>
-    <ul class="list-group">
+    <accordion>
       <app-star-item *ngFor="let starItem of stars" [star]="starItem"></app-star-item>
-    </ul>
+    </accordion>
+    <!--<ul class="list-group">
+      <app-star-item *ngFor="let starItem of stars" [star]="starItem"></app-star-item>
+    </ul>-->
   </div>
   <div class="col-md-8">
     <app-star-edit *ngIf="editingStar; else altBlock"></app-star-edit>
