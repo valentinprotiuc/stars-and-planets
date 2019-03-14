@@ -1,13 +1,13 @@
 <div class="row">
   <div class="col-md-4 limited-height">
     <div class="btn-group btn-block">
-      <button type="button" class="btn btn-outline-primary" (click)="addStar()"><span
+      <button type="button" class="btn btn-outline-primary" (click)="onAddStar()"><span
         class="fa fa-plus-square-o"></span> Hinzufügen
       </button>
-      <button type="button" class="btn btn-outline-success" (click)="editStar()"><span class="fa fa-edit"></span>
+      <button type="button" class="btn btn-outline-success" (click)="onEditStar()"><span class="fa fa-edit"></span>
         Editieren
       </button>
-      <button type="button" class="btn btn-outline-danger" (click)="removeStar()"><span
+      <button type="button" class="btn btn-outline-danger" (click)="onRemoveStar()"><span
         class="fa fa-minus-square-o"></span> Entfernen
       </button>
     </div>
@@ -15,15 +15,9 @@
     <form action="">
       <input class="form-control" type="text" placeholder="Suche">
     </form>
-    <app-nav-stars [stars]="stars"></app-nav-stars>
+    <app-stars-nav [stars]="stars"></app-stars-nav>
   </div>
   <div class="col-md-8">
-    <app-star-edit *ngIf="editingStar; else altBlock"></app-star-edit>
-    <ng-template #altBlock>
-      <app-star-details *ngIf="selectedStar; else infoText" [selectedStar]="selectedStar"></app-star-details>
-      <ng-template #infoText>
-        <p>Wähle einen Stern.</p>
-      </ng-template>
-    </ng-template>
+    <router-outlet></router-outlet>
   </div>
 </div>

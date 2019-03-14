@@ -1,6 +1,7 @@
 import {Component, EventEmitter, OnInit} from '@angular/core';
 import {StarService} from './star.service';
 import {Star} from './star.model';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-stars',
@@ -14,7 +15,7 @@ export class StarsComponent implements OnInit {
   selectedStar: Star;
   editingStar = false;
 
-  constructor(private starService: StarService) {
+  constructor(private starService: StarService, private router: Router, private route: ActivatedRoute) {
   }
 
   ngOnInit() {
@@ -36,18 +37,15 @@ export class StarsComponent implements OnInit {
     );
   }
 
-  addStar() {
-    this.selectedStar = null;
-    this.editingStar = true;
+  onAddStar() {
+    this.router.navigate(['add'], {relativeTo: this.route});
   }
 
-  editStar() {
-    this.editingStar = true;
-    this.selectedStar = null;
+  onEditStar() {
+    this.router.navigate(['edit'], {relativeTo: this.route});
   }
 
-  removeStar() {
-    this.starService.removeStar(this.selectedStar);
-    this.selectedStar = null;
+  onRemoveStar() {
+
   }
 }

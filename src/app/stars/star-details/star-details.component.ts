@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Star} from '../star.model';
+import {StarService} from '../star.service';
 
 @Component({
   selector: 'app-star-details',
@@ -8,11 +9,19 @@ import {Star} from '../star.model';
 })
 export class StarDetailsComponent implements OnInit {
 
-  @Input() selectedStar: Star;
+  @Input() selStar: Star;
 
-  constructor() { }
+  private selectedStar: Star;
+
+  constructor(private starService: StarService) { }
 
   ngOnInit() {
+    this.selectedStar = this.starService.lastSelectedStar;
+    this.starService.starSelected.subscribe(
+      (star: Star) => {
+        this.selectedStar = star;
+      }
+    );
   }
 
 }

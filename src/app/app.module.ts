@@ -11,7 +11,8 @@ import {AppRouting} from './app-routing.module';
 import {StarDetailsComponent} from './stars/star-details/star-details.component';
 import {StarItemComponent} from './stars/star-item/star-item.component';
 import {StarEditComponent} from './stars/star-edit/star-edit.component';
-import { NavStarsComponent } from './stars/nav-stars/nav-stars.component';
+import { StarsNavComponent } from './stars/stars-nav/stars-nav.component';
+import { StarsWelcomeComponent } from './stars/stars-welcome/stars-welcome.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { NavStarsComponent } from './stars/nav-stars/nav-stars.component';
     StarDetailsComponent,
     StarItemComponent,
     StarEditComponent,
-    NavStarsComponent
+    StarsNavComponent,
+    StarsWelcomeComponent
   ],
   imports: [
     BrowserModule,
