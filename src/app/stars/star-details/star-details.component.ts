@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Star} from '../star.model';
 import {StarService} from '../star.service';
 import {ActivatedRoute, Params} from '@angular/router';
@@ -10,7 +10,7 @@ import {ActivatedRoute, Params} from '@angular/router';
 })
 export class StarDetailsComponent implements OnInit {
 
-  private selectedStar: Star;
+  selectedStar: Star;
 
   constructor(private starService: StarService, private route: ActivatedRoute) {
   }
