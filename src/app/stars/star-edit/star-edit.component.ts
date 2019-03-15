@@ -1,6 +1,7 @@
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {StarService} from '../star.service';
 import {Star} from '../star.model';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-star-edit',
@@ -13,15 +14,16 @@ export class StarEditComponent implements OnInit {
   @ViewChild('starClass') starClass: ElementRef;
   @ViewChild('solarMass') solarMass: ElementRef;
 
-  constructor(private starService: StarService) {
+  constructor(private starService: StarService, private router: Router) {
   }
 
   ngOnInit() {
   }
 
- /* addToList() {
+  addToList() {
     this.starService.addStar(
       new Star(this.starName.nativeElement.value, this.starClass.nativeElement.value, this.solarMass.nativeElement.value, [])
     );
-  }*/
+    this.router.navigate(['stars/details/' + this.starName.nativeElement.value]);
+  }
 }

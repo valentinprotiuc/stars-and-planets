@@ -10,7 +10,6 @@ export class StarService {
   starSelected = new EventEmitter<Star>();
   starListChanged = new EventEmitter<Star[]>();
   editingStar = new EventEmitter<boolean>();
-  lastSelectedStar: Star;
 
   private stars: Star[] = [
     new Star('Sonne', 'Gelber Zwerg', 1, [
@@ -23,15 +22,17 @@ export class StarService {
 
   ];
 
+  getStar(starName: string) {
+    return this.stars.find(i => i.name === starName);
+  }
+
   getStars() {
     return this.stars.slice();
   }
 
   addStar(star: Star) {
     this.stars.push(star);
-    this.starListChanged.emit(this.stars);
-    this.editingStar.emit(false);
-    this.starSelected.emit(star);
+    this.starListChanged.emit(this.stars.slice());
   }
 
   editStar(star: Star) {
@@ -54,10 +55,6 @@ export class StarService {
         }
       }
     );
-  }
-
-  setLastSelectedStar(star: Star) {
-    this.lastSelectedStar = star;
   }
 
   constructor() {

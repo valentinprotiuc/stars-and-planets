@@ -12,14 +12,13 @@ export class StarItemComponent implements OnInit {
 
   @Input() star: Star;
 
-  constructor(private starService: StarService, private router: Router, private route: ActivatedRoute) { }
+  constructor(private starService: StarService, private router: Router, private route: ActivatedRoute) {
+  }
 
   ngOnInit() {
   }
 
   onShowStarDetails() {
-    this.router.navigate(['details'], {relativeTo: this.route});
-    this.starService.setLastSelectedStar(this.star);
-    this.starService.starSelected.emit(this.star);
+    this.router.navigate(['details/' + this.star.name], {relativeTo: this.route});
   }
 }
