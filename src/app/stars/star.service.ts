@@ -26,6 +26,10 @@ export class StarService {
     return this.stars.find(i => i.name === starName);
   }
 
+  getStarIndex(starName: string) {
+    return this.stars.findIndex(i => i.name === starName);
+  }
+
   getStars() {
     return this.stars.slice();
   }

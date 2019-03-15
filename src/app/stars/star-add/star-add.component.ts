@@ -1,19 +1,18 @@
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {ActivatedRoute, Params, Router} from '@angular/router';
 import {StarService} from '../star.service';
 import {Star} from '../star.model';
-import {ActivatedRoute, Params, Router} from '@angular/router';
 
 @Component({
-  selector: 'app-star-edit',
-  templateUrl: './star-edit.component.html',
-  styleUrls: ['./star-edit.component.css']
+  selector: 'app-star-add',
+  templateUrl: './star-add.component.html',
+  styleUrls: ['./star-add.component.css']
 })
-export class StarEditComponent implements OnInit {
+export class StarAddComponent implements OnInit {
 
   @ViewChild('starName') starName: ElementRef;
   @ViewChild('starClass') starClass: ElementRef;
   @ViewChild('solarMass') solarMass: ElementRef;
-  private starIndex: number;
 
   constructor(private starService: StarService, private router: Router, private route: ActivatedRoute) {
   }
@@ -26,7 +25,6 @@ export class StarEditComponent implements OnInit {
           this.starName.nativeElement.value = star.name;
           this.starClass.nativeElement.value = star.spectralType;
           this.solarMass.nativeElement.value = star.solarMass;
-          this.starIndex = this.starService.getStarIndex(params.starName);
         }
       }
     );
@@ -38,4 +36,5 @@ export class StarEditComponent implements OnInit {
     );
     this.router.navigate(['stars/details/' + this.starName.nativeElement.value]);
   }
+
 }

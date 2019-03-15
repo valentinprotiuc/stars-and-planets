@@ -5,13 +5,14 @@ import {PlanetsComponent} from './planets/planets.component';
 import {StarsWelcomeComponent} from './stars/stars-welcome/stars-welcome.component';
 import {StarEditComponent} from './stars/star-edit/star-edit.component';
 import {StarDetailsComponent} from './stars/star-details/star-details.component';
+import {StarAddComponent} from './stars/star-add/star-add.component';
 
 const appRoutes: Routes = [
   {path: '', redirectTo: '/stars', pathMatch: 'full'},
   {path: 'stars', component: StarsComponent, children: [
       {path: '', component: StarsWelcomeComponent},
-      {path: 'add', component: StarEditComponent},
-      {path: 'edit', component: StarEditComponent},
+      {path: 'add', component: StarAddComponent},
+      {path: 'edit/:starName', component: StarEditComponent},
       {path: 'details/:starName', component: StarDetailsComponent,}
     ]},
   {path: 'planets', component: PlanetsComponent}

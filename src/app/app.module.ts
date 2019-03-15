@@ -13,6 +13,7 @@ import {StarItemComponent} from './stars/star-item/star-item.component';
 import {StarEditComponent} from './stars/star-edit/star-edit.component';
 import { StarsNavComponent } from './stars/stars-nav/stars-nav.component';
 import { StarsWelcomeComponent } from './stars/stars-welcome/stars-welcome.component';
+import { StarAddComponent } from './stars/star-add/star-add.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { StarsWelcomeComponent } from './stars/stars-welcome/stars-welcome.compo
     StarItemComponent,
     StarEditComponent,
     StarsNavComponent,
-    StarsWelcomeComponent
+    StarsWelcomeComponent,
+    StarAddComponent
   ],
   imports: [
     BrowserModule,
