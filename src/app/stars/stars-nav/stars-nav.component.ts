@@ -9,7 +9,7 @@ import {StarService} from '../star.service';
 })
 export class StarsNavComponent implements OnInit {
 
-  private stars: Star[];
+  stars: Star[];
 
   constructor(private starService: StarService) {
   }
