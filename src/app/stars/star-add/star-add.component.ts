@@ -14,20 +14,10 @@ export class StarAddComponent implements OnInit {
   @ViewChild('starClass') starClass: ElementRef;
   @ViewChild('solarMass') solarMass: ElementRef;
 
-  constructor(private starService: StarService, private router: Router, private route: ActivatedRoute) {
+  constructor(private starService: StarService, private router: Router) {
   }
 
   ngOnInit() {
-    this.route.params.subscribe(
-      (params: Params) => {
-        const star = this.starService.getStar(params.starName);
-        if (star) {
-          this.starName.nativeElement.value = star.name;
-          this.starClass.nativeElement.value = star.spectralType;
-          this.solarMass.nativeElement.value = star.solarMass;
-        }
-      }
-    );
   }
 
   addToList() {

@@ -32,10 +32,10 @@ export class StarEditComponent implements OnInit {
     );
   }
 
-  addToList() {
-    this.starService.addStar(
+  onAddChanges() {
+    this.starService.updateStar(
       new Star(this.starName.nativeElement.value, this.starClass.nativeElement.value, this.solarMass.nativeElement.value, [])
-    );
+    , this.starIndex);
     this.router.navigate(['stars/details/' + this.starName.nativeElement.value]);
   }
 }

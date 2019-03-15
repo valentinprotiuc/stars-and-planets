@@ -39,15 +39,10 @@ export class StarService {
     this.starListChanged.emit(this.stars.slice());
   }
 
-  editStar(star: Star) {
-    this.stars.forEach(
-      (item, index) => {
-        this.stars[index].name = star.name;
-        this.stars[index].spectralType = star.spectralType;
-        this.stars[index].solarMass = star.solarMass;
-        this.stars[index].orbitingPlanets = star.orbitingPlanets;
-      }
-    );
+  updateStar(star: Star, index: number) {
+    this.stars[index].name = star.name;
+    this.stars[index].spectralType = star.spectralType;
+    this.stars[index].solarMass = star.solarMass;
   }
 
   removeStar(star: Star) {

@@ -42,11 +42,11 @@ export class StarsComponent implements OnInit {
   }
 
   onEditStar() {
-    console.log(this.selectedStar);
     this.router.navigate(['stars/edit/' + this.selectedStar.name]);
   }
 
   onRemoveStar() {
-
+    this.starService.removeStar(this.selectedStar);
+    this.router.navigate(['stars']);
   }
 }
