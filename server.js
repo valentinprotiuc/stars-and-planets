@@ -56,12 +56,14 @@ const findAllDocuments = function (db, callback) {
 
 const saveDocuments = function (newDoc){
 
-  client.connect(function (err) {
+  client.connect(function (err, db) {
 
     if (err) throw err;
 
-    const db = client.db(dbName);
-    const collection = db.collection('stars');
+    const myDb = db.db(dbName);
+    const collection = myDb.collection('stars');
+
+    console.log("My Object: ", newDoc);
 
     collection.insertOne(newDoc, function (err, res) {
       if (err) throw err;
