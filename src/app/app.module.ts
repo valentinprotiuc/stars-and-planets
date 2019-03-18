@@ -15,6 +15,7 @@ import {StarsNavComponent} from './stars/stars-nav/stars-nav.component';
 import {StarsWelcomeComponent} from './stars/stars-welcome/stars-welcome.component';
 import {StarAddComponent} from './stars/star-add/star-add.component';
 import {HttpClientModule} from '@angular/common/http';
+import {ServerService} from './server.service';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,7 @@ import {HttpClientModule} from '@angular/common/http';
     AppRouting,
     HttpClientModule
   ],
-  providers: [],
+  providers: [ServerService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
