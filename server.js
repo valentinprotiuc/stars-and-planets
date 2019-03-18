@@ -36,9 +36,8 @@ app.get('/', function (req, res) {
 
 app.get('/data', (req, res) => {
   console.log("Get data request");
-  let cursor = db.collection('stars').find({}).toArray((error, result) => {
-    console.log(result);
-  });
+  let cursor = db.collection('stars').find({}).toArray();
+  console.log("Cursor: ", cursor);
   res.send(cursor);
 });
 

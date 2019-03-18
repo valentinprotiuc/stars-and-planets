@@ -1,27 +1,19 @@
-# StarsAndPlanets
+# Stars&Planets App
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.5.
+A simple demo project using MEAN stack plus Bootstrap. It's a single page app which allow the user to navigate through the database of stars and planets. The user can view the detailed information about the star by clicking it, can edit the information about the star and also can add new stars to the catalog.
 
-## Development server
+## Versions
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+MongoDB `3.1.13`
 
-## Code scaffolding
+Express `4.16.4`
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Angular `7.2.0`
 
-## Build
+NodeJS `10.15.3`
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+Bootstrap `4`
 
-## Running unit tests
+## Platform
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+The app is being deployed to the [Heroku](https://stars-and-planets.herokuapp.com/) platform and uses the mLab as a host for the MongoDB.
