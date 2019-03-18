@@ -27,7 +27,7 @@ app.get('/*', function (req, res) {
 app.post('/save', function (req, res) {
 
   saveDocuments(req.body);
-  console.log("The Body: ", JSON.stringify(req.body));
+  console.log("The Body: ", req.body);
   res.send('Saved to db.');
   
 });
@@ -63,7 +63,7 @@ const saveDocuments = function (newDoc){
     const db = client.db(dbName);
     const collection = db.collection('stars');
 
-    collection.insertOne(JSON.stringify(newDoc), function (err, res) {
+    collection.insertOne(newDoc, function (err, res) {
       if (err) throw err;
       console.log("Doc inserted");
       client.close();
