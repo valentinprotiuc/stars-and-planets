@@ -7,26 +7,28 @@ const bodyParser = require('body-parser');
 
 const app = express();
 
+const client = new MongoClient(uri, {useNewUrlParser: true});
+
+
 const uri = 'mongodb://heroku_3h2xwfxr:spmc4d27eot7nc4qmgokqijuvf@ds215633.mlab.com:15633/heroku_3h2xwfxr';
-
 const dbName = 'heroku_3h2xwfxr';
-
 const myObj = {
   name: "Hello", spectralType: "NONON", solarMass: 1, orbitingPlanets: []
 };
 
 
-const client = new MongoClient(uri, {useNewUrlParser: true});
 
 // Serve only the static files form the dist directory
 app.use(express.static(__dirname + '/dist/stars-and-planets'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+
 app.get('/*', function (req, res) {
 
   res.sendFile(path.join(__dirname + '/dist/stars-and-planets/index.html'));
 });
+
 
 app.post('/save', function (req, res) {
 
@@ -37,8 +39,6 @@ app.post('/save', function (req, res) {
     const db = client.db(dbName);
 
     const collection = db.collection('stars');
-
-    console.log();
 
     collection.insertOne(myObj, function (err, res) {
 
@@ -60,16 +60,7 @@ client.connect(function (err) {
 
   const collection = db.collection('stars');
 
-  collection.insertOne(myObj, function (err, res) {
-
-    if (err) throw err;
-    console.log("Insert response: ", res);
-
-  });
-
-
   findAllDocuments(db, function () {
-    client.close();
   })
 
 });
