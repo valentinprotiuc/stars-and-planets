@@ -1,11 +1,4 @@
 <h2>Neuen Stern hinzufügen</h2>
-<form action="/save" method="POST">
-  <input type="text" placeholder="name" name="name">
-  <input type="text" placeholder="class" name="class">
-  <button type="submit" class="btn btn-primary">Submit</button>
-</form>
-
-
 <div class="form-group">
   <label for="starName">Name des Sterns:</label>
   <input type="text" class="form-control" id="starName"  #starName>
@@ -18,9 +11,7 @@
   <label for="solarMass">Sonnenmasse:</label>
   <input type="text" class="form-control" id="solarMass" #solarMass>
 </div>
-
 <div class="btn-group">
-
   <button class="btn btn-primary" (click)="addToList()">Speichern</button>
   <button class="btn btn-danger">Verwerfen</button>
 </div>

@@ -10,6 +10,7 @@ const app = express();
 const uri = 'mongodb://heroku_3h2xwfxr:spmc4d27eot7nc4qmgokqijuvf@ds215633.mlab.com:15633/heroku_3h2xwfxr';
 const client = new MongoClient(uri, {useNewUrlParser: true});
 const dbName = 'heroku_3h2xwfxr';
+var db;
 
 const myObj = {
   name: "Hello", spectralType: "NONON", solarMass: 1, orbitingPlanets: []
@@ -21,8 +22,14 @@ app.use(express.static(__dirname + '/dist/stars-and-planets'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
+client.connect((err, client) => {
+  if (err) throw err;
+  db = client.db(dbName);
+  app.listen(process.env.PORT || 8080);
+});
 
-app.get('/*', function (req, res) {
+
+app.get('/', function (req, res) {
 
   res.sendFile(path.join(__dirname + '/dist/stars-and-planets/index.html'));
 });
@@ -76,4 +83,4 @@ const saveDocuments = function (newDoc) {
 
 
 // Start the app by listening on the default Heroku port
-app.listen(process.env.PORT || 8080);
+//app.listen(process.env.PORT || 8080);
