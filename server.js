@@ -20,8 +20,8 @@ const client = new MongoClient(uri, {useNewUrlParser: true});
 
 // Serve only the static files form the dist directory
 app.use(express.static(__dirname + '/dist/stars-and-planets'));
-
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get('/*', function (req, res) {
 
@@ -31,11 +31,14 @@ app.get('/*', function (req, res) {
 app.post('/save', function (req, res) {
 
   client.connect(function (err) {
+    console.log("Connect error: ", err);
     if (err) throw err;
 
     const db = client.db(dbName);
 
     const collection = db.collection('stars');
+
+    console.log();
 
     collection.insertOne(myObj, function (err, res) {
 
