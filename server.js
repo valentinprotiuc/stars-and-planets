@@ -32,12 +32,13 @@ app.post('/save', (req, res) => {
   console.log("This is the request: ", req.body);
 });
 
+/*
 client.connect(function (err) {
   assert.equal(err, null);
   console.log('Connected correctly to the server.');
 
   const db = client.db(dbName);
-  
+
   findAllDocuments(db, function () {
   })
 
@@ -71,6 +72,7 @@ const saveDocuments = function (newDoc) {
     })
   })
 };
+*/
 
 
 // Start the app by listening on the default Heroku port
