@@ -34,10 +34,17 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname + '/dist/stars-and-planets/index.html'));
 });
 
+app.get('/data', (req, res) => {
+  let cursor = db.collection('stars').find({}).toArray((error, result) => {
+    console.log(result);
+  });
+  res.send(cursor);
+});
+
 
 app.post('/save', (req, res) => {
   console.log("This is the request: ", req.body);
-  db.collection('stars').insertOne(req.body, (err, res) => {
+  db.collection('stars').insertOne(req.body, (error, result) => {
     if (err) throw err;
     console.log("Doc inserted");
   });

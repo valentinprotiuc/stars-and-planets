@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Star} from '../star.model';
 import {StarService} from '../star.service';
+import {ServerService} from '../../server.service';
 
 @Component({
   selector: 'app-stars-nav',
@@ -11,10 +12,16 @@ export class StarsNavComponent implements OnInit {
 
   stars: Star[];
 
-  constructor(private starService: StarService) {
+  constructor(private starService: StarService, private serverService: ServerService) {
   }
 
   ngOnInit() {
+    let starsDb;
+    this.serverService.getStarsFromDB().subscribe(
+      (response) => starsDb = response,
+      (error) => console.log(error)
+    );
+    console.log(starsDb);
     this.stars = this.starService.getStars();
     this.starService.starListChanged.subscribe(
       (stars: Star[]) => {
