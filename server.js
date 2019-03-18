@@ -25,15 +25,8 @@ mongodb.MongoClient.connect(uri, function (err, client) {
 
   let stars = db.collection('stars');
 
-  stars.forEach(function (item) {
-    if (item != null) {
-      seedData.push(item);
-    }
-    console.log(seedData);
-  }, function (err) {
-    console.log(err);
-    db.close();
-  });
+  console.log(stars);
+  db.close();
 
 });
 
