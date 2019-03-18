@@ -16,6 +16,8 @@ const client = new MongoClient(uri, { useNewUrlParser: true });
 // Serve only the static files form the dist directory
 app.use(express.static(__dirname + '/dist/stars-and-planets'));
 
+app.use(bodyParser.json());
+
 app.get('/*', function (req, res) {
 
   res.sendFile(path.join(__dirname + '/dist/stars-and-planets/index.html'));
