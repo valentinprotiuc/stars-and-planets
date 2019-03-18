@@ -2,6 +2,7 @@ import {EventEmitter, Injectable} from '@angular/core';
 import {Star} from './star.model';
 import {Planet} from '../planets/planet.model';
 import {HttpClient} from '@angular/common/http';
+import {ServerService} from '../server.service';
 
 @Injectable({
   providedIn: 'root'
@@ -12,16 +13,18 @@ export class StarService {
   starListChanged = new EventEmitter<Star[]>();
   editingStar = new EventEmitter<boolean>();
 
-  private stars: Star[] = [
-    new Star('Sonne', 'Gelber Zwerg', 1, [
-      new Planet('Merkur', 'Sonne', 0.055),
-      new Planet('Venus', 'Sonne', 0.815)
-    ]),
+  private stars: Star[];
+
+  /*[
+      new Star('Sonne', 'Gelber Zwerg', 1, [
+        new Planet('Merkur', 'Sonne', 0.055),
+        new Planet('Venus', 'Sonne', 0.815)
+      ]),
     new Star('Alpha Centauri A', 'Gelber Zwerg', 1.1, []),
     new Star('Alpha Centauri B', 'Oranger Zwerg', 0.93, []),
     new Star('Proxima Centauri', 'Roter Zwerg', 0.12, [])
 
-  ];
+  ]*/
 
   getStar(starName: string) {
     return this.stars.find(i => i.name === starName);
@@ -32,7 +35,12 @@ export class StarService {
   }
 
   getStars() {
-    return this.stars.slice();
+    this.serverService.getStarsFromDB().subscribe(
+      (response: Star[]) => this.stars = response,
+      (error) => console.log(error)
+    );
+
+    return this.stars;
   }
 
   addStar(star: Star) {
@@ -58,6 +66,6 @@ export class StarService {
     );
   }
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private serverService: ServerService) {
   }
 }

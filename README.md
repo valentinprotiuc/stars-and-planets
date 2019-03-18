@@ -17,3 +17,7 @@ Bootstrap `4`
 ## Platform
 
 The app is being deployed to the [Heroku](https://stars-and-planets.herokuapp.com/) platform and uses the mLab as a host for the MongoDB.
+
+## TO DO
+
+Modify Star model in order to also keep the id of each star, which might be useful when editing the properties of a star.
