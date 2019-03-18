@@ -16,7 +16,6 @@ const client = new MongoClient(uri, { useNewUrlParser: true });
 // Serve only the static files form the dist directory
 app.use(express.static(__dirname + '/dist/stars-and-planets'));
 
-app.use(bodyParser.json());
 
 app.get('/*', function (req, res) {
 
@@ -26,7 +25,7 @@ app.get('/*', function (req, res) {
 app.post('/save', function (req, res) {
 
   saveDocuments(req.body);
-  console.log(req);
+  console.log("The Body: ", req.body);
   res.send('Saved to db.');
   
 });
