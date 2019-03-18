@@ -17,8 +17,7 @@ export class StarsNavComponent implements OnInit {
 
   ngOnInit() {
     this.serverService.getStarsFromDB().subscribe(
-      // Use a pipe to transform the response from an array of objects into an array of Stars
-      (response) => this.stars = response,
+      (response: Star[]) => this.stars = response,
       (error) => console.log(error)
     );
     // this.stars = this.starService.getStars();

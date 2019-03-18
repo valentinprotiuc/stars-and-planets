@@ -35,7 +35,7 @@ app.get('/', function (req, res) {
 });
 
 app.get('/data', (req, res) => {
-  db.collection('stars').find({}).toArray((error, result) => {
+  db.collection('stars').find({}, {projection: {_id: 0}}).toArray((error, result) => {
     res.send(result);
   });
 });
