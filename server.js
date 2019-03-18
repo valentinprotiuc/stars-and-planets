@@ -40,7 +40,8 @@ app.post('/save', (req, res) => {
   db.collection('stars').insertOne(req.body, (err, res) => {
     if (err) throw err;
     console.log("Doc inserted");
-  })
+  });
+  res.send('OK');
 });
 
 /*
