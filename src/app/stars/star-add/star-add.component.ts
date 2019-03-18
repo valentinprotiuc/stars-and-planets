@@ -23,6 +23,9 @@ export class StarAddComponent implements OnInit {
   addToList() {
     this.starService.addStar(
       new Star(this.starName.nativeElement.value, this.starClass.nativeElement.value, this.solarMass.nativeElement.value, [])
+    ).subscribe(
+      (response) => console.log(response),
+      (error) => console.log(error)
     );
     this.router.navigate(['stars/details/' + this.starName.nativeElement.value]);
   }

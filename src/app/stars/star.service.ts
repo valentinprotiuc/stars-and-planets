@@ -1,6 +1,7 @@
 import {EventEmitter, Injectable} from '@angular/core';
 import {Star} from './star.model';
 import {Planet} from '../planets/planet.model';
+import {HttpClient} from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -37,6 +38,7 @@ export class StarService {
   addStar(star: Star) {
     this.stars.push(star);
     this.starListChanged.emit(this.stars.slice());
+    return this.http.post('https://stars-and-planets.herokuapp.com/save', star);
   }
 
   updateStar(star: Star, index: number) {
@@ -56,6 +58,6 @@ export class StarService {
     );
   }
 
-  constructor() {
+  constructor(private http: HttpClient) {
   }
 }

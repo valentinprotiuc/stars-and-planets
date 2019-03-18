@@ -23,7 +23,7 @@ app.get('/*', function (req, res) {
 
 app.post('/save', function (req, res) {
 
-  saveDocuments(req);
+  saveDocuments(req.body);
   console.log(req);
   res.send('Saved to db.');
   
