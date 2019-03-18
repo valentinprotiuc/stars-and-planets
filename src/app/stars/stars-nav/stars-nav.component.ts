@@ -17,7 +17,7 @@ export class StarsNavComponent implements OnInit {
 
   ngOnInit() {
     this.serverService.getStarsFromDB().subscribe(
-      (response) => console.log(response),
+      (response) => console.log('The response: ' , response),
       (error) => console.log(error)
     );
     this.stars = this.starService.getStars();

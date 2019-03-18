@@ -35,12 +35,9 @@ app.get('/', function (req, res) {
 });
 
 app.get('/data', (req, res) => {
-  let data;
   db.collection('stars').find({}).toArray((error, result) => {
-    data = result;
+    res.send(result);
   });
-  console.log("The acquired data: ", data);
-  res.send(data);
 });
 
 
