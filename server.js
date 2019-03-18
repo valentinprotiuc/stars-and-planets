@@ -26,7 +26,6 @@ mongodb.MongoClient.connect(uri, function (err, client) {
   let stars = db.collection('stars');
 
   console.log(stars);
-  db.close();
 
 });
 
