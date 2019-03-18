@@ -66,8 +66,8 @@ const saveDocuments = function (newDoc){
     collection.insertOne(newDoc, function (err, res) {
       if (err) throw err;
       console.log("Doc inserted");
-      client.close();
-    })
+    });
+    client.close();
   })
 };
 
