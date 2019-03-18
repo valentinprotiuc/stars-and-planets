@@ -11,7 +11,7 @@ const uri = 'mongodb://heroku_3h2xwfxr:spmc4d27eot7nc4qmgokqijuvf@ds215633.mlab.
 const dbName = 'heroku_3h2xwfxr';
 
 
-const client = new MongoClient(uri);
+const client = new MongoClient(uri, { useNewUrlParser: true });
 
 // Serve only the static files form the dist directory
 app.use(express.static(__dirname + '/dist/stars-and-planets'));
@@ -19,6 +19,14 @@ app.use(express.static(__dirname + '/dist/stars-and-planets'));
 app.get('/*', function (req, res) {
 
   res.sendFile(path.join(__dirname + '/dist/stars-and-planets/index.html'));
+});
+
+app.post('/save', function (req, res) {
+
+  saveDocuments(req);
+  console.log(req);
+  res.send('Saved to db.');
+  
 });
 
 client.connect(function (err) {
@@ -33,18 +41,6 @@ client.connect(function (err) {
 
 });
 
-/*mongodb.MongoClient.connect(uri, function (err, client) {
-
-  if (err) throw err;
-
-  let db = client.db('starsdb');
-
-  let stars = db.collection('stars');
-
-  console.log(stars);
-
-});*/
-
 const findAllDocuments = function (db, callback) {
   const collection = db.collection('stars');
   collection.find({}).toArray(function (err, docs) {
@@ -53,6 +49,23 @@ const findAllDocuments = function (db, callback) {
     console.log(docs);
     callback(docs);
   });
+};
+
+const saveDocuments = function (newDoc){
+
+  client.connect(function (err) {
+
+    if (err) throw err;
+
+    const db = client.db(dbName);
+    const collection = db.collection('stars');
+
+    collection.insertOne(newDoc, function (err, res) {
+      if (err) throw err;
+      console.log("Doc inserted");
+      client.close();
+    })
+  })
 };
 
 
