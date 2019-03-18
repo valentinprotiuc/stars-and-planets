@@ -11,6 +11,9 @@ const uri = 'mongodb://heroku_3h2xwfxr:spmc4d27eot7nc4qmgokqijuvf@ds215633.mlab.
 
 const dbName = 'heroku_3h2xwfxr';
 
+const myObj = {name: "Hello", spectralType: "NONON", solarMass: 1, orbitingPlanets: []
+};
+
 
 const client = new MongoClient(uri, { useNewUrlParser: true });
 
@@ -37,6 +40,17 @@ client.connect(function (err) {
   console.log('Connected correctly to the server.');
 
   const db = client.db(dbName);
+
+  const collection = db.collection('stars');
+
+  collection.insertOne(myObj, function (err, res) {
+
+    if (err) throw err;
+    console.log("Insert response: ", res);
+    
+  });
+
+
 
   findAllDocuments(db, function () {
     client.close();
