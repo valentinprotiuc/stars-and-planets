@@ -3,6 +3,7 @@ const express = require('express');
 const path = require('path');
 const MongoClient = require('mongodb').MongoClient;
 const assert = require('assert');
+const bodyParser = require('body-parser');
 
 const app = express();
 
@@ -16,6 +17,7 @@ const client = new MongoClient(uri, { useNewUrlParser: true });
 // Serve only the static files form the dist directory
 app.use(express.static(__dirname + '/dist/stars-and-planets'));
 
+app.use(bodyParser.json());
 
 app.get('/*', function (req, res) {
 
