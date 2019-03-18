@@ -16,12 +16,10 @@ export class StarsNavComponent implements OnInit {
   }
 
   ngOnInit() {
-    let starsDb;
     this.serverService.getStarsFromDB().subscribe(
-      (response) => starsDb = response,
+      (response) => console.log(response),
       (error) => console.log(error)
     );
-    console.log(starsDb);
     this.stars = this.starService.getStars();
     this.starService.starListChanged.subscribe(
       (stars: Star[]) => {
