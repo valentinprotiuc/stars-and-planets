@@ -1,7 +1,6 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Star} from '../star.model';
 import {StarService} from '../star.service';
-import {ServerService} from '../../server.service';
 
 @Component({
   selector: 'app-stars-nav',

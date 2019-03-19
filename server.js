@@ -5,6 +5,7 @@ const MongoClient = require('mongodb').MongoClient;
 const bodyParser = require('body-parser');
 
 const app = express();
+const router = express.Router();
 
 const uri = 'mongodb://heroku_3h2xwfxr:spmc4d27eot7nc4qmgokqijuvf@ds215633.mlab.com:15633/heroku_3h2xwfxr';
 const client = new MongoClient(uri, {useNewUrlParser: true});
@@ -41,4 +42,8 @@ app.post('/save', (req, res) => {
     console.log("Doc inserted");
   });
   res.send('OK');
+});
+
+router.get('/*', (req,res) => {
+  res.redirect('/');
 });
