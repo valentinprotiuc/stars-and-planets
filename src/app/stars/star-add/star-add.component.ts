@@ -18,7 +18,7 @@ export class StarAddComponent implements OnInit {
   @ViewChild('planetName') planetName: ElementRef;
   @ViewChild('planetMass') planetMass: ElementRef;
 
-  planets: Planet[];
+  planets: Planet[] = [];
 
   constructor(private starService: StarService, private router: Router) {
   }
@@ -34,10 +34,12 @@ export class StarAddComponent implements OnInit {
       (response) => console.log(response),
       (error) => console.log(error)
     );
+    this.planets = [];
     this.router.navigate(['stars/details/' + this.starName.nativeElement.value]);
   }
 
   onCancel() {
+    this.planets = [];
     this.router.navigate(['stars']);
   }
 
