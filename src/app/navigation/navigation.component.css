@@ -1,17 +1,11 @@
-a{
+a {
   cursor: pointer;
 }
 
-.nav-link{
-  color: #fbf9e9;
-}
-
-.white-icon{
-  color: #fbf9e9;
+.white-icon {
   font-size: 1.5rem !important;
-
 }
 
-.navbar-expand-sm{
+.navbar-expand-sm {
   background-color: #203a46;
 }
