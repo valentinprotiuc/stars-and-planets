@@ -3,4 +3,4 @@
 <h4>Spektraltyp des Sterns:</h4><p>{{selectedStar.spectralType}}</p>
 <h4>Sonnenmasse:</h4><p>{{selectedStar.solarMass}}</p>
 <h4>Entfernung zur Erde:</h4><p>{{selectedStar.distance}}</p>
-<h4>Umkreisende Planeten:</h4><p *ngFor="let planet of selectedStar.orbitingPlanets">{{planet.name}}</p>
+<h4>Umkreisende Planeten:</h4><a *ngFor="let planet of selectedStar.orbitingPlanets" (click)="onPlanetSelected(planet)">{{planet.name}}</a>

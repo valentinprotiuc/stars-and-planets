@@ -1,7 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {Star} from '../star.model';
 import {StarService} from '../star.service';
-import {ActivatedRoute, Params} from '@angular/router';
+import {ActivatedRoute, Params, Router} from '@angular/router';
+import {Planet} from '../../planets/planet.model';
 
 @Component({
   selector: 'app-star-details',
@@ -12,7 +13,7 @@ export class StarDetailsComponent implements OnInit {
 
   selectedStar: Star;
 
-  constructor(private starService: StarService, private route: ActivatedRoute) {
+  constructor(private starService: StarService, private router: Router, private route: ActivatedRoute) {
   }
 
   ngOnInit() {
@@ -23,4 +24,7 @@ export class StarDetailsComponent implements OnInit {
     );
   }
 
+  onPlanetSelected(planet: Planet) {
+    this.router.navigate(['planets']);
+  }
 }
