@@ -12,10 +12,22 @@
   <input type="text" class="form-control" id="solarMass" #solarMass>
 </div>
 <div class="form-group">
-  <label for="solarMass">Entfernung:</label>
+  <label for="distance">Entfernung:</label>
   <input type="text" class="form-control" id="distance" #distance>
 </div>
+<h4>Umkreisende Planeten:</h4>
+<div *ngFor="let planet of planets">{{planet.name}}</div>
+<div class="form-group">
+  <label for="planetName">Name:</label>
+  <input type="text" class="form-control" id="planetName" #planetName>
+</div>
+<div class="form-group">
+  <label for="planetMass">Masse:</label>
+  <input type="text" class="form-control" id="planetMass" #planetMass>
+</div>
+<button class="btn-primary" (click)="onAddPlanet()">Hinzufügen</button>
+<hr>
 <div class="btn-group">
-  <button class="btn btn-primary" (click)="addToList()">Speichern</button>
-  <button class="btn btn-danger">Verwerfen</button>
+  <button class="btn btn-primary" (click)="onAddToList()">Speichern</button>
+  <button class="btn btn-danger" (click)="onCancel()">Verwerfen</button>
 </div>

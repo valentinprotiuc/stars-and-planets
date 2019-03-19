@@ -1,7 +1,8 @@
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
-import {ActivatedRoute, Params, Router} from '@angular/router';
+import {Router} from '@angular/router';
 import {StarService} from '../star.service';
 import {Star} from '../star.model';
+import {Planet} from '../../planets/planet.model';
 
 @Component({
   selector: 'app-star-add',
@@ -14,6 +15,10 @@ export class StarAddComponent implements OnInit {
   @ViewChild('starClass') starClass: ElementRef;
   @ViewChild('solarMass') solarMass: ElementRef;
   @ViewChild('distance') distance: ElementRef;
+  @ViewChild('planetName') planetName: ElementRef;
+  @ViewChild('planetMass') planetMass: ElementRef;
+
+  planets: Planet[];
 
   constructor(private starService: StarService, private router: Router) {
   }
@@ -21,7 +26,7 @@ export class StarAddComponent implements OnInit {
   ngOnInit() {
   }
 
-  addToList() {
+  onAddToList() {
     this.starService.addStar(
       new Star(this.starName.nativeElement.value, this.starClass.nativeElement.value, this.solarMass.nativeElement.value,
         this.distance.nativeElement.value, [])
@@ -32,4 +37,13 @@ export class StarAddComponent implements OnInit {
     this.router.navigate(['stars/details/' + this.starName.nativeElement.value]);
   }
 
+  onCancel() {
+    this.router.navigate(['stars']);
+  }
+
+  onAddPlanet() {
+    this.planets.push(new Planet(this.planetName.nativeElement.value, this.planetMass.nativeElement.value));
+    this.planetName.nativeElement.value = null;
+    this.planetMass.nativeElement.value = null;
+  }
 }
