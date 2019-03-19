@@ -2,7 +2,6 @@
 const express = require('express');
 const path = require('path');
 const MongoClient = require('mongodb').MongoClient;
-const assert = require('assert');
 const bodyParser = require('body-parser');
 
 const app = express();
@@ -12,12 +11,6 @@ const client = new MongoClient(uri, {useNewUrlParser: true});
 const dbName = 'heroku_3h2xwfxr';
 var db;
 
-const myObj = {
-  name: "Hello", spectralType: "NONON", solarMass: 1, orbitingPlanets: []
-};
-
-
-// Serve only the static files form the dist directory
 app.use(express.static(__dirname + '/dist/stars-and-planets'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
@@ -49,49 +42,3 @@ app.post('/save', (req, res) => {
   });
   res.send('OK');
 });
-
-/*
-client.connect(function (err) {
-  assert.equal(err, null);
-  console.log('Connected correctly to the server.');
-
-  const db = client.db(dbName);
-
-  findAllDocuments(db, function () {
-  })
-
-});
-
-const findAllDocuments = function (db, callback) {
-  const collection = db.collection('stars');
-  collection.find({}).toArray(function (err, docs) {
-    assert.equal(err, null);
-    console.log('Records found.');
-    console.log(docs);
-    callback(docs);
-  });
-};
-
-const saveDocuments = function (newDoc) {
-
-  client.connect(function (err, db) {
-
-    if (err) throw err;
-
-    const myDb = db.db(dbName);
-    const collection = myDb.collection('stars');
-
-    console.log("My Object: ", newDoc);
-
-    collection.insertOne(newDoc, function (err, res) {
-      if (err) throw err;
-      console.log("Doc inserted");
-      client.close();
-    })
-  })
-};
-*/
-
-
-// Start the app by listening on the default Heroku port
-//app.listen(process.env.PORT || 8080);

@@ -7,12 +7,12 @@ import {Planet} from './planet.model';
 export class PlanetService {
 
   private planets: Planet[] = [
-    new Planet('Merkur', 'Sonne', 0.055),
-    new Planet('Venus', 'Sonne', 0.815),
-    new Planet('Erde', 'Sonne', 1),
+    new Planet('Merkur', 0.055),
+    new Planet('Venus', 0.815),
+    new Planet('Erde', 1),
   ];
 
-  getPlanets(){
+  getPlanets() {
     return this.planets.slice();
   }
 
