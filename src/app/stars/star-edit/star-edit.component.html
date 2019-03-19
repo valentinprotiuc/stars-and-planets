@@ -2,12 +2,12 @@
 <form>
   <div class="form-group">
     <label for="starName">Name des Sterns:</label>
-    <input type="text" class="form-control" id="starName"  #starName>
+    <input type="text" class="form-control" id="starName" #starName>
   </div>
   <div class="form-row">
     <div class="form-group">
       <label for="starClass">Spektraltyp:</label>
-      <input type="text" class="form-control" id="starClass"  #starClass>
+      <input type="text" class="form-control" id="starClass" #starClass>
     </div>
     <div class="form-group">
       <label for="solarMass">Sonnenmasse:</label>
@@ -21,8 +21,9 @@
 </form>
 <hr>
 <h4>Umkreisende Planeten:</h4>
-<div *ngFor="let planet of star.orbitingPlanets"><p>{{planet.name}} </p>
+<div *ngFor="let planet of star.orbitingPlanets"><span>{{planet.name}} </span>
   <button class="btn btn-outline-info btn-sm" (click)="onRemovePlanet(planet)"> - </button>
+  <button class="btn btn-outline-info" (click)="onRemovePlanet(planet)"> - </button>
 </div>
 <hr>
 <div class="btn-group">
