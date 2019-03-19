@@ -11,6 +11,7 @@ export class PlanetService {
   private planets: Planet[];
 
   getPlanets() {
+    return this.planets;
 
   }
 
