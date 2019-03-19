@@ -29,7 +29,7 @@ export class StarAddComponent implements OnInit {
   onAddToList() {
     this.starService.addStar(
       new Star(this.starName.nativeElement.value, this.starClass.nativeElement.value, this.solarMass.nativeElement.value,
-        this.distance.nativeElement.value, [])
+        this.distance.nativeElement.value, this.planets)
     ).subscribe(
       (response) => console.log(response),
       (error) => console.log(error)
