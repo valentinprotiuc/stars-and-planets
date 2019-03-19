@@ -13,6 +13,7 @@ export class StarAddComponent implements OnInit {
   @ViewChild('starName') starName: ElementRef;
   @ViewChild('starClass') starClass: ElementRef;
   @ViewChild('solarMass') solarMass: ElementRef;
+  @ViewChild('distance') distance: ElementRef;
 
   constructor(private starService: StarService, private router: Router) {
   }
@@ -22,7 +23,8 @@ export class StarAddComponent implements OnInit {
 
   addToList() {
     this.starService.addStar(
-      new Star(this.starName.nativeElement.value, this.starClass.nativeElement.value, this.solarMass.nativeElement.value, [])
+      new Star(this.starName.nativeElement.value, this.starClass.nativeElement.value, this.solarMass.nativeElement.value,
+        this.distance.nativeElement.value, [])
     ).subscribe(
       (response) => console.log(response),
       (error) => console.log(error)
