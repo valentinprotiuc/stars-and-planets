@@ -22,8 +22,8 @@
 <hr>
 <h4>Umkreisende Planeten:</h4>
 <div *ngFor="let planet of star.orbitingPlanets"><span>{{planet.name}} </span>
+  <i role="button" class="fa fa-minus" (click)="onRemovePlanet(planet)"></i>
   <button class="btn btn-outline-info btn-sm" (click)="onRemovePlanet(planet)"> - </button>
-  <button class="btn btn-outline-info" (click)="onRemovePlanet(planet)"> - </button>
 </div>
 <hr>
 <div class="btn-group">
