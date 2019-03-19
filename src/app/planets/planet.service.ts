@@ -10,7 +10,7 @@ export class PlanetService {
   private planets: Planet[];
 
   getPlanets() {
-    const stars = this.starService.getStars().slice();
+    const stars = this.starService.getStars();
     stars.forEach((star) => {
       this.planets.push(...star.orbitingPlanets);
     });
