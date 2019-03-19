@@ -9,3 +9,7 @@ a{
 .black-icon{
   color: black;
 }
+
+.navbar-expand-sm{
+  background-color: #3F69AA;
+}
