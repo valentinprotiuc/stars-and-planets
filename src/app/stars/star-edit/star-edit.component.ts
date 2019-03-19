@@ -15,6 +15,7 @@ export class StarEditComponent implements OnInit {
   @ViewChild('solarMass') solarMass: ElementRef;
   @ViewChild('distance') distance: ElementRef;
   private starIndex: number;
+  star: Star;
 
   constructor(private starService: StarService, private router: Router, private route: ActivatedRoute) {
   }
@@ -22,12 +23,12 @@ export class StarEditComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe(
       (params: Params) => {
-        const star = this.starService.getStar(params.starName);
-        if (star) {
-          this.starName.nativeElement.value = star.name;
-          this.starClass.nativeElement.value = star.spectralType;
-          this.solarMass.nativeElement.value = star.solarMass;
-          this.distance.nativeElement.value = star.distance;
+        this.star = this.starService.getStar(params.starName);
+        if (this.star) {
+          this.starName.nativeElement.value = this.star.name;
+          this.starClass.nativeElement.value = this.star.spectralType;
+          this.solarMass.nativeElement.value = this.star.solarMass;
+          this.distance.nativeElement.value = this.star.distance;
           this.starIndex = this.starService.getStarIndex(params.starName);
         }
       }
@@ -40,5 +41,9 @@ export class StarEditComponent implements OnInit {
         this.distance.nativeElement.value, [])
       , this.starIndex);
     this.router.navigate(['stars/details/' + this.starName.nativeElement.value]);
+  }
+
+  onCancel() {
+    this.router.navigate(['stars']);
   }
 }
