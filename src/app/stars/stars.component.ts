@@ -7,7 +7,6 @@ import {ActivatedRoute, Router} from '@angular/router';
   selector: 'app-stars',
   templateUrl: './stars.component.html',
   styleUrls: ['./stars.component.css'],
-  providers: [StarService]
 })
 export class StarsComponent implements OnInit {
 
