@@ -46,4 +46,8 @@ export class StarEditComponent implements OnInit {
   onCancel() {
     this.router.navigate(['stars']);
   }
+
+  onRemovePlanet() {
+    // this.star.orbitingPlanets.
+  }
 }
