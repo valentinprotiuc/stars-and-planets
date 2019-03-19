@@ -13,3 +13,7 @@ a{
 .navbar-expand-sm{
   background-color: #203a46;
 }
+
+nav{
+  font-size: 1.5rem !important;
+}
