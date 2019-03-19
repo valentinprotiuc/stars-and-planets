@@ -2,6 +2,7 @@ import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {StarService} from '../star.service';
 import {Star} from '../star.model';
 import {ActivatedRoute, Params, Router} from '@angular/router';
+import {Planet} from '../../planets/planet.model';
 
 @Component({
   selector: 'app-star-edit',
@@ -47,7 +48,8 @@ export class StarEditComponent implements OnInit {
     this.router.navigate(['stars']);
   }
 
-  onRemovePlanet() {
-    // this.star.orbitingPlanets.
+  onRemovePlanet(planet: Planet) {
+    const index = this.star.orbitingPlanets.findIndex(i => i.name === planet.name);
+    this.star.orbitingPlanets.splice(index, 1);
   }
 }
