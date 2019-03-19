@@ -1,4 +1,4 @@
 export class Planet {
-  constructor(public name: string, public star: string, public minMass: number) {
+  constructor(public name: string, public minMass: number) {
   }
 }
