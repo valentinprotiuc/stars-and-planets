@@ -12,7 +12,7 @@ export class StarsNavComponent implements OnInit {
 
   stars: Star[];
 
-  constructor(private starService: StarService, private serverService: ServerService) {
+  constructor(private starService: StarService) {
   }
 
   ngOnInit() {
