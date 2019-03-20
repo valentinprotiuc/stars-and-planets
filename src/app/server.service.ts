@@ -16,8 +16,8 @@ export class ServerService {
     const noIdStar = {
       name: star.name,
       spectralType: star.spectralType,
-      solarMass: +star.solarMass,
-      distance: +star.distance,
+      solarMass: star.solarMass,
+      distance: star.distance,
       orbitingPlanets: star.orbitingPlanets
     };
     const newStar = JSON.stringify(noIdStar);
