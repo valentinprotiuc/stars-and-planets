@@ -33,8 +33,10 @@ export class StarAddComponent implements OnInit {
         this.distance.nativeElement.value, this.planets)
     ).subscribe(
       (response) => {
+        console.log('Came back');
         this.starService.updateStarList();
         this.planets = [];
+        console.log('Flying away');
         this.router.navigate(['stars/details/' + this.starName.nativeElement.value]);
       },
       (error) => {
