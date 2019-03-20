@@ -24,7 +24,7 @@ export class StarEditComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe(
       (params: Params) => {
-        this.star = this.starService.getStar(params.starName);
+        this.star = JSON.parse(JSON.stringify(this.starService.getStar(params.starName)));
         if (this.star) {
           this.starName.nativeElement.value = this.star.name;
           this.starClass.nativeElement.value = this.star.spectralType;
