@@ -34,7 +34,6 @@ export class StarAddComponent implements OnInit {
     ).subscribe(
       (response) => {
         if (response === 'OK') {
-          this.starService.starListChanged.emit();
           this.starService.updateStarList();
           this.planets = [];
           this.router.navigate(['stars/details/' + this.starName.nativeElement.value]);

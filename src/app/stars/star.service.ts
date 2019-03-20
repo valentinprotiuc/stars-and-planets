@@ -28,7 +28,8 @@ export class StarService {
   }
 
   getStars() {
-    return this.serverService.getStarsFromDB();
+    this.updateStarList();
+    return this.stars;
   }
 
   addStar(star: Star) {

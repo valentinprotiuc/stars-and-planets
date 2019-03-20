@@ -15,12 +15,7 @@ export class StarsNavComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.starService.getStars().subscribe(
-      (response: Star[]) => {
-      this.stars = response;
-    }, (error) => {
-      console.log(error);
-    });
+    this.stars = this.starService.getStars();
   }
 
 }
