@@ -1,7 +1,8 @@
-.limited-height {
+.panel-border {
   border-right: 1px solid gray;
 }
 
-.backgrd {
+.limited-height {
   height: 90vh;
+  overflow-y: auto;
 }
