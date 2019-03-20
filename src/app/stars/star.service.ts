@@ -10,7 +10,6 @@ export class StarService {
 
   starSelected = new EventEmitter<Star>();
   starListChanged = new EventEmitter();
-  editingStar = new EventEmitter<boolean>();
 
   private stars: Star[] = [];
 
@@ -22,13 +21,13 @@ export class StarService {
     this.serverService.getStarsFromDB().subscribe(
       (response: Star[]) => {
         this.stars = response;
+        this.starListChanged.emit();
       }, (error) => {
         console.log(error);
       });
   }
 
   getStars() {
-    this.updateStarList();
     return this.stars;
   }
 
