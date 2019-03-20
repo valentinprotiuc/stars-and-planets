@@ -27,8 +27,6 @@ export class StarService {
   }
 
   addStar(star: Star) {
-    this.stars.push(star);
-    this.starListChanged.emit(this.stars.slice());
     return this.serverService.addStarToDB(star);
   }
 
