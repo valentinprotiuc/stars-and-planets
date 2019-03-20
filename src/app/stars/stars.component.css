@@ -3,7 +3,5 @@
 }
 
 .backgrd {
-  background-image: url("../../assets/moon-26619_1280.png");
-  background-repeat: no-repeat;
-  background-size: auto calc(100vh - 12rem);
+  height: 90vh;
 }
