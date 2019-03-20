@@ -15,8 +15,8 @@ export class ServerService {
     const noIdStar = {
       name: star.name,
       spectralType: star.spectralType,
-      solarMass: star.solarMass,
-      distance: star.distance,
+      solarMass: +star.solarMass,
+      distance: +star.distance,
       orbitingPlanets: star.orbitingPlanets
     };
     return this.http.post('https://stars-and-planets.herokuapp.com/save', noIdStar);
