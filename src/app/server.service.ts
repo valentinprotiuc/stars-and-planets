@@ -12,6 +12,7 @@ export class ServerService {
   }
 
   addStarToDB(star: Star) {
+    console.log('Star: ', star);
     const noIdStar = {
       name: star.name,
       spectralType: star.spectralType,
@@ -19,6 +20,7 @@ export class ServerService {
       distance: +star.distance,
       orbitingPlanets: star.orbitingPlanets
     };
+    console.log('NoIdStar: ', noIdStar);
     return this.http.post('https://stars-and-planets.herokuapp.com/save', noIdStar);
   }
 
