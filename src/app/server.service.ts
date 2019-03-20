@@ -12,17 +12,14 @@ export class ServerService {
   }
 
   addStarToDB(star: Star) {
-    console.log('Star: ', star);
     const noIdStar = {
       name: star.name,
       spectralType: star.spectralType,
-      solarMass: star.solarMass,
-      distance: star.distance,
+      solarMass: +star.solarMass,
+      distance: +star.distance,
       orbitingPlanets: star.orbitingPlanets
     };
-    const newStar = JSON.stringify(noIdStar);
-    console.log('NoIdStar: ', newStar);
-    return this.http.post('https://stars-and-planets.herokuapp.com/save', JSON.stringify(newStar));
+    return this.http.post('https://stars-and-planets.herokuapp.com/save', noIdStar);
   }
 
   updateStarInDB(star: Star) {
