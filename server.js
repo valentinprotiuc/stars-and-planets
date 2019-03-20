@@ -38,7 +38,7 @@ app.get('/data', (req, res) => {
 app.post('/save', (req, res) => {
   console.log("This is the request: ", req.body);
   db.collection('stars').insertOne(req.body, (error, result) => {
-    if (err) throw err;
+    if (error) throw error;
     console.log("Doc inserted");
   });
   res.send('OK');
