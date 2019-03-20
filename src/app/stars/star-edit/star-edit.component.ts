@@ -15,7 +15,6 @@ export class StarEditComponent implements OnInit {
   @ViewChild('starClass') starClass: ElementRef;
   @ViewChild('solarMass') solarMass: ElementRef;
   @ViewChild('distance') distance: ElementRef;
-  private starIndex: number;
   star: Star;
 
   constructor(private starService: StarService, private router: Router, private route: ActivatedRoute) {
@@ -30,7 +29,6 @@ export class StarEditComponent implements OnInit {
           this.starClass.nativeElement.value = this.star.spectralType;
           this.solarMass.nativeElement.value = this.star.solarMass;
           this.distance.nativeElement.value = this.star.distance;
-          this.starIndex = this.starService.getStarIndex(params.starName);
         }
       }
     );
