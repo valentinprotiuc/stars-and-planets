@@ -10,34 +10,16 @@ import {ActivatedRoute, Router} from '@angular/router';
 })
 export class StarsComponent implements OnInit {
 
-  stars: Star[] = [];
   selectedStar: Star;
-  editingStar = false;
 
   constructor(private starService: StarService, private router: Router, private route: ActivatedRoute) {
   }
 
   ngOnInit() {
-    this.starService.getStars().subscribe(
-      (response: Star[]) => {
-        this.stars = response;
-      },
-      (error) => {
-        console.log(error);
-      });
+
     this.starService.starSelected.subscribe(
       (star: Star) => {
         this.selectedStar = star;
-      }
-    );
-    this.starService.starListChanged.subscribe(
-      (stars: Star[]) => {
-        this.stars = stars;
-      }
-    );
-    this.starService.editingStar.subscribe(
-      (flag: boolean) => {
-        this.editingStar = flag;
       }
     );
   }
