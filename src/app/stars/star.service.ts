@@ -32,10 +32,8 @@ export class StarService {
     return this.serverService.addStarToDB(star);
   }
 
-  updateStar(star: Star, index: number) {
-    this.stars[index].name = star.name;
-    this.stars[index].spectralType = star.spectralType;
-    this.stars[index].solarMass = star.solarMass;
+  updateStar(star: Star) {
+    return this.serverService.updateStarInDB(star);
   }
 
   removeStar(star: Star) {

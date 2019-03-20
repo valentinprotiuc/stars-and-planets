@@ -39,9 +39,12 @@ export class StarEditComponent implements OnInit {
   onAddChanges() {
     this.starService.updateStar(
       new Star(this.star.getId(), this.starName.nativeElement.value, this.starClass.nativeElement.value, this.solarMass.nativeElement.value,
-        this.distance.nativeElement.value, [])
-      , this.starIndex);
-    this.router.navigate(['stars/details/' + this.starName.nativeElement.value]);
+        this.distance.nativeElement.value, [])).subscribe(
+      (response) => {
+        this.router.navigate(['stars/details/' + this.starName.nativeElement.value]);
+      }, (error) => {
+        console.log(error);
+      });
   }
 
   onCancel() {
