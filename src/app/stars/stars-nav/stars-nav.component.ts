@@ -9,18 +9,18 @@ import {StarService} from '../star.service';
 })
 export class StarsNavComponent implements OnInit {
 
-  stars: Star[];
+  stars: Star[] = [];
 
   constructor(private starService: StarService) {
   }
 
   ngOnInit() {
-    this.stars = this.starService.getStars();
-    this.starService.starListChanged.subscribe(
-      (stars: Star[]) => {
-        this.stars = stars;
-      }
-    );
+    this.starService.getStars().subscribe(
+      (response: Star[]) => {
+      this.stars = response;
+    }, (error) => {
+      console.log(error);
+    });
   }
 
 }

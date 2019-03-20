@@ -1,5 +1,6 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
+import {Star} from './stars/star.model';
 
 @Injectable()
 export class ServerService {
@@ -8,5 +9,20 @@ export class ServerService {
 
   getStarsFromDB() {
     return this.http.get('https://stars-and-planets.herokuapp.com/data');
+  }
+
+  addStarToDB(star: Star) {
+    const noIdStar = {
+      name: star.name,
+      spectralType: star.spectralType,
+      solarMass: star.solarMass,
+      distance: star.distance,
+      orbitingPlanets: star.orbitingPlanets
+    };
+    return this.http.post('https://stars-and-planets.herokuapp.com/save', noIdStar);
+  }
+
+  removeStarFromDB() {
+
   }
 }

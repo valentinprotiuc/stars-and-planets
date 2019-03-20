@@ -23,21 +23,13 @@ export class StarService {
   }
 
   getStars() {
-    this.serverService.getStarsFromDB().subscribe(
-      (response: Star[]) => {
-        this.stars = response;
-        this.starListChanged.emit(this.stars);
-      },
-      (error) => console.log(error)
-    );
-
-    return this.stars;
+    return this.serverService.getStarsFromDB();
   }
 
   addStar(star: Star) {
     this.stars.push(star);
     this.starListChanged.emit(this.stars.slice());
-    return this.http.post('https://stars-and-planets.herokuapp.com/save', star);
+    return this.serverService.addStarToDB(star);
   }
 
   updateStar(star: Star, index: number) {

@@ -27,8 +27,9 @@ export class StarAddComponent implements OnInit {
   }
 
   onAddToList() {
+    const fakeId = 'fakeId';
     this.starService.addStar(
-      new Star(this.starName.nativeElement.value, this.starClass.nativeElement.value, this.solarMass.nativeElement.value,
+      new Star(fakeId, this.starName.nativeElement.value, this.starClass.nativeElement.value, this.solarMass.nativeElement.value,
         this.distance.nativeElement.value, this.planets)
     ).subscribe(
       (response) => console.log(response),
