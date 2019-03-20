@@ -9,17 +9,22 @@ import {ServerService} from '../server.service';
 export class StarService {
 
   starSelected = new EventEmitter<Star>();
-  starListChanged = new EventEmitter<Star[]>();
+  starListChanged = new EventEmitter();
   editingStar = new EventEmitter<boolean>();
 
-  private stars: Star[];
+  private stars: Star[] = [];
 
   getStar(starName: string) {
     return this.stars.find(i => i.name === starName);
   }
 
-  getStarIndex(starName: string) {
-    return this.stars.findIndex(i => i.name === starName);
+  updateStarList() {
+    this.serverService.getStarsFromDB().subscribe(
+      (response: Star[]) => {
+        this.stars = response;
+      }, (error) => {
+        console.log(error);
+      });
   }
 
   getStars() {

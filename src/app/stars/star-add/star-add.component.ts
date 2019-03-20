@@ -32,11 +32,18 @@ export class StarAddComponent implements OnInit {
       new Star(fakeId, this.starName.nativeElement.value, this.starClass.nativeElement.value, this.solarMass.nativeElement.value,
         this.distance.nativeElement.value, this.planets)
     ).subscribe(
-      (response) => console.log(response),
-      (error) => console.log(error)
+      (response) => {
+        if (response === 'OK') {
+          this.starService.starListChanged.emit();
+          this.starService.updateStarList();
+          this.planets = [];
+          this.router.navigate(['stars/details/' + this.starName.nativeElement.value]);
+        }
+      },
+      (error) => {
+        console.log(error);
+      }
     );
-    this.planets = [];
-    this.router.navigate(['stars/details/' + this.starName.nativeElement.value]);
   }
 
   onCancel() {
