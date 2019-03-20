@@ -22,6 +22,10 @@ export class ServerService {
     return this.http.post('https://stars-and-planets.herokuapp.com/save', noIdStar);
   }
 
+  updateStarInDB(star: Star) {
+    return this.http.post('https://stars-and-planets.herokuapp.com/save', star);
+  }
+
   removeStarFromDB() {
 
   }
