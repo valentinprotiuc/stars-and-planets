@@ -11,7 +11,7 @@ import {Star} from '../stars/star.model';
 })
 export class PlanetsComponent implements OnInit {
 
-  planets: Planet[];
+  planets: Planet[] = [];
 
   constructor(private planetService: PlanetService) { }
 
