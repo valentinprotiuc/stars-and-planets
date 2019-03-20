@@ -13,15 +13,6 @@ export class PlanetService {
 
   getPlanets() {
     return this.serverService.getStarsFromDB();
-   /* this.serverService.getStarsFromDB().subscribe(
-      (response: Star[]) => {
-        response.forEach((elem) => {
-          this.planets.push(...elem.orbitingPlanets);
-          return this.planets;
-        });
-      },
-      (error) => console.log(error)
-    );*/
   }
 
   constructor(private serverService: ServerService) {

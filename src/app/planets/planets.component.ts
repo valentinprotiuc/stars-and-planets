@@ -19,6 +19,7 @@ export class PlanetsComponent implements OnInit {
     this.planetService.getPlanets().subscribe(
       (response: Star[]) => {
         response.forEach((elem) => {
+          // Need to add the star of the planet
           this.planets.push(...elem.orbitingPlanets);
         });
       },

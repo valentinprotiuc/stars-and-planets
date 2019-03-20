@@ -1,3 +1,7 @@
 .limited-height{
   border-right: 1px solid gray;
 }
+
+.backgrd{
+  background-image: url("../../assets/moon-26619_1280.png");
+}
