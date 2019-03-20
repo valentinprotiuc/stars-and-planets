@@ -39,10 +39,12 @@ app.post('/save', (req, res) => {
   console.log("This is the request: ", req.body);
   db.collection('stars').insertOne(req.body, (error, result) => {
     if (error) throw error;
-    res.send('OK');
+    if (result) {
+      res.send('OK');
+    }
   });
 });
 
-app.all('*', function(req, res) {
+app.all('*', function (req, res) {
   res.redirect("https://stars-and-planets.herokuapp.com/");
 });
