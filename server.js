@@ -39,9 +39,7 @@ app.post('/save', (req, res) => {
   console.log("This is the request: ", req.body);
   db.collection('stars').insertOne(req.body, (error, result) => {
     if (error) throw error;
-    if (result) {
-      res.send('OK');
-    }
+    res.send('OK');
   });
 });
 
