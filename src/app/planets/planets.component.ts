@@ -15,7 +15,10 @@ export class PlanetsComponent implements OnInit {
   constructor(private planetService: PlanetService) { }
 
   ngOnInit() {
+    console.log('initiating');
     this.planets = this.planetService.getPlanets();
+    console.log('done initiating');
+
   }
 
 }
