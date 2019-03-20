@@ -16,7 +16,6 @@ export class PlanetsComponent implements OnInit {
 
   ngOnInit() {
     this.planets = this.planetService.getPlanets();
-
   }
 
 }
