@@ -33,6 +33,8 @@ export class StarsComponent implements OnInit {
   }
 
   onRemoveStar() {
+    console.log('The selected star: ', this.selectedStar);
+    console.log('The selected star id: ', this.selectedStar.id);
     this.starService.removeStar(this.selectedStar);
     this.router.navigate(['stars']);
   }
