@@ -3,7 +3,7 @@ import {Router} from '@angular/router';
 import {StarService} from '../star.service';
 import {Star} from '../star.model';
 import {Planet} from '../../planets/planet.model';
-import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {FormArray, FormControl, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-star-add',
@@ -12,11 +12,8 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 })
 export class StarAddComponent implements OnInit {
 
-  @Input() showNewPlanterForm = false;
-
   newStarForm: FormGroup;
-
-  planets: Planet[] = [];
+  newPlanetForm: FormGroup;
 
   constructor(private starService: StarService, private router: Router) {
   }
@@ -25,21 +22,30 @@ export class StarAddComponent implements OnInit {
 
     this.newStarForm = new FormGroup({
       starName: new FormControl(null, Validators.required),
-      starClass: new FormControl(null),
+      spectralType: new FormControl(null),
       solarMass: new FormControl(null),
+      solarRadius: new FormControl(null),
+      effectiveTemperature: new FormControl(null),
       distance: new FormControl(null),
-      newPlanetFormGroup: new FormGroup({
-        planetName: new FormControl(null),
-        planetMass: new FormControl(null)
-      })
+      planets: new FormArray([])
     });
   }
 
   onSubmit() {
 
+    const planets: Planet[] = [];
+
+    this.newStarForm.value.planets.forEach((planet) => {
+      planets.push(planet as Planet);
+    });
+
+    console.log('new star: ', new Star('fakeId', this.newStarForm.value.starName, this.newStarForm.value.spectralType,
+      this.newStarForm.value.solarMass, this.newStarForm.value.solarRadius, this.newStarForm.value.effectiveTemperature,
+      this.newStarForm.value.distance, planets));
+
     this.starService.addStar(
-      new Star('fakeId', this.newStarForm.value.starName, this.newStarForm.value.starClass, this.newStarForm.value.solarMass,
-        this.newStarForm.value.distance, this.planets)
+      new Star('fakeId', this.newStarForm.value.starName, this.newStarForm.value.spectralType, this.newStarForm.value.solarMass,
+        this.newStarForm.value.solarRadius, this.newStarForm.value.effectiveTemperature, this.newStarForm.value.distance, planets)
     ).subscribe(
       (response) => {
         console.log(response);
@@ -52,25 +58,25 @@ export class StarAddComponent implements OnInit {
     save correctly to the DB and as a result the next function of subscribe is never called
     */
     this.starService.updateStarList();
-    this.planets = [];
     this.router.navigate(['stars/details/' + this.newStarForm.value.starName]);
   }
 
-  onAddPlanet() {
-    this.planets.push(new Planet(this.newStarForm.value.planetName, this.newStarForm.value.planetMass));
-    this.newStarForm.patchValue({
-      planetName: '',
-      planetMass: ''
-    });
-  }
-
   onCancel() {
-    this.planets = [];
+    // Todo: Clean the form and navigate away
+
     this.router.navigate(['stars']);
   }
 
-  onRemovePlanet(planet: Planet) {
-    const index = this.planets.findIndex(i => i.name === planet.name);
-    this.planets.splice(index, 1);
+  onAddNewPlanet() {
+    this.newPlanetForm = new FormGroup({
+      planetName: new FormControl(null, Validators.required),
+      planetClass: new FormControl(null),
+      planetPeriod: new FormControl(null),
+      planetMass: new FormControl(null),
+      planetRadius: new FormControl(null),
+      planetDistance: new FormControl(null),
+      planetESI: new FormControl(null),
+    });
+    (this.newStarForm.get('planets') as FormArray).push(this.newPlanetForm);
   }
 }

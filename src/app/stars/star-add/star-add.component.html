@@ -2,51 +2,82 @@
 
 <form [formGroup]="newStarForm" (ngSubmit)="onSubmit()">
   <div class="form-group">
-    <label for="starName">Name des Sterns:</label>
-    <span class="help-block"
-          *ngIf="!newStarForm.get('starName').valid && newStarForm.get('starName').touched"
-          style="float: right; color: red">Pflichtfeld*</span>
+    <label for="starName">Name des Sterns: <strong style="color: red">*</strong></label>
     <input type="text" class="form-control" formControlName="starName" id="starName">
   </div>
   <div class="form-row">
     <div class="form-group col-md-6">
-      <label for="starClass">Spektraltyp:</label>
-      <input type="text" class="form-control" formControlName="starClass" id="starClass">
+      <label for="spectralType">Spektraltyp:</label>
+      <input type="text" class="form-control" formControlName="spectralType" id="spectralType">
     </div>
     <div class="form-group col-md-6">
-      <label for="solarMass">Sonnenmasse:</label>
+      <label for="distance">Entfernung von der Erde:</label>
+      <input type="text" class="form-control" formControlName="distance" id="distance">
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-4">
+      <label for="solarMass">Masse:</label>
       <input type="text" class="form-control" formControlName="solarMass" id="solarMass">
     </div>
-  </div>
-  <div class="form-group">
-    <label for="distance">Entfernung von der Erde:</label>
-    <input type="text" class="form-control" formControlName="distance" id="distance">
+    <div class="form-group col-md-4">
+      <label for="solarRadius">Radius:</label>
+      <input type="text" class="form-control" formControlName="solarRadius" id="solarRadius">
+    </div>
+    <div class="form-group col-md-4">
+      <label for="effectiveTemperature">Effektive Temperatur:</label>
+      <input type="text" class="form-control" formControlName="effectiveTemperature" id="effectiveTemperature">
+    </div>
   </div>
   <hr>
-  <h5>Umkreisende Planeten:</h5>
-  <div *ngFor="let planet of planets"><span>{{planet.name}}  </span>
-    <i role="button" class="fa fa-minus-square-o" style="cursor: pointer" (click)="onRemovePlanet(planet)"></i>
-  </div>
-  <div class="form-group">
-    <label for="planetSearch">Wähle aus bereits registrierten: </label>
-    <input type="search" class="form-control" id="planetSearch">
-    <span class="input-group-btn">
-        <button class="btn btn-info"> + </button>
-    </span>
-  </div>
+  <div formArrayName="planets">
+    <div><h5 class="inline-header">Umkreisende Planeten:</h5>
+      <span><button type="button" class="btn btn-primary btn-sm" (click)="onAddNewPlanet()"> Neu + </button></span>
+    </div>
+    <div class="card" *ngFor="let planetFormGroup of newStarForm.get('planets').controls; let i = index"
+         [formGroupName]="i">
+      <div class="card-body">
+        <div class="form-group">
+          <label for="planetName">Name des Planeten: <strong style="color: red">*</strong></label>
+          <input type="text" class="form-control" formControlName="planetName" id="planetName">
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="planetClass">Planetenklasse:</label>
+            <input type="text" class="form-control" formControlName="planetClass" id="planetClass">
+          </div>
+          <div class="form-group col-md-6">
+            <label for="planetPeriod">Umlaufzeit:</label>
+            <input type="text" class="form-control" formControlName="planetPeriod" id="planetPeriod">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="planetMass">Masse:</label>
+            <input type="text" class="form-control" formControlName="planetMass" id="planetMass">
+          </div>
+          <div class="form-group col-md-6">
+            <label for="planetRadius">Radius:</label>
+            <input type="text" class="form-control" formControlName="planetRadius" id="planetRadius">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="planetDistance">Entfernung:</label>
+            <input type="text" class="form-control" formControlName="planetDistance" id="planetDistance">
+          </div>
+          <div class="form-group col-md-6">
+            <label for="planetESI">Erdähnlichkeitsindex:</label>
+            <input type="text" class="form-control" formControlName="planetESI" id="planetESI">
+          </div>
+        </div>
 
-  <div formGroupName="newPlanetFormGroup" [hidden]="!showNewPlanterForm">
-    <div class="form-group">
-      <label for="planetName">Name:</label>
-      <input type="text" class="form-control" formControlName="planetName" id="planetName">
+      </div>
     </div>
-    <div class="form-group">
-      <label for="planetMass">Minimale Erdmasse:</label>
-      <input type="text" class="form-control" formControlName="planetMass" id="planetMass">
-    </div>
-    <button class="btn btn-primary" type="button" (click)="onAddPlanet()">Erstellen</button>
+
   </div>
   <hr>
+  <span class="help-block"><strong style="color: red">*</strong> Pflichtfeld</span>
   <div class="btn-group float-right">
     <button class="btn btn-primary" type="submit" [disabled]="!newStarForm.valid">Speichern</button>
     <button class="btn btn-secondary" type="button" (click)="onCancel()">Verwerfen</button>

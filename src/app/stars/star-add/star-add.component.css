@@ -2,6 +2,10 @@ input.ng-invalid.ng-touched{
   border: 1px solid red;
 }
 
-.inline-button{
+.inline-header{
   display: inline-block;
+}
+
+.card {
+  margin-bottom: 2px;
 }

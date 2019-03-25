@@ -15,6 +15,10 @@ export class PlanetService {
     return this.serverService.getStarsFromDB();
   }
 
+  getAllPlanets() {
+
+  }
+
   constructor(private serverService: ServerService) {
   }
 }
