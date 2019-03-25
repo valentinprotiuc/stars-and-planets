@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {StarService} from '../star.service';
 import {Star} from '../star.model';
@@ -33,6 +33,7 @@ export class StarAddComponent implements OnInit {
 
   onSubmit() {
 
+    console.log(this.newStarForm.get('planets'));
     const planets: Planet[] = [];
 
     this.newStarForm.value.planets.forEach((planet) => {

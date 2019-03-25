@@ -34,7 +34,7 @@
     <div><h5 class="inline-header">Umkreisende Planeten:</h5>
       <span><button type="button" class="btn btn-primary btn-sm" (click)="onAddNewPlanet()"> Neu + </button></span>
     </div>
-    <div class="card" *ngFor="let planetFormGroup of newStarForm.get('planets').controls; let i = index"
+    <div class="card" *ngFor="let planetFormGroup of newStarForm.get('planets').controls as FormArray; let i = index"
          [formGroupName]="i">
       <div class="card-body">
         <div class="form-group">
