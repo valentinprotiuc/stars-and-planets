@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {StarService} from '../star.service';
 import {Star} from '../star.model';
@@ -11,6 +11,8 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
   styleUrls: ['./star-add.component.css']
 })
 export class StarAddComponent implements OnInit {
+
+  @Input() showNewPlanterForm = false;
 
   newStarForm: FormGroup;
 

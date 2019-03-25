@@ -31,14 +31,15 @@
       </button>
       <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu"
           role="menu" aria-labelledby="button-basic">
-        <li role="menuitem"><a class="dropdown-item">Neu erstellen</a></li>
+        <li role="menuitem"><a class="dropdown-item" role="button" (click)="showNewPlanterForm=true">Neu erstellen</a>
+        </li>
         <li role="menuitem"><a class="dropdown-item">Aus vorhandenen wählen</a></li>
       </ul>
     </div>
   </div>
   <div *ngFor="let planet of planets"><span>{{planet.name}}  </span>
     <i role="button" class="fa fa-minus-square-o" style="cursor: pointer" (click)="onRemovePlanet(planet)"></i></div>
-  <div formGroupName="newPlanetFormGroup">
+  <div formGroupName="newPlanetFormGroup" [hidden]="!showNewPlanterForm">
     <div class="form-group">
       <label for="planetName">Name:</label>
       <input type="text" class="form-control" formControlName="planetName" id="planetName">
