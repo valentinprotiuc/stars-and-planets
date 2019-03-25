@@ -11,12 +11,13 @@ import {Planet} from '../../planets/planet.model';
 })
 export class StarDetailsComponent implements OnInit {
 
-  selectedStar: Star;
+  selectedStar: Star ;
 
   constructor(private starService: StarService, private router: Router, private route: ActivatedRoute) {
   }
 
   ngOnInit() {
+
     this.route.params.subscribe(
       (params: Params) => {
         this.selectedStar = this.starService.getStar(params.starName);

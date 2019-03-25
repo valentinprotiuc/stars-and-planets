@@ -13,30 +13,16 @@ export class StarService {
 
   private stars: Star[] = [];
 
-  getStar(starName: string) {
-    return this.stars.find(i => i.name === starName);
-  }
-
-  updateStarList() {
-    this.serverService.getStarsFromDB().subscribe(
-      (response: Star[]) => {
-        this.stars = response;
-        this.starListChanged.emit();
-      }, (error) => {
-        console.log(error);
-      });
-  }
-
-  getStars() {
-    return this.stars;
-  }
-
   addStar(star: Star) {
     return this.serverService.addStarToDB(star);
   }
 
-  updateStar(star: Star) {
-    return this.serverService.updateStarInDB(star);
+  getStar(starName: string) {
+    return this.stars.find(i => i.name === starName);
+  }
+
+  getStars() {
+    return this.stars;
   }
 
   removeStar(star: Star) {
@@ -48,6 +34,20 @@ export class StarService {
         }
       }
     );
+  }
+
+  updateStar(star: Star) {
+    return this.serverService.updateStarInDB(star);
+  }
+
+  updateStarList() {
+    this.serverService.getStarsFromDB().subscribe(
+      (response: Star[]) => {
+        this.stars = response;
+        this.starListChanged.emit();
+      }, (error) => {
+        console.log(error);
+      });
   }
 
   constructor(private http: HttpClient, private serverService: ServerService) {
