@@ -26,8 +26,10 @@ export class StarAddComponent implements OnInit {
       starClass: new FormControl(null),
       solarMass: new FormControl(null),
       distance: new FormControl(null),
-      planetName: new FormControl(null),
-      planetMass: new FormControl(null)
+      newPlanetFormGroup: new FormGroup({
+        planetName: new FormControl(null),
+        planetMass: new FormControl(null)
+      })
     });
   }
 
