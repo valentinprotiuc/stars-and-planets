@@ -31,6 +31,10 @@ export class StarAddComponent implements OnInit {
     });
   }
 
+  get formArray(): FormArray {
+    return this.newStarForm.get('planets') as FormArray;
+  }
+
   onSubmit() {
 
     console.log(this.newStarForm.get('planets'));
