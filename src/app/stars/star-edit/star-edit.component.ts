@@ -40,7 +40,7 @@ export class StarEditComponent implements OnInit {
 
   onSubmit() {
     this.starService.updateStar(
-      new Star(this.star.id, this.editStarForm.value.starName, this.editStarForm.value.spectralType,
+      new Star(this.star.getId(), this.editStarForm.value.starName, this.editStarForm.value.spectralType,
         this.editStarForm.value.solarMass, this.editStarForm.value.solarRadius, this.editStarForm.value.effectiveTemperature,
         this.editStarForm.value.distance, this.star.orbitingPlanets)).subscribe(
       (response) => {
