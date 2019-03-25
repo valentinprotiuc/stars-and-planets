@@ -25,40 +25,11 @@ export class StarAddComponent implements OnInit {
       starName: new FormControl(null, Validators.required),
       starClass: new FormControl(null),
       solarMass: new FormControl(null),
-      distance: new FormControl(null)
+      distance: new FormControl(null),
+      planetName: new FormControl(null),
+      planetMass: new FormControl(null)
     });
   }
-
-  /*onAddToList() {
-    const fakeId = 'fakeId';
-    this.starService.addStar(
-      new Star(fakeId, this.starName.nativeElement.value, this.starClass.nativeElement.value, this.solarMass.nativeElement.value,
-        this.distance.nativeElement.value, this.planets)
-    ).subscribe(
-      (response) => {
-        console.log(response);
-      },
-      (error) => {
-        console.log(error);
-      }
-    );
-    console.log('Came back');
-    this.starService.updateStarList();
-    this.planets = [];
-    console.log('Flying away');
-    this.router.navigate(['stars/details/' + this.starName.nativeElement.value]);
-  }
-
-  onCancel() {
-    this.planets = [];
-    this.router.navigate(['stars']);
-  }*/
-
-  /*onAddPlanet() {
-    this.planets.push(new Planet(this.planetName.nativeElement.value, this.planetMass.nativeElement.value));
-    this.planetName.nativeElement.value = null;
-    this.planetMass.nativeElement.value = null;
-  }*/
 
   onSubmit() {
 
@@ -73,10 +44,24 @@ export class StarAddComponent implements OnInit {
         console.log(error);
       }
     );
-    console.log('Came back');
+    /* The reason the update is called here is the strange behaviour of mlab, which responds with a syntax error although the data is
+    save correctly to the DB and as a result the next function of subscribe is never called
+    */
     this.starService.updateStarList();
     this.planets = [];
-    console.log('Flying away');
     this.router.navigate(['stars/details/' + this.newStarForm.value.starName]);
+  }
+
+  onAddPlanet() {
+    this.planets.push(new Planet(this.newStarForm.value.planetName, this.newStarForm.value.planetMass));
+    this.newStarForm.patchValue({
+      planetName: '',
+      planetMass: ''
+    });
+  }
+
+  onCancel() {
+    this.planets = [];
+    this.router.navigate(['stars']);
   }
 }

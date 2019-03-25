@@ -22,22 +22,22 @@
     <label for="distance">Entfernung von der Erde:</label>
     <input type="text" class="form-control" formControlName="distance" id="distance">
   </div>
+  <hr>
+  <h4>Umkreisende Planeten:</h4>
+  <div *ngFor="let planet of planets">{{planet.name}}</div>
+  <div class="form-group">
+    <label for="planetName">Name:</label>
+    <input type="text" class="form-control" formControlName="planetName" id="planetName">
+  </div>
+  <div class="form-group">
+    <label for="planetMass">Minimale Erdmasse:</label>
+    <input type="text" class="form-control" formControlName="planetMass" id="planetMass">
+  </div>
+  <button class="btn btn-primary" type="button" (click)="onAddPlanet()">Hinzufügen</button>
+  <hr>
   <div class="btn-group float-right">
     <button class="btn btn-primary" type="submit" [disabled]="!newStarForm.valid">Speichern</button>
-    <button class="btn btn-secondary" type="reset">Verwerfen</button>
+    <button class="btn btn-secondary" type="button" (click)="onCancel()">Verwerfen</button>
   </div>
 </form>
-<hr>
-<h4>Umkreisende Planeten:</h4>
-<div *ngFor="let planet of planets">{{planet.name}}</div>
-<div class="form-group">
-  <label for="planetName">Name:</label>
-  <input type="text" class="form-control" id="planetName">
-</div>
-<div class="form-group">
-  <label for="planetMass">Minimale Erdmasse:</label>
-  <input type="text" class="form-control" id="planetMass">
-</div>
-<button class="btn btn-primary">Hinzufügen</button>
-<hr>
 
