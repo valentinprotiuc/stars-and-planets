@@ -23,22 +23,18 @@
     <input type="text" class="form-control" formControlName="distance" id="distance">
   </div>
   <hr>
-  <div><h4>Umkreisende Planeten:</h4>
-    <div class="btn-group inline-button" dropdown>
-      <button id="button-basic" dropdownToggle type="button" class="btn btn-primary dropdown-toggle"
-              aria-controls="dropdown-basic">
-        Hinzufügen<span class="caret"></span>
-      </button>
-      <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu"
-          role="menu" aria-labelledby="button-basic">
-        <li role="menuitem"><a class="dropdown-item" role="button" (click)="showNewPlanterForm=true">Neu erstellen</a>
-        </li>
-        <li role="menuitem"><a class="dropdown-item">Aus vorhandenen wählen</a></li>
-      </ul>
-    </div>
-  </div>
+  <h5>Umkreisende Planeten:</h5>
   <div *ngFor="let planet of planets"><span>{{planet.name}}  </span>
-    <i role="button" class="fa fa-minus-square-o" style="cursor: pointer" (click)="onRemovePlanet(planet)"></i></div>
+    <i role="button" class="fa fa-minus-square-o" style="cursor: pointer" (click)="onRemovePlanet(planet)"></i>
+  </div>
+  <div class="form-group">
+    <label for="planetSearch">Wähle aus bereits registrierten: </label>
+    <input type="search" class="form-control" id="planetSearch">
+    <span class="input-group-btn">
+        <button class="btn btn-info"> + </button>
+    </span>
+  </div>
+
   <div formGroupName="newPlanetFormGroup" [hidden]="!showNewPlanterForm">
     <div class="form-group">
       <label for="planetName">Name:</label>
