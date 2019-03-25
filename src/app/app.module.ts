@@ -17,6 +17,7 @@ import {StarAddComponent} from './stars/star-add/star-add.component';
 import {HttpClientModule} from '@angular/common/http';
 import {ServerService} from './server.service';
 import {StarService} from './stars/star.service';
+import {ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import {StarService} from './stars/star.service';
     BsDropdownModule.forRoot(),
     AccordionModule.forRoot(),
     AppRouting,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [ServerService, StarService],
   bootstrap: [AppComponent]

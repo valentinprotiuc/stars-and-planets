@@ -3,6 +3,7 @@ import {StarService} from '../star.service';
 import {Star} from '../star.model';
 import {ActivatedRoute, Params, Router} from '@angular/router';
 import {Planet} from '../../planets/planet.model';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-star-edit',
@@ -11,47 +12,47 @@ import {Planet} from '../../planets/planet.model';
 })
 export class StarEditComponent implements OnInit {
 
-  @ViewChild('starName') starName: ElementRef;
-  @ViewChild('starClass') starClass: ElementRef;
-  @ViewChild('solarMass') solarMass: ElementRef;
-  @ViewChild('distance') distance: ElementRef;
   star: Star;
+  editStarForm: FormGroup;
 
   constructor(private starService: StarService, private router: Router, private route: ActivatedRoute) {
   }
 
   ngOnInit() {
+
     this.route.params.subscribe(
       (params: Params) => {
         this.star = JSON.parse(JSON.stringify(this.starService.getStar(params.starName)));
         if (this.star) {
-          this.starName.nativeElement.value = this.star.name;
-          this.starClass.nativeElement.value = this.star.spectralType;
-          this.solarMass.nativeElement.value = this.star.solarMass;
-          this.distance.nativeElement.value = this.star.distance;
+          this.editStarForm = new FormGroup({
+            starName: new FormControl(this.star.name, Validators.required),
+            starClass: new FormControl(this.star.spectralType),
+            solarMass: new FormControl(this.star.solarMass),
+            distance: new FormControl(this.star.distance)
+          });
         }
       }
     );
   }
 
-  onAddChanges() {
+  onSubmit() {
     this.starService.updateStar(
-      new Star(this.star.getId(), this.starName.nativeElement.value, this.starClass.nativeElement.value, this.solarMass.nativeElement.value,
-        this.distance.nativeElement.value, [])).subscribe(
+      new Star(this.star.getId(), this.editStarForm.value.starName, this.editStarForm.value.starClass, this.editStarForm.value.solarMass,
+        this.editStarForm.value.distance, this.star.orbitingPlanets)).subscribe(
       (response) => {
         this.starService.updateStarList();
-        this.router.navigate(['stars/details/' + this.starName.nativeElement.value]);
+        this.router.navigate(['stars/details/' + this.editStarForm.value.starName]);
       }, (error) => {
         console.log(error);
       });
   }
 
-  onCancel() {
-    this.router.navigate(['stars']);
-  }
-
   onRemovePlanet(planet: Planet) {
     const index = this.star.orbitingPlanets.findIndex(i => i.name === planet.name);
     this.star.orbitingPlanets.splice(index, 1);
+  }
+
+  onCancel() {
+    this.router.navigate(['stars']);
   }
 }

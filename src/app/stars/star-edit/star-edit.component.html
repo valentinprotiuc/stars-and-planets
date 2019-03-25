@@ -1,22 +1,25 @@
 <h2>Daten des Sterns editieren</h2>
-<form>
+<form [formGroup]="editStarForm" (ngSubmit)="onSubmit()">
   <div class="form-group">
     <label for="starName">Name des Sterns:</label>
-    <input type="text" class="form-control" id="starName" #starName>
+    <span class="help-block"
+          *ngIf="!editStarForm.get('starName').valid && editStarForm.get('starName').touched"
+          style="float: right; color: red">Pflichtfeld*</span>
+    <input type="text" class="form-control" formControlName="starName" id="starName">
   </div>
   <div class="form-row">
     <div class="form-group col-md-6">
       <label for="starClass">Spektraltyp:</label>
-      <input type="text" class="form-control" id="starClass" #starClass>
+      <input type="text" class="form-control" formControlName="starClass" id="starClass">
     </div>
     <div class="form-group col-md-6">
       <label for="solarMass">Sonnenmasse:</label>
-      <input type="text" class="form-control" id="solarMass" #solarMass>
+      <input type="text" class="form-control" formControlName="solarMass" id="solarMass">
     </div>
   </div>
   <div class="form-group">
     <label for="distance">Entfernung von der Erde:</label>
-    <input type="text" class="form-control" id="distance" #distance>
+    <input type="text" class="form-control" formControlName="distance" id="distance">
   </div>
 </form>
 <hr>
@@ -26,6 +29,6 @@
 </div>
 <hr>
 <div class="btn-group">
-  <button class="btn btn-primary" (click)="onAddChanges()">Speichern</button>
-  <button class="btn btn-danger" (click)="onCancel()">Verwerfen</button>
+  <button class="btn btn-primary" type="submit">Speichern</button>
+  <button class="btn btn-danger" type="button" (click)="onCancel()">Verwerfen</button>
 </div>
