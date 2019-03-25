@@ -29,7 +29,7 @@ export class StarService {
     this.serverService.removeStarFromDB(star.id).subscribe(
       (response) => {
         this.updateStarList();
-        console.log(response);
+        console.log('Removed: ', response);
       },
       (error) => {
         console.log(error);
