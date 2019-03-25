@@ -43,7 +43,9 @@ export class StarService {
   updateStarList() {
     this.serverService.getStarsFromDB().subscribe(
       (response: Star[]) => {
+        console.log(response);
         this.stars = response;
+        console.log(this.stars);
         this.starListChanged.emit();
       }, (error) => {
         console.log(error);
