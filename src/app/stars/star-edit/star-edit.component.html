@@ -29,6 +29,6 @@
 </div>
 <hr>
 <div class="btn-group">
-  <button class="btn btn-primary" type="submit">Speichern</button>
+  <button class="btn btn-primary" type="submit" [disabled]="!editStarForm.valid">Speichern</button>
   <button class="btn btn-danger" type="button" (click)="onCancel()">Verwerfen</button>
 </div>

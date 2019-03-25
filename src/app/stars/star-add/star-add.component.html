@@ -24,7 +24,8 @@
   </div>
   <hr>
   <h4>Umkreisende Planeten:</h4>
-  <div *ngFor="let planet of planets">{{planet.name}}</div>
+  <div *ngFor="let planet of planets"><span>{{planet.name}}  </span>
+    <i role="button" class="fa fa-minus-square-o" style="cursor: pointer" (click)="onRemovePlanet(planet)"></i></div>
   <div class="form-group">
     <label for="planetName">Name:</label>
     <input type="text" class="form-control" formControlName="planetName" id="planetName">

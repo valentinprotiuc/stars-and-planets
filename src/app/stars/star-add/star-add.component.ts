@@ -64,4 +64,9 @@ export class StarAddComponent implements OnInit {
     this.planets = [];
     this.router.navigate(['stars']);
   }
+
+  onRemovePlanet(planet: Planet) {
+    const index = this.planets.findIndex(i => i.name === planet.name);
+    this.planets.splice(index, 1);
+  }
 }
