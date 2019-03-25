@@ -12,10 +12,13 @@ export class ServerService {
   }
 
   addStarToDB(star: Star) {
+
     const noIdStar = {
       name: star.name,
       spectralType: star.spectralType,
       solarMass: +star.solarMass,
+      solarRadius: +star.solarRadius,
+      effectiveTemperature: +star.effectiveTemperature,
       distance: +star.distance,
       orbitingPlanets: star.orbitingPlanets
     };
