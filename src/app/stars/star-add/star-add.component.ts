@@ -37,16 +37,11 @@ export class StarAddComponent implements OnInit {
 
   onSubmit() {
 
-    console.log(this.newStarForm.get('planets'));
     const planets: Planet[] = [];
 
     this.newStarForm.value.planets.forEach((planet) => {
       planets.push(planet as Planet);
     });
-
-    console.log('new star: ', new Star('fakeId', this.newStarForm.value.starName, this.newStarForm.value.spectralType,
-      this.newStarForm.value.solarMass, this.newStarForm.value.solarRadius, this.newStarForm.value.effectiveTemperature,
-      this.newStarForm.value.distance, planets));
 
     this.starService.addStar(
       new Star('fakeId', this.newStarForm.value.starName, this.newStarForm.value.spectralType, this.newStarForm.value.solarMass,
