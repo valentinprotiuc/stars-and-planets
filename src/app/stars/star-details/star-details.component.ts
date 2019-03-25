@@ -11,7 +11,7 @@ import {Planet} from '../../planets/planet.model';
 })
 export class StarDetailsComponent implements OnInit {
 
-  selectedStar: Star ;
+  selectedStar: Star;
 
   constructor(private starService: StarService, private router: Router, private route: ActivatedRoute) {
   }
@@ -20,6 +20,9 @@ export class StarDetailsComponent implements OnInit {
 
     this.route.params.subscribe(
       (params: Params) => {
+        this.starService.starListChanged.subscribe(() => {
+          this.selectedStar = this.starService.getStar(params.starName);
+        });
         this.selectedStar = this.starService.getStar(params.starName);
       }
     );
