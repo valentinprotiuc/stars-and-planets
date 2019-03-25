@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {StarService} from './star.service';
 import {Star} from './star.model';
 import {ActivatedRoute, Router} from '@angular/router';
@@ -33,8 +33,8 @@ export class StarsComponent implements OnInit {
   }
 
   onRemoveStar() {
-    console.log('The selected star: ', typeof this.selectedStar);
-    console.log('The selected star id: ', this.selectedStar.getId());
+    console.log('The selected star: ', this.selectedStar);
+    console.log('The selected star id: ', (this.selectedStar as Star).getId());
     this.starService.removeStar(this.selectedStar);
     this.router.navigate(['stars']);
   }
