@@ -44,10 +44,9 @@ app.post('/save', (req, res) => {
 });
 
 app.post('/remove', (req, res) => {
-  const myquery = {name: req.body};
-  console.log("this is the req: ", req);
-  console.log("this is my q: ", myquery);
-  db.collection('stars').deleteOne(myquery, (error, result) => {
+
+  console.log("this is the req: ", req.body);
+  db.collection('stars').deleteOne(req.body, (error, result) => {
     if (error) throw error;
     res.send(result);
   })

@@ -29,8 +29,8 @@ export class ServerService {
     return this.http.post('https://stars-and-planets.herokuapp.com/save', star);
   }
 
-  removeStarFromDB(name: string) {
-    console.log('Remove this: ', name);
-    return this.http.post('https://stars-and-planets.herokuapp.com/remove', name);
+  removeStarFromDB(starName: string) {
+    console.log('Remove this: ', starName);
+    return this.http.post('https://stars-and-planets.herokuapp.com/remove', {name : starName });
   }
 }
