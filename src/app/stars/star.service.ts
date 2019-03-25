@@ -26,14 +26,14 @@ export class StarService {
   }
 
   removeStar(star: Star) {
-    this.stars.forEach(
-      (item, index) => {
-        if (item === star) {
-          this.stars.splice(index, 1);
-          this.starListChanged.emit(this.stars);
-        }
-      }
-    );
+    this.serverService.removeStarFromDB(star.getId()).subscribe(
+      (response) => {
+        this.updateStarList();
+        console.log(response);
+      },
+      (error) => {
+        console.log(error);
+      });
   }
 
   updateStar(star: Star) {

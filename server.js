@@ -39,8 +39,16 @@ app.post('/save', (req, res) => {
   console.log("This is the request: ", req.body);
   db.collection('stars').insertOne(req.body, (error, result) => {
     if (error) throw error;
-    res.send('OK');
+    res.send(result);
   });
+});
+
+app.post('/remove', (req, res) => {
+  const myquery = {_id: req.body};
+  db.collection('stars').deleteOne(myquery, (error, result) => {
+    if (error) throw error;
+    res.send(result);
+  })
 });
 
 app.all('*', function (req, res) {
