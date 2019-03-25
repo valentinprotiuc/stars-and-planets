@@ -26,7 +26,7 @@ export class StarService {
   }
 
   removeStar(star: Star) {
-    this.serverService.removeStarFromDB(star.id).subscribe(
+    this.serverService.removeStarFromDB(star.name).subscribe(
       (response) => {
         this.updateStarList();
         console.log('Removed: ', response);
