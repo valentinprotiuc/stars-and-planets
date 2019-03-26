@@ -1,26 +1,26 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {StarService} from '../star.service';
 import {Star} from '../star.model';
 import {ActivatedRoute, Router} from '@angular/router';
 import {Planet} from '../../planets/planet.model';
 import {FormArray, FormControl, FormGroup, Validators} from '@angular/forms';
+import {Subscription} from 'rxjs';
 
 @Component({
   selector: 'app-star-edit',
   templateUrl: './star-edit.component.html',
   styleUrls: ['./star-edit.component.css']
 })
-export class StarEditComponent implements OnInit {
+export class StarEditComponent implements OnInit, OnDestroy {
 
   star: Star;
   editStarForm: FormGroup;
+  private subscription: Subscription;
 
   constructor(private starService: StarService, private router: Router, private route: ActivatedRoute) {
   }
 
-  ngOnInit() {
-
-    this.star = JSON.parse(JSON.stringify(this.starService.currentlySelectedStar));
+  prePopulate() {
     this.editStarForm = new FormGroup({
       starName: new FormControl(this.star.name, Validators.required),
       spectralType: new FormControl(this.star.spectralType),
@@ -51,5 +51,25 @@ export class StarEditComponent implements OnInit {
 
   onCancel() {
     this.router.navigate(['stars']);
+  }
+
+  ngOnInit() {
+
+    this.star = JSON.parse(JSON.stringify(this.starService.currentlySelectedStar));
+    this.subscription = this.starService.starSelected.subscribe(
+      (star: Star) => {
+        this.star = JSON.parse(JSON.stringify(star));
+        this.prePopulate();
+      },
+      (error) => {
+        throw error;
+      }
+    );
+
+    this.prePopulate();
+  }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
   }
 }
