@@ -41,7 +41,8 @@ export class StarService {
   }
 
   updateStarList() {
-    this.serverService.getStarsFromDB().subscribe(
+    this.serverService.getStarsFromDB();
+   /* this.serverService.getStarsFromDB().subscribe(
       (response: Star[]) => {
         console.log(response);
         this.stars = response;
@@ -49,7 +50,7 @@ export class StarService {
         this.starListChanged.emit();
       }, (error) => {
         console.log(error);
-      });
+      });*/
   }
 
   constructor(private http: HttpClient, private serverService: ServerService) {

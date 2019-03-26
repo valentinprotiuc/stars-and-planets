@@ -8,7 +8,12 @@ export class ServerService {
   }
 
   getStarsFromDB() {
-    return this.http.get('https://stars-and-planets.herokuapp.com/data');
+
+    this.http.get('https://stars-and-planets.herokuapp.com/data').subscribe(
+      (response: Response) => {
+        console.log('Get response: ', response);
+        //const stars: Star[] = response.json();
+      });
   }
 
   addStarToDB(star: Star) {
@@ -22,11 +27,11 @@ export class ServerService {
       distance: +star.distance,
       orbitingPlanets: star.orbitingPlanets
     };
-    return this.http.post('https://stars-and-planets.herokuapp.com/save', noIdStar);
+    return this.http.post('https://stars-and-planets.herokuapp.com/data', noIdStar);
   }
 
   updateStarInDB(star: Star) {
-    return this.http.post('https://stars-and-planets.herokuapp.com/save', star);
+    return this.http.post('https://stars-and-planets.herokuapp.com/data', star);
   }
 
   removeStarFromDB(star: Star) {
