@@ -60,6 +60,7 @@ export class StarEditComponent implements OnInit, OnDestroy {
       (star: Star) => {
         this.star = JSON.parse(JSON.stringify(star));
         this.prePopulate();
+        console.log('In edit: ', this.star);
       },
       (error) => {
         throw error;
