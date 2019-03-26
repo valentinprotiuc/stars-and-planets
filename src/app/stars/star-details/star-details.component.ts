@@ -13,18 +13,19 @@ export class StarDetailsComponent implements OnInit {
 
   selectedStar: Star;
 
-  constructor(private starService: StarService, private router: Router, private route: ActivatedRoute) {
+  constructor(private starService: StarService, private router: Router) {
   }
 
   ngOnInit() {
 
-    this.route.params.subscribe(
-      (params: Params) => {
-        this.starService.starListChanged.subscribe(
-          () => {
-          this.selectedStar = this.starService.getStar(params.starName);
-        });
-        this.selectedStar = this.starService.getStar(params.starName);
+    this.selectedStar = this.starService.currentlySelectedStar;
+
+    this.starService.starSelected.subscribe(
+      (star: Star) => {
+        this.selectedStar = star;
+      },
+      (error) => {
+        throw error;
       }
     );
   }

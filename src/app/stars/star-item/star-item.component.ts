@@ -19,7 +19,8 @@ export class StarItemComponent implements OnInit {
   }
 
   onShowStarDetails() {
-    this.router.navigate(['details/' + this.star.name], {relativeTo: this.route});
-    this.starService.starSelected.emit(this.star);
+    this.starService.currentlySelectedStar = this.star;
+    this.starService.starSelected.next(this.star);
+    this.router.navigate(['details'], {relativeTo: this.route});
   }
 }

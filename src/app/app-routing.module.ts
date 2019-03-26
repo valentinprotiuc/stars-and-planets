@@ -12,8 +12,8 @@ const appRoutes: Routes = [
   {path: 'stars', component: StarsComponent, children: [
       {path: '', component: StarsWelcomeComponent},
       {path: 'add', component: StarAddComponent},
-      {path: 'edit/:starName', component: StarEditComponent},
-      {path: 'details/:starName', component: StarDetailsComponent,}
+      {path: 'edit', component: StarEditComponent},
+      {path: 'details', component: StarDetailsComponent,}
     ]},
   {path: 'planets', component: PlanetsComponent}
 ];
