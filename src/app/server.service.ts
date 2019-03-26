@@ -28,11 +28,11 @@ export class ServerService {
   }
 
   updateStarInDB(star: Star) {
-    console.log('Star id in server.service: ', star.id);
+    console.log('Star in server.service: ', star);
     return this.http.post('https://stars-and-planets.herokuapp.com/data', star);
   }
 
   removeStarFromDB(star: Star) {
-    return this.http.post('https://stars-and-planets.herokuapp.com/remove', {_id: star.id});
+    return this.http.post('https://stars-and-planets.herokuapp.com/remove', {star});
   }
 }
