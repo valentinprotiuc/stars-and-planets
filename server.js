@@ -37,7 +37,7 @@ app.get('/data', (req, res) => {
 
 app.post('/data', (req, res) => {
   console.log('Star id on the server: ', req.body);
-  db.collection('stars').insertOne(req.body.star, (error, result) => {
+  db.collection('stars').updateOne({_id: req.body.star._id}, req.body.star, (error, result) => {
     if (error) throw error;
     db.collection('stars').find({}).toArray((error, result) => {
       if (error) throw err;
@@ -49,7 +49,7 @@ app.post('/data', (req, res) => {
 app.post('/remove', (req, res) => {
 
   console.log("this is the req: ", req.body);
-  db.collection('stars').deleteOne(req.body.star, (error, result) => {
+  db.collection('stars').deleteOne({_id: req.body.star._id}, (error, result) => {
     if (error) throw error;
     db.collection('stars').find({}).toArray((error, result) => {
       if (error) throw err;
