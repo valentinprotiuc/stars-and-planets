@@ -35,7 +35,7 @@ export class StarsComponent implements OnInit, OnDestroy {
   }
 
   onEditStar() {
-    this.router.navigate(['stars/edit/' + this.selectedStar.name]);
+    this.router.navigate(['stars/edit/']);
   }
 
   onRemoveStar() {

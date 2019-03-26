@@ -25,6 +25,7 @@ export class StarDetailsComponent implements OnInit, OnDestroy {
     this.subscription = this.starService.starSelected.subscribe(
       (star: Star) => {
         this.selectedStar = star;
+        console.log(this.selectedStar);
       },
       (error) => {
         throw error;

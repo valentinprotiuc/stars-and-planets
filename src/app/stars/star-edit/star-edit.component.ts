@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {StarService} from '../star.service';
 import {Star} from '../star.model';
-import {ActivatedRoute, Params, Router} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {Planet} from '../../planets/planet.model';
 import {FormArray, FormControl, FormGroup, Validators} from '@angular/forms';
 
