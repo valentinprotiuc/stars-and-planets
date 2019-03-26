@@ -49,8 +49,8 @@ export class StarService {
     );
   }
 
-  updateStar(star: Star) {
-    this.serverService.updateStarInDB(star).subscribe(
+  updateStar(star: Star, initialName: string) {
+    this.serverService.updateStarInDB(star, initialName).subscribe(
       (response: Star[]) => {
         this.stars = response;
         this.starListChanged.next(response);

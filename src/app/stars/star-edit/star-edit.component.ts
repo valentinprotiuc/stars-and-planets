@@ -34,6 +34,7 @@ export class StarEditComponent implements OnInit, OnDestroy {
 
   onSubmit() {
 
+    const initialName = this.starService.currentlySelectedStar.name;
     this.star.name = this.editStarForm.value.starName;
     this.star.spectralType = this.editStarForm.value.spectralType;
     this.star.solarMass = this.editStarForm.value.solarMass;
@@ -41,7 +42,7 @@ export class StarEditComponent implements OnInit, OnDestroy {
     this.star.effectiveTemperature = this.editStarForm.value.effectiveTemperature;
     this.star.distance = this.editStarForm.value.distance;
     console.log('In edit submit: ', this.star);
-    this.starService.updateStar(this.star);
+    this.starService.updateStar(this.star, initialName);
     this.router.navigate(['stars/details']);
   }
 

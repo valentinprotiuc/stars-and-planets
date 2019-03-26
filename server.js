@@ -47,9 +47,9 @@ app.put('/data', (req, res) => {
 
 app.post('/data', (req, res) => {
   console.log("Server req body: ", req.body);
-  var data = req.body;
-  delete data._id;
-  db.collection('stars').updateOne({"_id.$oid": req.body._id}, {$set: req.body}, (error, result) => {
+/*  var data = req.body;
+  delete data._id;*/
+  db.collection('stars').updateOne({"name": req.body.initialName}, {$set: req.body.star}, (error, result) => {
     if (error) throw error;
     else console.log(result);
     db.collection('stars').find({}).toArray((error, result) => {
