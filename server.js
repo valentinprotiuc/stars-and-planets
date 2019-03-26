@@ -49,7 +49,7 @@ app.post('/data', (req, res) => {
 app.post('/remove', (req, res) => {
 
   console.log("this is the req: ", req.body);
-  db.collection('stars').deleteOne(req.body.star, (error, result) => {
+  db.collection('stars').deleteOne({name : req.body.name}, (error, result) => {
     if (error) throw error;
     db.collection('stars').find({}).toArray((error, result) => {
       if (error) throw err;
