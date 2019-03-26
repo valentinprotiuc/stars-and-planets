@@ -37,7 +37,7 @@ app.get('/data', (req, res) => {
 
 app.post('/data', (req, res) => {
   console.log('Star id on the server: ', req.body);
-  db.collection('stars').updateOne({name: req.body.star.name}, req.body.star, (error, result) => {
+  db.collection('stars').inserOne(req.body, (error, result) => {
     if (error) throw error;
     db.collection('stars').find({}).toArray((error, result) => {
       if (error) throw err;
