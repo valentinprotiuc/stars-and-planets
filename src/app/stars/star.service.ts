@@ -36,7 +36,6 @@ export class StarService {
 
   // Redirecting requests to server service
   addStar(star: Star) {
-    console.log('New star: ', star);
     this.serverService.addStarToDB(star).subscribe(
       (response: Star[]) => {
         this.stars = response;
@@ -45,14 +44,12 @@ export class StarService {
         this.starSelected.next(this.getStar(star.name));
       },
       (error) => {
-        console.log('Thrown in star service');
         throw error;
       }
     );
   }
 
   updateStar(star: Star) {
-    console.log('Star in star.service: ', star);
     this.serverService.updateStarInDB(star).subscribe(
       (response: Star[]) => {
         this.stars = response;
