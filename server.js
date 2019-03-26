@@ -11,7 +11,7 @@ const client = new MongoClient(uri, {useNewUrlParser: true});
 const dbName = 'heroku_3h2xwfxr';
 var db;
 
-var ObjectID = require('mongodb').ObjectID;
+var mongo = require('mongodb');
 
 app.use(express.static(__dirname + '/dist/stars-and-planets'));
 app.use(bodyParser.json());
@@ -51,7 +51,8 @@ app.post('/data', (req, res) => {
   console.log("Server req body: ", req.body);
   var data = req.body;
   delete data._id;
-  console.log("This is the data: ", data);
+  var myObjID = new mongo.ObjectID(req.body._id);
+  console.log("This ID is: ", myObjID);
   db.collection('stars').updateOne({"name": req.body.name}, {$set: data}, (error, result) => {
     if (error) throw error;
     else console.log(result);
