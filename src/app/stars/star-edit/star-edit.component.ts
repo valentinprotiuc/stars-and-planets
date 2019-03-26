@@ -40,6 +40,7 @@ export class StarEditComponent implements OnInit, OnDestroy {
     this.star.solarRadius = this.editStarForm.value.solarRadius;
     this.star.effectiveTemperature = this.editStarForm.value.effectiveTemperature;
     this.star.distance = this.editStarForm.value.distance;
+    console.log('In edit submit: ', this.star);
     this.starService.updateStar(this.star);
     this.router.navigate(['stars/details']);
   }
