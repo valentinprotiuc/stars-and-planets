@@ -3,6 +3,7 @@ const express = require('express');
 const path = require('path');
 const MongoClient = require('mongodb').MongoClient;
 const bodyParser = require('body-parser');
+const ObjectID = require('mongodb').ObjectID;
 
 const app = express();
 
@@ -49,7 +50,8 @@ app.post('/data', (req, res) => {
   console.log("Server req body: ", req.body);
   var data = req.body;
   delete data._id;
-  db.collection('stars').updateOne({"_id": { "$oid": req.body.__id}}, {$set: data}, (error, result) => {
+  var myId = new ObjectID(req.body._id);
+  db.collection('stars').updateOne({"_id": myId}, {$set: data}, (error, result) => {
     if (error) throw error;
     else console.log(result);
     db.collection('stars').find({}).toArray((error, result) => {
