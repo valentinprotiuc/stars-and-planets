@@ -33,11 +33,14 @@ export class StarEditComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log('Star in edit: ', this.star);
-    this.starService.updateStar(
-      new Star(this.star.id, this.editStarForm.value.starName, this.editStarForm.value.spectralType,
-        this.editStarForm.value.solarMass, this.editStarForm.value.solarRadius, this.editStarForm.value.effectiveTemperature,
-        this.editStarForm.value.distance, this.star.orbitingPlanets));
+
+    this.star.name = this.editStarForm.value.starName;
+    this.star.spectralType = this.editStarForm.value.spectralType;
+    this.star.solarMass = this.editStarForm.value.solarMass;
+    this.star.solarRadius = this.editStarForm.value.solarRadius;
+    this.star.effectiveTemperature = this.editStarForm.value.effectiveTemperature;
+    this.star.distance = this.editStarForm.value.distance;
+    this.starService.updateStar(this.star);
     this.router.navigate(['stars/details']);
   }
 

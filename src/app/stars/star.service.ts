@@ -50,7 +50,6 @@ export class StarService {
   }
 
   updateStar(star: Star) {
-    console.log('Star id in star.service: ', star.id);
     console.log('Star in star.service: ', star);
     this.serverService.updateStarInDB(star).subscribe(
       (response: Star[]) => {
