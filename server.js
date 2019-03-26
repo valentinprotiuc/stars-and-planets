@@ -50,6 +50,7 @@ app.post('/data', (req, res) => {
   console.log("Server req body id: " , req.body._id);
   var data = req.body;
   delete data._id;
+  console.log(data);
   db.collection('stars').updateOne({_id: req.body._id}, {$set: data}, (error, result) => {
     if (error) throw error;
     else console.log(result);
