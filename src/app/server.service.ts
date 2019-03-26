@@ -20,7 +20,7 @@ export class ServerService {
       distance: +star.distance,
       orbitingPlanets: star.orbitingPlanets
     };
-    return this.http.post('https://stars-and-planets.herokuapp.com/data', noIdStar);
+    return this.http.put('https://stars-and-planets.herokuapp.com/data', noIdStar);
   }
 
   getStarsFromDB() {
@@ -33,6 +33,6 @@ export class ServerService {
   }
 
   removeStarFromDB(star: Star) {
-    return this.http.post('https://stars-and-planets.herokuapp.com/remove', star);
+    return this.http.delete('https://stars-and-planets.herokuapp.com/data/' + star.name);
   }
 }

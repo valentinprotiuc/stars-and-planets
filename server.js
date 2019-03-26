@@ -35,8 +35,7 @@ app.get('/data', (req, res) => {
 });
 
 
-app.post('/data', (req, res) => {
-  console.log('Add req body: ', req.body);
+app.put('/data', (req, res) => {
   db.collection('stars').insert(req.body, (error, result) => {
     if (error) throw error;
     db.collection('stars').find({}).toArray((error, result) => {
@@ -46,10 +45,8 @@ app.post('/data', (req, res) => {
   });
 });
 
-app.post('/remove', (req, res) => {
-
-  console.log("this is the req: ", req.body);
-  db.collection('stars').deleteOne({name : req.body.name}, (error, result) => {
+app.delete('/data/:name', (req, res) => {
+  db.collection('stars').deleteOne({name : req.params.name}, (error, result) => {
     if (error) throw error;
     db.collection('stars').find({}).toArray((error, result) => {
       if (error) throw err;
