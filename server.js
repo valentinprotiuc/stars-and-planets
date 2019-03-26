@@ -46,7 +46,6 @@ app.put('/data', (req, res) => {
 });
 
 app.post('/data', (req, res) => {
-  console.log("Server req body: ", req.body);
   var data = req.body.star;
   delete data._id;
   db.collection('stars').updateOne({"name": req.body.initialName}, {$set: data}, (error, result) => {

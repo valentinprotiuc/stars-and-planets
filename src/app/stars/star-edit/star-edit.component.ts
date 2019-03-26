@@ -41,7 +41,6 @@ export class StarEditComponent implements OnInit, OnDestroy {
     this.star.solarRadius = this.editStarForm.value.solarRadius;
     this.star.effectiveTemperature = this.editStarForm.value.effectiveTemperature;
     this.star.distance = this.editStarForm.value.distance;
-    console.log('In edit submit: ', this.star);
     this.starService.updateStar(this.star, initialName);
     this.router.navigate(['stars/details']);
   }
@@ -58,12 +57,10 @@ export class StarEditComponent implements OnInit, OnDestroy {
   ngOnInit() {
 
     this.star = this.starService.currentlySelectedStar;
-    console.log('In edit init: ', this.star);
     this.subscription = this.starService.starSelected.subscribe(
       (star: Star) => {
         this.star = star;
         this.prePopulate();
-        console.log('In edit: ', this.star);
       },
       (error) => {
         throw error;

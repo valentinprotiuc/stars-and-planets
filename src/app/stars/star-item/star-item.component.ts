@@ -21,7 +21,6 @@ export class StarItemComponent implements OnInit {
   onShowStarDetails() {
     this.starService.currentlySelectedStar = this.star;
     this.starService.starSelected.next(this.star);
-    console.log('You selected: ', this.star);
     this.router.navigate(['details'], {relativeTo: this.route});
   }
 }
