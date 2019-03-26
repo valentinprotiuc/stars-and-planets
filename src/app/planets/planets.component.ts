@@ -16,7 +16,7 @@ export class PlanetsComponent implements OnInit {
   constructor(private planetService: PlanetService) { }
 
   ngOnInit() {
-    this.planetService.getPlanets().subscribe(
+    /*this.planetService.getPlanets().subscribe(
       (response: Star[]) => {
         response.forEach((elem) => {
           // Need to add the star of the planet
@@ -24,7 +24,7 @@ export class PlanetsComponent implements OnInit {
         });
       },
       (error) => console.log(error)
-    );
+    );*/
   }
 
 }
