@@ -36,10 +36,12 @@ app.get('/data', (req, res) => {
 
 
 app.post('/data', (req, res) => {
-  console.log("This is the request: ", req.body);
   db.collection('stars').insertOne(req.body, (error, result) => {
     if (error) throw error;
-    res.send(result);
+    db.collection('stars').find({}).toArray((error, result) => {
+      if (error) throw err;
+      res.send(result);
+    });
   });
 });
 
@@ -48,7 +50,10 @@ app.post('/remove', (req, res) => {
   console.log("this is the req: ", req.body);
   db.collection('stars').deleteOne(req.body, (error, result) => {
     if (error) throw error;
-    res.send(result);
+    db.collection('stars').find({}).toArray((error, result) => {
+      if (error) throw err;
+      res.send(result);
+    });
   })
 });
 

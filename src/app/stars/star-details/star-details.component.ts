@@ -20,7 +20,8 @@ export class StarDetailsComponent implements OnInit {
 
     this.route.params.subscribe(
       (params: Params) => {
-        this.starService.starListChanged.subscribe(() => {
+        this.starService.starListChanged.subscribe(
+          () => {
           this.selectedStar = this.starService.getStar(params.starName);
         });
         this.selectedStar = this.starService.getStar(params.starName);

@@ -1,22 +1,16 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Star} from './stars/star.model';
+import {StarService} from './stars/star.service';
 
 @Injectable()
 export class ServerService {
-  constructor(private http: HttpClient) {
-  }
-
-  getStarsFromDB() {
-
-    this.http.get('https://stars-and-planets.herokuapp.com/data').subscribe(
-      (response: Response) => {
-        console.log('Get response: ', response);
-        //const stars: Star[] = response.json();
-      });
+  constructor(private http: HttpClient, private starService: StarService) {
   }
 
   addStarToDB(star: Star) {
+
+    // Todo: use delete star._id to remove the id instead of defining a new object. Maybe first clone
 
     const noIdStar = {
       name: star.name,
@@ -27,14 +21,49 @@ export class ServerService {
       distance: +star.distance,
       orbitingPlanets: star.orbitingPlanets
     };
-    return this.http.post('https://stars-and-planets.herokuapp.com/data', noIdStar);
+    this.http.post('https://stars-and-planets.herokuapp.com/data', noIdStar).subscribe(
+      (response: Star[]) => {
+        this.starService.stars = response;
+        this.starService.starListChanged.next(response);
+      },
+      (error) => {
+        throw error;
+      }
+    );
+  }
+
+  getStarsFromDB() {
+
+    this.http.get('https://stars-and-planets.herokuapp.com/data').subscribe(
+      (response: Star[]) => {
+        this.starService.stars = response;
+        this.starService.starListChanged.next(response);
+      }, (error) => {
+        console.log(error);
+      });
   }
 
   updateStarInDB(star: Star) {
-    return this.http.post('https://stars-and-planets.herokuapp.com/data', star);
+    this.http.post('https://stars-and-planets.herokuapp.com/data', star).subscribe(
+      (response: Star[]) => {
+        this.starService.stars = response;
+        this.starService.starListChanged.next(response);
+      },
+      (error) => {
+        throw error;
+      }
+    );
   }
 
   removeStarFromDB(star: Star) {
-    return this.http.post('https://stars-and-planets.herokuapp.com/remove', {_id: star.id});
+    this.http.post('https://stars-and-planets.herokuapp.com/remove', {_id: star.id}).subscribe(
+      (response: Star[]) => {
+        this.starService.stars = response;
+        this.starService.starListChanged.next(response);
+      },
+      (error) => {
+        throw error;
+      },
+    );
   }
 }

@@ -19,7 +19,7 @@ export class StarsNavComponent implements OnInit {
     this.starService.starListChanged.subscribe(() => {
       this.stars = this.starService.getStars();
     });
-    this.starService.updateStarList();
+    this.starService.getStarList();
   }
 
 }
