@@ -26,6 +26,6 @@ export class Star {
   }
 
   get id() {
-    return this._id;
+    return this._id.toString();
   }
 }
