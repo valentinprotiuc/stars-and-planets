@@ -28,7 +28,7 @@ export class ServerService {
   }
 
   updateStarInDB(star: Star) {
-    console.log('Star id in server.service', star.id);
+    console.log('Star id in server.service: ', star.id);
     return this.http.post('https://stars-and-planets.herokuapp.com/data', star);
   }
 
