@@ -45,8 +45,19 @@ app.put('/data', (req, res) => {
   });
 });
 
+app.post('/data', (req, res) => {
+  db.collection('stars').update({name: req.body.name}, {$set: req.body}, (error, result) => {
+    if (error) throw error;
+    db.collection('stars').find({}).toArray((error, result) => {
+      if (error) throw err;
+      res.send(result);
+    });
+    }
+  )
+});
+
 app.delete('/data/:name', (req, res) => {
-  db.collection('stars').deleteOne({name : req.params.name}, (error, result) => {
+  db.collection('stars').deleteOne({name: req.params.name}, (error, result) => {
     if (error) throw error;
     db.collection('stars').find({}).toArray((error, result) => {
       if (error) throw err;
