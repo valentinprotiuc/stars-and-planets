@@ -51,7 +51,7 @@ app.post('/data', (req, res) => {
   var data = req.body;
   delete data._id;
   var myId = { "$oid": req.body._id};
-  db.collection('stars').updateOne({"_id": myId}, {$set: data}, (error, result) => {
+  db.collection('stars').updateOne({"_id.$oid": req.body._id}, {$set: data}, (error, result) => {
     if (error) throw error;
     else console.log(result);
     db.collection('stars').find({}).toArray((error, result) => {
