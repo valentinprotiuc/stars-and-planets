@@ -1,15 +1,17 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Star} from '../star.model';
 import {StarService} from '../star.service';
+import {Subscription} from 'rxjs';
 
 @Component({
   selector: 'app-stars-nav',
   templateUrl: './stars-nav.component.html',
   styleUrls: ['./stars-nav.component.css']
 })
-export class StarsNavComponent implements OnInit {
+export class StarsNavComponent implements OnInit, OnDestroy {
 
   stars: Star[] = [];
+  private subscription: Subscription;
 
   constructor(private starService: StarService) {
   }
@@ -26,6 +28,10 @@ export class StarsNavComponent implements OnInit {
       });
 
     this.starService.getStarList();
+  }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
   }
 
 }

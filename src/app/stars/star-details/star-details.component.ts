@@ -1,17 +1,19 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Star} from '../star.model';
 import {StarService} from '../star.service';
-import {ActivatedRoute, Params, Router} from '@angular/router';
+import {Router} from '@angular/router';
 import {Planet} from '../../planets/planet.model';
+import {Subscription} from 'rxjs';
 
 @Component({
   selector: 'app-star-details',
   templateUrl: './star-details.component.html',
   styleUrls: ['./star-details.component.css']
 })
-export class StarDetailsComponent implements OnInit {
+export class StarDetailsComponent implements OnInit, OnDestroy {
 
   selectedStar: Star;
+  private subscription: Subscription;
 
   constructor(private starService: StarService, private router: Router) {
   }
@@ -20,7 +22,7 @@ export class StarDetailsComponent implements OnInit {
 
     this.selectedStar = this.starService.currentlySelectedStar;
 
-    this.starService.starSelected.subscribe(
+    this.subscription = this.starService.starSelected.subscribe(
       (star: Star) => {
         this.selectedStar = star;
       },
@@ -32,5 +34,9 @@ export class StarDetailsComponent implements OnInit {
 
   onPlanetSelected(planet: Planet) {
     this.router.navigate(['planets']);
+  }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
   }
 }

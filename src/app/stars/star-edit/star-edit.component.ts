@@ -20,22 +20,16 @@ export class StarEditComponent implements OnInit {
 
   ngOnInit() {
 
-    this.route.params.subscribe(
-      (params: Params) => {
-        this.star = JSON.parse(JSON.stringify(this.starService.getStar(params.starName)));
-        if (this.star) {
-          this.editStarForm = new FormGroup({
-            starName: new FormControl(this.star.name, Validators.required),
-            spectralType: new FormControl(this.star.spectralType),
-            solarMass: new FormControl(this.star.solarMass),
-            solarRadius: new FormControl(this.star.solarRadius),
-            effectiveTemperature: new FormControl(this.star.effectiveTemperature),
-            distance: new FormControl(this.star.distance),
-            planets: new FormArray([])
-          });
-        }
-      }
-    );
+    this.star = JSON.parse(JSON.stringify(this.starService.currentlySelectedStar));
+    this.editStarForm = new FormGroup({
+      starName: new FormControl(this.star.name, Validators.required),
+      spectralType: new FormControl(this.star.spectralType),
+      solarMass: new FormControl(this.star.solarMass),
+      solarRadius: new FormControl(this.star.solarRadius),
+      effectiveTemperature: new FormControl(this.star.effectiveTemperature),
+      distance: new FormControl(this.star.distance),
+      planets: new FormArray([])
+    });
   }
 
   onSubmit() {
@@ -43,7 +37,7 @@ export class StarEditComponent implements OnInit {
       new Star(this.star.id, this.editStarForm.value.starName, this.editStarForm.value.spectralType,
         this.editStarForm.value.solarMass, this.editStarForm.value.solarRadius, this.editStarForm.value.effectiveTemperature,
         this.editStarForm.value.distance, this.star.orbitingPlanets));
-    this.router.navigate(['details']);
+    this.router.navigate(['stars/details']);
   }
 
   onRemovePlanet(planet: Planet) {

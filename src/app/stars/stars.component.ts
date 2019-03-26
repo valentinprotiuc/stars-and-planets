@@ -1,16 +1,18 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {StarService} from './star.service';
 import {Star} from './star.model';
 import {ActivatedRoute, Router} from '@angular/router';
+import {Subscription} from 'rxjs';
 
 @Component({
   selector: 'app-stars',
   templateUrl: './stars.component.html',
   styleUrls: ['./stars.component.css'],
 })
-export class StarsComponent implements OnInit {
+export class StarsComponent implements OnInit, OnDestroy {
 
   selectedStar: Star;
+  private subscription: Subscription;
 
   constructor(private starService: StarService, private router: Router, private route: ActivatedRoute) {
   }
@@ -22,6 +24,10 @@ export class StarsComponent implements OnInit {
         this.selectedStar = star;
       }
     );
+  }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
   }
 
   onAddStar() {

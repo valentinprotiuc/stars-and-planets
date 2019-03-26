@@ -25,6 +25,8 @@ export class ServerService {
       (response: Star[]) => {
         this.starService.stars = response;
         this.starService.starListChanged.next(response);
+        this.starService.currentlySelectedStar = this.starService.getStar(star.name);
+        this.starService.starSelected.next(this.starService.getStar(star.name));
       },
       (error) => {
         throw error;

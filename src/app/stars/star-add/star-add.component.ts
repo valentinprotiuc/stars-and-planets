@@ -39,12 +39,14 @@ export class StarAddComponent implements OnInit {
 
     const planets: Planet[] = [];
 
-    this.newStarForm.value.planets.forEach((planet) => {planets.push(planet as Planet);});
+    this.newStarForm.value.planets.forEach((planet) => {
+      planets.push(planet as Planet);
+    });
     this.starService.addStar(
       new Star('fakeId', this.newStarForm.value.starName, this.newStarForm.value.spectralType, this.newStarForm.value.solarMass,
         this.newStarForm.value.solarRadius, this.newStarForm.value.effectiveTemperature, this.newStarForm.value.distance, planets)
     );
-    this.router.navigate(['stars/details/' + this.newStarForm.value.starName]);
+    this.router.navigate(['stars/details/']);
   }
 
   onCancel() {
