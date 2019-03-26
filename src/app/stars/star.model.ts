@@ -6,4 +6,8 @@ export class Star {
               public solarRadius: number, public effectiveTemperature: number,
               public distance: number, public orbitingPlanets: Planet[]) {
   }
+
+  get id(): string {
+    return this._id;
+  }
 }

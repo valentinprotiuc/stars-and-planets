@@ -37,6 +37,7 @@ app.get('/data', (req, res) => {
 
 app.post('/data', (req, res) => {
   console.log('Add req body: ', req.body);
+  console.log('Add req: ', req);
   db.collection('stars').inserOne({"name" : "nananame"}, (error, result) => {
     if (error) throw error;
     db.collection('stars').find({}).toArray((error, result) => {
