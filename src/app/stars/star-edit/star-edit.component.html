@@ -30,7 +30,7 @@
   </div>
   <hr>
   <h4>Umkreisende Planeten:</h4>
-  <div *ngFor="let planet of star.orbitingPlanets"><span>{{planet.name}}  </span>
+  <div *ngFor="let planet of star.orbitingPlanets"><span>{{planet.planetName}}  </span>
     <i role="button" class="fa fa-minus-square-o" style="cursor: pointer" (click)="onRemovePlanet(planet)"></i>
   </div>
   <hr>
