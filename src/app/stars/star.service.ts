@@ -43,20 +43,17 @@ export class StarService {
     this.serverService.updateStarInDB(star);
   }
 
-  getStarList() {
-    this.serverService.getStarsFromDB();
-  }
-
   getStar(starName: string) {
     return this.stars.find(i => i.name === starName);
+  }
+
+  getStarList() {
+    this.serverService.getStarsFromDB();
   }
 
   removeStar(star: Star) {
     this.serverService.removeStarFromDB(star);
   }
-
-
-
 
 
   constructor(private http: HttpClient, private serverService: ServerService) {
