@@ -11,6 +11,8 @@ const client = new MongoClient(uri, {useNewUrlParser: true});
 const dbName = 'heroku_3h2xwfxr';
 var db;
 
+var ObjectID = require('mongodb').ObjectID;
+
 app.use(express.static(__dirname + '/dist/stars-and-planets'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
