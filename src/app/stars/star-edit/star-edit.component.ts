@@ -55,7 +55,7 @@ export class StarEditComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
 
-    this.star = this.starService.currentlySelectedStar);
+    this.star = this.starService.currentlySelectedStar;
     console.log('In edit init: ', this.star);
     this.subscription = this.starService.starSelected.subscribe(
       (star: Star) => {
