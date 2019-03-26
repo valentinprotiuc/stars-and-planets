@@ -7,7 +7,7 @@ export class Star {
               public distance: number, public orbitingPlanets: Planet[]) {
   }
 
-  get id(): string {
+  get id() {
     return this._id;
   }
 }

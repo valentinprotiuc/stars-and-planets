@@ -33,7 +33,7 @@ export class StarEditComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log('Star id in edit: ', this.star.id);
+    console.log('Star in edit: ', this.star);
     this.starService.updateStar(
       new Star(this.star.id, this.editStarForm.value.starName, this.editStarForm.value.spectralType,
         this.editStarForm.value.solarMass, this.editStarForm.value.solarRadius, this.editStarForm.value.effectiveTemperature,
