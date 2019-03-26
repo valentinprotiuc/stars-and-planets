@@ -1,11 +1,10 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Star} from './stars/star.model';
-import {StarService} from './stars/star.service';
 
 @Injectable()
 export class ServerService {
-  constructor(private http: HttpClient, private starService: StarService) {
+  constructor(private http: HttpClient) {
   }
 
   addStarToDB(star: Star) {
@@ -21,53 +20,19 @@ export class ServerService {
       distance: +star.distance,
       orbitingPlanets: star.orbitingPlanets
     };
-    this.http.post('https://stars-and-planets.herokuapp.com/data', noIdStar).subscribe(
-      (response: Star[]) => {
-        this.starService.stars = response;
-        this.starService.starListChanged.next(response);
-        this.starService.currentlySelectedStar = this.starService.getStar(star.name);
-        this.starService.starSelected.next(this.starService.getStar(star.name));
-      },
-      (error) => {
-        throw error;
-      }
-    );
+    return this.http.post('https://stars-and-planets.herokuapp.com/data', noIdStar);
   }
 
   getStarsFromDB() {
 
-    this.http.get('https://stars-and-planets.herokuapp.com/data').subscribe(
-      (response: Star[]) => {
-        this.starService.stars = response;
-        this.starService.starListChanged.next(response);
-      }, (error) => {
-        console.log(error);
-      });
+    return this.http.get('https://stars-and-planets.herokuapp.com/data');
   }
 
   updateStarInDB(star: Star) {
-    this.http.post('https://stars-and-planets.herokuapp.com/data', star).subscribe(
-      (response: Star[]) => {
-        this.starService.stars = response;
-        this.starService.starListChanged.next(response);
-        this.starService.currentlySelectedStar = this.starService.getStar(star.name);
-        this.starService.starSelected.next(this.starService.getStar(star.name));
-      },
-      (error) => {
-        throw error;
-      }
-    );
+    return this.http.post('https://stars-and-planets.herokuapp.com/data', star);
   }
 
   removeStarFromDB(star: Star) {
-    this.http.post('https://stars-and-planets.herokuapp.com/remove', {_id: star.id}).subscribe(
-      (response: Star[]) => {
-        this.starService.stars = response;
-        this.starService.starListChanged.next(response);
-      },
-      (error) => {
-        throw error;
-      },
-    );
+    return this.http.post('https://stars-and-planets.herokuapp.com/remove', {_id: star.id});
   }
 }

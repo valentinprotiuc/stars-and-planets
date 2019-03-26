@@ -36,25 +36,58 @@ export class StarService {
 
   // Redirecting requests to server service
   addStar(star: Star) {
-    this.serverService.addStarToDB(star);
+    this.serverService.addStarToDB(star).subscribe(
+      (response: Star[]) => {
+        this.stars = response;
+        this.starListChanged.next(response);
+        this.currentlySelectedStar = this.getStar(star.name);
+        this.starSelected.next(this.getStar(star.name));
+      },
+      (error) => {
+        throw error;
+      }
+    );
   }
 
   updateStar(star: Star) {
-    this.serverService.updateStarInDB(star);
+    this.serverService.updateStarInDB(star).subscribe(
+      (response: Star[]) => {
+        this.stars = response;
+        this.starListChanged.next(response);
+        this.currentlySelectedStar = this.getStar(star.name);
+        this.starSelected.next(this.getStar(star.name));
+      },
+      (error) => {
+        throw error;
+      }
+    );
+  }
+
+  getStarList() {
+    this.serverService.getStarsFromDB().subscribe(
+      (response: Star[]) => {
+        this.stars = response;
+        this.starListChanged.next(response);
+      }, (error) => {
+        console.log(error);
+      });
+  }
+
+  removeStar(star: Star) {
+    this.serverService.removeStarFromDB(star).subscribe(
+      (response: Star[]) => {
+        this.stars = response;
+        this.starListChanged.next(response);
+      },
+      (error) => {
+        throw error;
+      },
+    );
   }
 
   getStar(starName: string) {
     return this.stars.find(i => i.name === starName);
   }
-
-  getStarList() {
-    this.serverService.getStarsFromDB();
-  }
-
-  removeStar(star: Star) {
-    this.serverService.removeStarFromDB(star);
-  }
-
 
   constructor(private http: HttpClient, private serverService: ServerService) {
   }
