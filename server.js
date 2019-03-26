@@ -49,11 +49,16 @@ app.put('/data', (req, res) => {
 
 app.post('/data', (req, res) => {
   console.log("Server req body: " , req.body);
-  console.log("Server req body id: " , req.body._id);
-  var data = req.body;
-  delete data._id;
-  console.log("Object id: ", ObjectID(req.body._id));
-  db.collection('stars').updateOne({"name": "Son"}, {$set: JSON.stringify(data)}, (error, result) => {
+  var data = {
+    "name": req.body,
+    "spectralType": req.body.spectralType,
+    "solarMass": req.body.solarMass,
+    "solarRadius": req.body.solarRadius,
+    "effectiveTemperature": req.body.effectiveTemperature,
+    "distance" : req.body.distance,
+    "orbitingPlanets": req.body.orbitingPlanets
+  };
+  db.collection('stars').updateOne({"name": "Son"}, {$set: data}, (error, result) => {
     if (error) throw error;
     else console.log(result);
     db.collection('stars').find({}).toArray((error, result) => {
