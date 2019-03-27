@@ -54,6 +54,7 @@ export class StarsNavComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
+    console.log(this.subscription.closed);
     this.subscription.unsubscribe();
   }
 
