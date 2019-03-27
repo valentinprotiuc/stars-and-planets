@@ -1,5 +1,6 @@
 export class Planet {
-  constructor(public name: string, public planetClass: string, public mass: number,
-              public radius: number, public period: number, public distance: number, public esi: number) {
+
+  constructor(public planetName: string, public planetClass: string, public planetMass: number,
+              public planetRadius: number, public planetPeriod: number, public planetDistance: number, public planetESI: number) {
   }
 }

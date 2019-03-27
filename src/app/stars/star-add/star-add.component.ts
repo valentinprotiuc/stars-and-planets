@@ -60,9 +60,9 @@ export class StarAddComponent implements OnInit {
     this.newPlanetForm = new FormGroup({
       planetName: new FormControl(null, Validators.required),
       planetClass: new FormControl(null),
-      planetPeriod: new FormControl(null),
       planetMass: new FormControl(null),
       planetRadius: new FormControl(null),
+      planetPeriod: new FormControl(null),
       planetDistance: new FormControl(null),
       planetESI: new FormControl(null),
     });

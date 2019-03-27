@@ -1,6 +1,5 @@
 <div class="row">
-  <div class="col">
-
+  <div class="col-md-12">
     <table class="table table-striped">
       <thead>
       <tr>
@@ -15,16 +14,15 @@
       </thead>
       <tbody>
       <tr *ngFor="let planet of planets">
-        <td>{{planet.name}}</td>
+        <td>{{planet.planetName}}</td>
         <td>{{planet.planetClass}}</td>
-        <td>{{planet.mass}}</td>
-        <td>{{planet.radius}}</td>
-        <td>{{planet.period}}</td>
-        <td>{{planet.distance}}</td>
-        <td>{{planet.esi}}</td>
+        <td>{{planet.planetMass}}</td>
+        <td>{{planet.planetRadius}}</td>
+        <td>{{planet.planetPeriod}}</td>
+        <td>{{planet.planetDistance}}</td>
+        <td>{{planet.planetESI}}</td>
       </tr>
       </tbody>
     </table>
   </div>
-  <div class="col"></div>
 </div>
