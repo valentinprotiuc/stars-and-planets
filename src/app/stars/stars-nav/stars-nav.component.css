@@ -2,7 +2,10 @@
   display: block;
   overflow-y: auto;
   max-height: calc(100vh - 12rem);
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
+.fixed-height::-webkit-scrollbar { width: 0 !important }
 
 .divider-right {
   border-right: 1px solid lightgray;

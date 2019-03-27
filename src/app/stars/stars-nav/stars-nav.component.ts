@@ -11,7 +11,46 @@ import {Subscription} from 'rxjs';
 export class StarsNavComponent implements OnInit, OnDestroy {
 
   private subscription: Subscription;
-  stars: Star[] = [];
+  stars: Star[] = [
+    new Star('noId1', 'Sonne', 'hhh', 1, 1, 1, 1, []),
+    new Star('noId2', 'Hallo', 'hhh', 1, 1, 1, 1, []),
+    new Star('noId2', 'Hallo', 'hhh', 1, 1, 1, 1, []),
+    new Star('noId2', 'Hallo', 'hhh', 1, 1, 1, 1, []),
+    new Star('noId2', 'Hallo', 'hhh', 1, 1, 1, 1, []),
+    new Star('noId2', 'Hallo', 'hhh', 1, 1, 1, 1, []),
+    new Star('noId2', 'Hallo', 'hhh', 1, 1, 1, 1, []),
+    new Star('noId2', 'Hallo', 'hhh', 1, 1, 1, 1, []),
+    new Star('noId2', 'Hallo', 'hhh', 1, 1, 1, 1, []),
+    new Star('noId2', 'Hallo', 'hhh', 1, 1, 1, 1, []),
+    new Star('noId2', 'Hallo', 'hhh', 1, 1, 1, 1, []),
+    new Star('noId2', 'Hallo', 'hhh', 1, 1, 1, 1, []),
+    new Star('noId2', 'Hallo', 'hhh', 1, 1, 1, 1, []),
+    new Star('noId2', 'Hallo', 'hhh', 1, 1, 1, 1, []),
+    new Star('noId2', 'Hallo', 'hhh', 1, 1, 1, 1, []),
+    new Star('noId2', 'Hallo', 'hhh', 1, 1, 1, 1, []),
+    new Star('noId2', 'Hallo', 'hhh', 1, 1, 1, 1, []),
+    new Star('noId2', 'Hallo', 'hhh', 1, 1, 1, 1, []),
+    new Star('noId2', 'Hallo', 'hhh', 1, 1, 1, 1, []),
+    new Star('noId2', 'Hallo', 'hhh', 1, 1, 1, 1, []),
+    new Star('noId2', 'Hallo', 'hhh', 1, 1, 1, 1, []),
+    new Star('noId2', 'Hallo', 'hhh', 1, 1, 1, 1, []),
+    new Star('noId2', 'Hallo', 'hhh', 1, 1, 1, 1, []),
+    new Star('noId2', 'Hallo', 'hhh', 1, 1, 1, 1, []),
+    new Star('noId2', 'Hallo', 'hhh', 1, 1, 1, 1, []),
+    new Star('noId2', 'Hallo', 'hhh', 1, 1, 1, 1, []),
+    new Star('noId2', 'Hallo', 'hhh', 1, 1, 1, 1, []),
+    new Star('noId2', 'Hallo', 'hhh', 1, 1, 1, 1, []),
+    new Star('noId2', 'Hallo', 'hhh', 1, 1, 1, 1, []),
+    new Star('noId2', 'Hallo', 'hhh', 1, 1, 1, 1, []),
+    new Star('noId2', 'Hallo', 'hhh', 1, 1, 1, 1, []),
+    new Star('noId2', 'Hallo', 'hhh', 1, 1, 1, 1, []),
+    new Star('noId2', 'Hallo', 'hhh', 1, 1, 1, 1, []),
+    new Star('noId2', 'Hallo', 'hhh', 1, 1, 1, 1, []),
+    new Star('noId2', 'Hallo', 'hhh', 1, 1, 1, 1, []),
+    new Star('noId2', 'Hallo', 'hhh', 1, 1, 1, 1, []),
+    new Star('noId2', 'Hallo', 'hhh', 1, 1, 1, 1, []),
+    new Star('noId3', 'Nein', 'hhh', 1, 1, 1, 1, [])
+  ];
   @ViewChild('searchFilter') searchFilter: ElementRef;
 
 
