@@ -19,11 +19,23 @@ export class StarsNavComponent implements OnInit, OnDestroy {
   }
 
   filterStarList() {
-    console.log('Stars from nav: ', this.stars);
-    console.log('Stars from Service: ', this.starService.stars);
     this.stars = this.starService.stars.filter(
       star => star.name.toLocaleLowerCase().includes(this.searchFilter.nativeElement.value.toLowerCase())
     );
+  }
+
+  sortList() {
+    this.stars = this.stars.sort((star1, star2) => {
+      const name1 = star1.name.toLowerCase();
+      const name2 = star2.name.toLowerCase();
+      if (name1 > name2) {
+        return 1;
+      }
+      if (name1 < name2) {
+        return -1;
+      }
+      return 0;
+    });
   }
 
   ngOnInit() {

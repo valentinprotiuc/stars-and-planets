@@ -1,4 +1,7 @@
-<input class="form-control" type="text" placeholder="Suche..." (keyup)="filterStarList()" #searchFilter>
+<div style="display: inline-block">
+  <input class="form-control" type="text" placeholder="Suche..." (keyup)="filterStarList()" #searchFilter>
+  <button class="btn btn-primary" (click)="sortList()">Sort</button>
+</div>
 <ul class="nav flex-column fixed-height">
   <li class="nav-item" *ngFor="let star of stars">
     <app-star-item [star]="star"></app-star-item>
