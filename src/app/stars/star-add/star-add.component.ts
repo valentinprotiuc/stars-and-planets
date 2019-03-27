@@ -23,10 +23,10 @@ export class StarAddComponent implements OnInit {
     this.newStarForm = new FormGroup({
       starName: new FormControl(null, Validators.required),
       spectralType: new FormControl(null),
-      solarMass: new FormControl(null, this.numberValidator),
-      solarRadius: new FormControl(null, this.numberValidator),
-      effectiveTemperature: new FormControl(null, this.numberValidator),
-      distance: new FormControl(null, this.numberValidator),
+      solarMass: new FormControl(null, this.numberValidator.bind(this)),
+      solarRadius: new FormControl(null, this.numberValidator.bind(this)),
+      effectiveTemperature: new FormControl(null, this.numberValidator.bind(this)),
+      distance: new FormControl(null, this.numberValidator.bind(this)),
       planets: new FormArray([])
     });
   }
@@ -60,11 +60,11 @@ export class StarAddComponent implements OnInit {
     this.newPlanetForm = new FormGroup({
       planetName: new FormControl(null, Validators.required),
       planetClass: new FormControl(null),
-      planetMass: new FormControl(null),
-      planetRadius: new FormControl(null),
-      planetPeriod: new FormControl(null),
-      planetDistance: new FormControl(null),
-      planetESI: new FormControl(null),
+      planetMass: new FormControl(null, this.numberValidator.bind(this)),
+      planetRadius: new FormControl(null, this.numberValidator.bind(this)),
+      planetPeriod: new FormControl(null, this.numberValidator.bind(this)),
+      planetDistance: new FormControl(null, this.numberValidator.bind(this)),
+      planetESI: new FormControl(null, this.numberValidator.bind(this)),
     });
     (this.newStarForm.get('planets') as FormArray).push(this.newPlanetForm);
   }
