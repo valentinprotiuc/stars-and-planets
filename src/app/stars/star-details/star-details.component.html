@@ -1,11 +1,30 @@
 <div class="card bg-light text-dark">
   <div class="card-header"><h3>{{selectedStar.name}}</h3></div>
   <div class="card-body">
-    <p><strong>Spektraltyp des Sterns:</strong>{{selectedStar.spectralType}}</p>
-    <p><strong>Masse: </strong>{{selectedStar.solarMass}} <em tooltip="Sonnenmasse">M☉</em></p>
-    <p><strong>Radius: </strong>{{selectedStar.solarRadius}} <em tooltip="Sonnenradius">R☉</em></p>
-    <p><strong>Effektive Temperatur: </strong>{{selectedStar.effectiveTemperature}} <em tooltip="Kelvin">K</em></p>
-    <p><strong>Entfernung zur Erde: </strong>{{selectedStar.distance}} <em tooltip="Lichtjahr">Lj</em></p>
+    <table class="table table-borderless table-hover">
+      <tbody>
+      <tr>
+        <td><strong>Spektraltyp des Sterns:</strong></td>
+        <td>{{selectedStar.spectralType}}</td>
+      </tr>
+      <tr>
+        <td><strong>Masse:</strong></td>
+        <td>{{selectedStar.solarMass}} <em tooltip="Sonnenmasse">M☉</em></td>
+      </tr>
+      <tr>
+        <td><strong>Radius:</strong></td>
+        <td>{{selectedStar.solarRadius}} <em tooltip="Sonnenradius">R☉</em></td>
+      </tr>
+      <tr>
+        <td><strong>Effektive Temperatur: </strong></td>
+        <td>{{selectedStar.effectiveTemperature}} <em tooltip="Kelvin">K</em></td>
+      </tr>
+      <tr>
+        <td><strong>Entfernung zur Erde: </strong></td>
+        <td>{{selectedStar.distance}} <em tooltip="Lichtjahr">Lj</em></td>
+      </tr>
+      </tbody>
+    </table>
   </div>
   <div class="card-footer">
     <h5>Umkreisende Planeten:</h5>
