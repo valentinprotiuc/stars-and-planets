@@ -34,7 +34,6 @@ export class StarDetailsComponent implements OnInit, OnDestroy {
   }
 
   onPlanetSelected(planet: Planet) {
-    this.planetService.selectedPlanet = planet;
     this.router.navigate(['planets']);
   }
 

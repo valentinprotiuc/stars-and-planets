@@ -7,16 +7,6 @@ import {StarService} from '../stars/star.service';
 })
 export class PlanetService {
 
-  private _selectedPlanet: Planet;
-
-  get selectedPlanet() {
-    return this._selectedPlanet;
-  }
-
-  set selectedPlanet(planet: Planet) {
-    this._selectedPlanet = planet;
-  }
-
   getPlanets() {
     const planets: Planet[] = [];
     this.starService.stars.forEach(
