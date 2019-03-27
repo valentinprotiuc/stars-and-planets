@@ -72,14 +72,14 @@ export class StarAddComponent implements OnInit {
   numberValidator(control: FormControl): { [s: string]: boolean } {
     const input = String(control.value);
     if (!control.value) {
-      console.log('No value', control.value);
+      console.log('No value', control);
       return null;
     }
     if (isNaN(Number(input))) {
-      console.log('Not a number', control.value);
+      console.log('Not a number', control);
       return {charsNotAllowed: true};
     } else {
-      console.log('Number', control.value);
+      console.log('Number', control);
       return null;
     }
   }
