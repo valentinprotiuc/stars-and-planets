@@ -14,7 +14,7 @@
       </thead>
       <tbody>
       <tr *ngFor="let planet of planets"
-          [ngClass]="planet.planetName === planetService.selectedPlanet.planetName ? 'table-warning' : ''">
+          [ngClass]="planet.planetName === selectedPlanet.planetName ? 'table-warning' : ''">
         <td>{{planet.planetName}}</td>
         <td>{{(planet.planetClass == null) || (planet.planetClass == '') ? 'unbekannt' : planet.planetClass}}</td>
         <td>{{(planet.planetMass == null) || (planet.planetMass == '') ? 'unbekannt' : planet.planetMass}}</td>

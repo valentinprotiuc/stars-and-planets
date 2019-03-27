@@ -23,10 +23,10 @@ export class StarAddComponent implements OnInit {
     this.newStarForm = new FormGroup({
       starName: new FormControl(null, Validators.required),
       spectralType: new FormControl(null),
-      solarMass: new FormControl(null),
-      solarRadius: new FormControl(null),
-      effectiveTemperature: new FormControl(null),
-      distance: new FormControl(null),
+      solarMass: new FormControl(null, this.numberValidator),
+      solarRadius: new FormControl(null, this.numberValidator),
+      effectiveTemperature: new FormControl(null, this.numberValidator),
+      distance: new FormControl(null, this.numberValidator),
       planets: new FormArray([])
     });
   }
@@ -67,5 +67,12 @@ export class StarAddComponent implements OnInit {
       planetESI: new FormControl(null),
     });
     (this.newStarForm.get('planets') as FormArray).push(this.newPlanetForm);
+  }
+
+  numberValidator(control: FormControl): { [s: string]: boolean } {
+    if (!(control.value instanceof Number)) {
+      return {charsNotAllowed: true};
+    }
+    return null;
   }
 }
