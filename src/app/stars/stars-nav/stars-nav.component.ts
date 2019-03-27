@@ -18,6 +18,14 @@ export class StarsNavComponent implements OnInit, OnDestroy {
   constructor(private starService: StarService) {
   }
 
+  filterStarList() {
+    console.log('Stars from nav: ', this.stars);
+    console.log('Stars from Service: ', this.starService.stars);
+    this.stars = this.starService.stars.filter(
+      star => star.name.toLocaleLowerCase().includes(this.searchFilter.nativeElement.value.toLowerCase())
+    );
+  }
+
   ngOnInit() {
 
     this.starService.starListChanged.subscribe(
@@ -36,10 +44,4 @@ export class StarsNavComponent implements OnInit, OnDestroy {
     this.subscription.unsubscribe();
   }
 
-  filterStarList() {
-    console.log('Input: ', this.searchFilter.nativeElement.value);
-    this.stars.filter(
-      star => star.name.toLocaleLowerCase().includes(this.searchFilter.nativeElement.value.toLowerCase())
-    );
-  }
 }
