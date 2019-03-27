@@ -19,7 +19,7 @@ export class StarsComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
 
-    this.starService.starSelected.subscribe(
+    this.subscription = this.starService.starSelected.subscribe(
       (star: Star) => {
         this.selectedStar = star;
       }
