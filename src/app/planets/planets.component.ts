@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Planet} from './planet.model';
 import {PlanetService} from './planet.service';
-import {Star} from '../stars/star.model';
 
 @Component({
   selector: 'app-planets',
@@ -16,15 +15,7 @@ export class PlanetsComponent implements OnInit {
   constructor(private planetService: PlanetService) { }
 
   ngOnInit() {
-    /*this.planetService.getPlanets().subscribe(
-      (response: Star[]) => {
-        response.forEach((elem) => {
-          // Need to add the star of the planet
-          this.planets.push(...elem.orbitingPlanets);
-        });
-      },
-      (error) => console.log(error)
-    );*/
+    this.planets = this.planetService.getPlanets();
   }
 
 }

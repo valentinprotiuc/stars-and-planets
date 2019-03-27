@@ -1,24 +1,22 @@
 import {Injectable} from '@angular/core';
 import {Planet} from './planet.model';
 import {StarService} from '../stars/star.service';
-import {ServerService} from '../server.service';
-import {Star} from '../stars/star.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PlanetService {
 
-  private planets: Planet[];
-
   getPlanets() {
-    return this.serverService.getStarsFromDB();
+    const planets: Planet[] = [];
+    this.starService.stars.forEach(
+      (star) => {
+        planets.push(...star.orbitingPlanets);
+      }
+    );
+    return planets;
   }
 
-  getAllPlanets() {
-
-  }
-
-  constructor(private serverService: ServerService) {
+  constructor(private starService: StarService) {
   }
 }
