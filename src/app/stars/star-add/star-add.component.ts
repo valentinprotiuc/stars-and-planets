@@ -74,7 +74,8 @@ export class StarAddComponent implements OnInit {
     if (!control.value) {
       console.log('No value', control.value);
       return null;
-    } else if (isNaN(Number(input))) {
+    }
+    if (isNaN(Number(input))) {
       console.log('Not a number', control.value);
       return {charsNotAllowed: true};
     } else {
