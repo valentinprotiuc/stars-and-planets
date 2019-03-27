@@ -1,18 +1,27 @@
 <div class="row">
   <div class="col">
 
-    <table class="table table-bordered">
+    <table class="table table-striped">
       <thead>
       <tr>
         <th>Name</th>
+        <th>Klasse</th>
         <th>Masse</th>
-        <th>Stern</th>
+        <th>Radius</th>
+        <th>Umlaufzeit</th>
+        <th>Entfernung</th>
+        <th>ESI</th>
       </tr>
       </thead>
       <tbody>
       <tr *ngFor="let planet of planets">
         <td>{{planet.name}}</td>
-        <td>{{planet.minMass}}</td>
+        <td>{{planet.planetClass}}</td>
+        <td>{{planet.mass}}</td>
+        <td>{{planet.radius}}</td>
+        <td>{{planet.period}}</td>
+        <td>{{planet.distance}}</td>
+        <td>{{planet.esi}}</td>
       </tr>
       </tbody>
     </table>
