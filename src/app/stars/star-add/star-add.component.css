@@ -1,5 +1,5 @@
 input.ng-invalid.ng-touched{
-  border: 1px solid darkred;
+  border: 1px solid red;
 }
 
 .inline-header{
@@ -14,7 +14,7 @@ input.ng-invalid.ng-touched{
 }
 .help-right{
   float: right;
-  color: darkred;
+  color: red;
 }
 .label-block{
   display: block;
