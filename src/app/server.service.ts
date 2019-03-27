@@ -11,6 +11,7 @@ export class ServerService {
 
     // Todo: use delete star._id to remove the id instead of defining a new object. Maybe first clone
 
+    console.log(star);
     const noIdStar = {
       name: star.name,
       spectralType: star.spectralType,
