@@ -41,7 +41,7 @@ export class StarsNavComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
 
-    this.starService.starListChanged.subscribe(
+    this.subscription = this.starService.starListChanged.subscribe(
       (stars: Star[]) => {
         this.stars = stars;
       },
@@ -54,9 +54,7 @@ export class StarsNavComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    if (!(this.subscription === undefined)) {
-      this.subscription.unsubscribe();
-    }
+    this.subscription.unsubscribe();
   }
 
 }
