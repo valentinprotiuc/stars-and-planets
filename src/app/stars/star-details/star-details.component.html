@@ -1,12 +1,17 @@
-<h2>{{selectedStar.name}}</h2>
-<br>
-<h4>Spektraltyp des Sterns:</h4><p>{{selectedStar.spectralType}}</p>
-<h4>Masse:</h4><p>{{selectedStar.solarMass}} M</p>
-<h4>Radius:</h4><p>{{selectedStar.solarRadius}} R</p>
-<h4>Effektive Temperatur:</h4><p>{{selectedStar.effectiveTemperature}} K</p>
-<h4>Entfernung zur Erde:</h4><p>{{selectedStar.distance}} Lj</p>
-<h4>Umkreisende Planeten:</h4>
-<ul class="list-group">
-  <a role="menuitem" class="list-group-item" *ngFor="let planet of selectedStar.orbitingPlanets"
-     (click)="onPlanetSelected(planet)" style="cursor: pointer">{{planet.planetName}}</a>
-</ul>
+<div class="card bg-light text-dark">
+  <div class="card-header"><h3>{{selectedStar.name}}</h3></div>
+  <div class="card-body">
+    <p><strong>Spektraltyp des Sterns:</strong>{{selectedStar.spectralType}}</p>
+    <p><strong>Masse:</strong>{{selectedStar.solarMass}} M</p>
+    <p><strong>Radius:</strong>{{selectedStar.solarRadius}} R</p>
+    <p><strong>Effektive Temperatur:</strong>{{selectedStar.effectiveTemperature}} K</p>
+    <p><strong>Entfernung zur Erde:</strong>{{selectedStar.distance}} Lj</p>
+  </div>
+  <div class="card-footer">
+    <h5>Umkreisende Planeten:</h5>
+    <ul class="list-group">
+      <a role="menuitem" class="list-group-item" *ngFor="let planet of selectedStar.orbitingPlanets"
+         (click)="onPlanetSelected(planet)" style="cursor: pointer">{{planet.planetName}}</a>
+    </ul>
+  </div>
+</div>
