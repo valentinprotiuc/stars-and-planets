@@ -24,14 +24,15 @@ export class StarsNavComponent implements OnInit, OnDestroy {
     );
   }
 
-  sortList() {
+  sortList(param: string) {
+
     this.stars = this.stars.sort((star1, star2) => {
-      const name1 = star1.name.toLowerCase();
-      const name2 = star2.name.toLowerCase();
-      if (name1 > name2) {
+      const value1 = (param === 'mass') ? star1.solarMass : ((param === 'distance') ? star1.distance : star1.name.toLowerCase());
+      const value2 = (param === 'mass') ? star2.solarMass : ((param === 'distance') ? star2.distance : star2.name.toLowerCase()) ;
+      if (value1 > value2) {
         return 1;
       }
-      if (name1 < name2) {
+      if (value1 < value2) {
         return -1;
       }
       return 0;
