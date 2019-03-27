@@ -3,7 +3,7 @@ import {NgModule} from '@angular/core';
 
 import {AppComponent} from './app.component';
 
-import {AccordionModule, BsDropdownModule, CollapseModule} from 'ngx-bootstrap';
+import {AccordionModule, BsDropdownModule, CollapseModule, TooltipModule} from 'ngx-bootstrap';
 import {NavigationComponent} from './navigation/navigation.component';
 import {StarsComponent} from './stars/stars.component';
 import {PlanetsComponent} from './planets/planets.component';
@@ -36,6 +36,7 @@ import {ReactiveFormsModule} from '@angular/forms';
     BrowserModule,
     CollapseModule.forRoot(),
     BsDropdownModule.forRoot(),
+    TooltipModule.forRoot(),
     AccordionModule.forRoot(),
     AppRouting,
     HttpClientModule,
