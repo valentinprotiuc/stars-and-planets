@@ -46,7 +46,7 @@ export class StarEditComponent implements OnInit, OnDestroy {
   }
 
   onRemovePlanet(planet: Planet) {
-    const index = this.star.orbitingPlanets.findIndex(i => i.name === planet.name);
+    const index = this.star.orbitingPlanets.findIndex(i => i.planetName === planet.planetName);
     this.star.orbitingPlanets.splice(index, 1);
   }
 
