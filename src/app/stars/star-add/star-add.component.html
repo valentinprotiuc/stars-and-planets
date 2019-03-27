@@ -11,7 +11,7 @@
       <input type="text" class="form-control" formControlName="spectralType" id="spectralType">
     </div>
     <div class="form-group col-md-6">
-      <label for="distance">
+      <label class="label-block" for="distance">
         Entfernung von der Erde:
         <em class="comment-light" tooltip="Lichtjahr">(in Lj)</em>
         <span class="help-block help-right" *ngIf="!newStarForm.get('distance').valid">keine Zahl</span>
@@ -21,23 +21,23 @@
   </div>
   <div class="form-row">
     <div class="form-group col-md-4">
-      <label for="solarMass">Masse:
+      <label class="label-block" for="solarMass">Masse:
         <em class="comment-light" tooltip="Sonnenmasse">(in M☉)</em>
-        <span class="help-block float-right" *ngIf="!newStarForm.get('solarMass').valid">keine Zahl</span>
+        <span class="help-block help-right" *ngIf="!newStarForm.get('solarMass').valid">keine Zahl</span>
       </label>
       <input type="text" class="form-control" formControlName="solarMass" id="solarMass">
     </div>
     <div class="form-group col-md-4">
-      <label for="solarRadius">Radius:
+      <label class="label-block" for="solarRadius">Radius:
         <em class="comment-light" tooltip="Sonnenradius">(in R☉)</em>
-        <span class="help-block float-right" *ngIf="!newStarForm.get('solarRadius').valid">keine Zahl</span>
+        <span class="help-block help-right" *ngIf="!newStarForm.get('solarRadius').valid">keine Zahl</span>
       </label>
       <input type="text" class="form-control" formControlName="solarRadius" id="solarRadius">
     </div>
     <div class="form-group col-md-4">
-      <label for="effectiveTemperature">Effektive Temperatur:
+      <label class="label-block" for="effectiveTemperature">Effektive Temperatur:
         <em class="comment-light" tooltip="Kelvin">(K)</em>
-        <span class="help-block float-right" *ngIf="!newStarForm.get('effectiveTemperature').valid">keine Zahl</span>
+        <span class="help-block help-right" *ngIf="!newStarForm.get('effectiveTemperature').valid">keine Zahl</span>
       </label>
       <input type="text" class="form-control" formControlName="effectiveTemperature" id="effectiveTemperature">
     </div>
