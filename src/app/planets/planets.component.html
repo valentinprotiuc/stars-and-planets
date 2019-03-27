@@ -2,7 +2,7 @@
   <div class="col-md-12">
     <table class="table table-striped">
       <thead>
-      <tr>
+      <tr ngc>
         <th>Name</th>
         <th>Klasse</th>
         <th>Masse</th>
@@ -13,14 +13,15 @@
       </tr>
       </thead>
       <tbody>
-      <tr *ngFor="let planet of planets" [ngClass]="'table-warning'">
+      <tr *ngFor="let planet of planets"
+          [ngClass]="planet.planetName === planetService.selectedPlanet.planetName ? 'table-warning' : ''">
         <td>{{planet.planetName}}</td>
-        <td>{{planet.planetClass == (null || '') ? 'unbekannt' : planet.planetClass}}</td>
-        <td>{{planet.planetMass == (null || '') ? 'unbekannt' : planet.planetMass}}</td>
-        <td>{{planet.planetRadius == (null || '') ? 'unbekannt' : planet.planetRadius}}</td>
-        <td>{{planet.planetPeriod == (null || '') ? 'unbekannt' : planet.planetPeriod}}</td>
-        <td>{{planet.planetDistance == (null || '') ? 'unbekannt' : planet.planetDistance}}</td>
-        <td>{{planet.planetESI == (null || '') ? 'unbekannt' : planet.planetESI}}</td>
+        <td>{{(planet.planetClass == null) || (planet.planetClass == '') ? 'unbekannt' : planet.planetClass}}</td>
+        <td>{{(planet.planetMass == null) || (planet.planetMass == '') ? 'unbekannt' : planet.planetMass}}</td>
+        <td>{{(planet.planetRadius == null) || (planet.planetRadius == '') ? 'unbekannt' : planet.planetRadius}}</td>
+        <td>{{(planet.planetPeriod == null) || (planet.planetPeriod == '') ? 'unbekannt' : planet.planetPeriod}}</td>
+        <td>{{(planet.planetDistance == null) || (planet.planetDistance == '') ? 'unbekannt' : planet.planetDistance}}</td>
+        <td>{{(planet.planetESI == null) || (planet.planetESI == '') ? 'unbekannt' : planet.planetESI}}</td>
       </tr>
       </tbody>
     </table>

@@ -11,11 +11,16 @@ import {PlanetService} from './planet.service';
 export class PlanetsComponent implements OnInit {
 
   planets: Planet[] = [];
+  selectedPlanet: Planet;
 
   constructor(private planetService: PlanetService) { }
 
   ngOnInit() {
     this.planets = this.planetService.getPlanets();
+    this.selectedPlanet = this.planetService.selectedPlanet;
   }
 
+  selectTableRow(planet: Planet) {
+    this.selectedPlanet = planet;
+  }
 }
