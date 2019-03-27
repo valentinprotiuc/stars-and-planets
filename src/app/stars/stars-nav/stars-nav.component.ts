@@ -1,4 +1,4 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, ElementRef, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {Star} from '../star.model';
 import {StarService} from '../star.service';
 import {Subscription} from 'rxjs';
@@ -10,8 +10,10 @@ import {Subscription} from 'rxjs';
 })
 export class StarsNavComponent implements OnInit, OnDestroy {
 
-  stars: Star[] = [];
   private subscription: Subscription;
+  stars: Star[] = [];
+  @ViewChild('searchFilter') searchFilter: ElementRef;
+
 
   constructor(private starService: StarService) {
   }
@@ -34,4 +36,10 @@ export class StarsNavComponent implements OnInit, OnDestroy {
     this.subscription.unsubscribe();
   }
 
+  filterStarList() {
+    console.log('Input: ', this.searchFilter.nativeElement.value);
+    this.stars.filter(
+      star => star.name.toLocaleLowerCase().includes(this.searchFilter.nativeElement.value.toLowerCase())
+    );
+  }
 }
