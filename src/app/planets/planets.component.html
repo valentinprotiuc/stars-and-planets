@@ -15,12 +15,12 @@
       <tbody>
       <tr *ngFor="let planet of planets">
         <td>{{planet.planetName}}</td>
-        <td>{{planet.planetClass}}</td>
-        <td>{{planet.planetMass}}</td>
-        <td>{{planet.planetRadius}}</td>
-        <td>{{planet.planetPeriod}}</td>
-        <td>{{planet.planetDistance}}</td>
-        <td>{{planet.planetESI}}</td>
+        <td>{{planet.planetClass == null ? 'unbekannt' : planet.planetClass}}</td>
+        <td>{{planet.planetMass == null ? 'unbekannt' : planet.planetMass}}</td>
+        <td>{{planet.planetRadius == null ? 'unbekannt' : planet.planetRadius}}</td>
+        <td>{{planet.planetPeriod == null ? 'unbekannt' : planet.planetPeriod}}</td>
+        <td>{{planet.planetDistance == null ? 'unbekannt' : planet.planetDistance}}</td>
+        <td>{{planet.planetESI == null ? 'unbekannt' : planet.planetESI}}</td>
       </tr>
       </tbody>
     </table>
