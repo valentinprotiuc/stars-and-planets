@@ -71,7 +71,8 @@ export class StarEditComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    console.log("Edit destroy");
-    this.subscription.unsubscribe();
+    if (this.subscription) {
+      this.subscription.unsubscribe();
+    }
   }
 }

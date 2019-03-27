@@ -37,7 +37,8 @@ export class StarDetailsComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    console.log("Det destroy");
-    this.subscription.unsubscribe();
+    if (this.subscription) {
+      this.subscription.unsubscribe();
+    }
   }
 }
