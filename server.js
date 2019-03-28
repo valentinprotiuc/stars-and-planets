@@ -3,7 +3,7 @@ const express = require('express');
 const path = require('path');
 const MongoClient = require('mongodb').MongoClient;
 const bodyParser = require('body-parser');
-const http = require("http");
+const https = require("https");
 
 const app = express();
 
@@ -75,5 +75,5 @@ app.all('*', function (req, res) {
 });
 
 setInterval(()=>{
-  http.get("https://stars-and-planets.herokuapp.com");
+  https.get("https://stars-and-planets.herokuapp.com");
 }, 600000);

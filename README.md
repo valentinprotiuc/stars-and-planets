@@ -1,13 +1,16 @@
-# Stars&Planets App
+# Sterne&Planeten
+
+Einfache Single-Page-Webanwendung, die einen Sternkatalog darstellt.
+
 
 A simple demo project using MEAN stack plus Bootstrap. It's a single page app 
 which allow the user to navigate through the database of stars and planets. 
-The user can view the detailed information about the star by clicking it, 
+The user can view the detailed information about each star by clicking it, 
 can edit the information about the star and also can add new stars to the catalog.
 
-## Versions
+## Verwendete Software
 
-MongoDB `3.1.13`
+MongoDB `3.2.2`
 
 Express `4.16.4`
 
@@ -17,24 +20,27 @@ NodeJS `10.15.3`
 
 Bootstrap `4`
 
-## Platform
+## Wo die Anwendung lebt
 
-The app is being deployed to the 
-[Heroku](https://stars-and-planets.herokuapp.com/) platform and uses the 
-mLab as a host for the MongoDB.
+Die Anwendung wird verteilt auf der [Heroku](https://stars-and-planets.herokuapp.com/) 
+Plattform und verwendet als Host für die MongoDB-Datenbank die mLab.
+
+## Implementierte Funktionalität
+
+- Angular: Routing, Observables, Forms, eigene Form Validator für Zahlen-Input, Http Requests
+
+- Bootstrap: Dropdowns, Tooltips
+
+- MongoDB: Daten dauerhaft in DB gespeichert
+
+- Sonstige: Listenfilter, Listensortierung 
+
 
 ## TO DO
 
-Modify Star model in order to also keep the id of each star, 
-which might be useful when editing the properties of a star.
+- Beim editieren der Daten weitere Planeten hinzufügen
 
-Modify the way the star-nav component gets the data(see planets component).
+- Daten von Planeten editieren
 
-Finish the star-edit component so that the changes are sent to DB.
 
-Check if the components work with copies or references 
-(use JSON.parse(JSON.stringify() to make a deep copy).
 
-Try fix the issue when the back button is clicked and no data is displayed.
-
-Move all server related operations to server.service.ts.
