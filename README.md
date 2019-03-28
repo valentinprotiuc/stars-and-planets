@@ -35,8 +35,6 @@ Plattform und verwendet als Host für die MongoDB-Datenbank die mLab.
 
 ## Erweiterungsmöglichkeiten
 
-- Beim editieren der Daten weitere Planeten hinzufügen
-
 - Daten von Planeten editieren
 
 - Beim clicken eines Planeten die entsprechende Zeile in der Tabelle hervorheben
