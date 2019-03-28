@@ -2,6 +2,7 @@ import {Component, ElementRef, OnDestroy, OnInit, ViewChild} from '@angular/core
 import {Star} from '../star.model';
 import {StarService} from '../star.service';
 import {Subscription} from 'rxjs';
+import {Planet} from '../../planets/planet.model';
 
 @Component({
   selector: 'app-stars-nav',
@@ -11,7 +12,15 @@ import {Subscription} from 'rxjs';
 export class StarsNavComponent implements OnInit, OnDestroy {
 
   private subscription: Subscription;
-  stars: Star[] = [];
+  stars: Star[] = [
+    new Star('Star', 'Star', 'star', 1, 1, 1, 1, [
+      new Planet('Planet', 'planet', 1, 1, 1, 1, 1)
+    ]), new Star('Star', 'Star', 'star', 1, 1, 1, 1, [
+      new Planet('Planet', 'planet', 1, 1, 1, 1, 1)
+    ]), new Star('Star', 'Star', 'star', 1, 1, 1, 1, [
+      new Planet('Planet', 'planet', 1, 1, 1, 1, 1)
+    ])
+  ];
   @ViewChild('searchFilter') searchFilter: ElementRef;
 
 
@@ -28,7 +37,7 @@ export class StarsNavComponent implements OnInit, OnDestroy {
 
     this.stars = this.stars.sort((star1, star2) => {
       const value1 = (param === 'mass') ? star1.solarMass : ((param === 'distance') ? star1.distance : star1.name.toLowerCase());
-      const value2 = (param === 'mass') ? star2.solarMass : ((param === 'distance') ? star2.distance : star2.name.toLowerCase()) ;
+      const value2 = (param === 'mass') ? star2.solarMass : ((param === 'distance') ? star2.distance : star2.name.toLowerCase());
       if (value1 > value2) {
         return 1;
       }
