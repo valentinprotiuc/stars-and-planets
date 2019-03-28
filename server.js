@@ -3,6 +3,7 @@ const express = require('express');
 const path = require('path');
 const MongoClient = require('mongodb').MongoClient;
 const bodyParser = require('body-parser');
+const http = require("http");
 
 const app = express();
 
@@ -72,3 +73,7 @@ app.delete('/data/:name', (req, res) => {
 app.all('*', function (req, res) {
   res.redirect("https://stars-and-planets.herokuapp.com/");
 });
+
+setInterval(()=>{
+  http.get("https://stars-and-planets.herokuapp.com");
+}, 600000);
