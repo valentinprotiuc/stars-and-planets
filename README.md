@@ -1,12 +1,9 @@
 # Sterne&Planeten
 
-Einfache Single-Page-Webanwendung, die einen Sternkatalog darstellt.
+Einfache Single-Page-Webanwendung, die einen Sternkatalog darstellt. 
+Der Nutzer kann sich die Datenbank mit Sternen und Planeten ansehen, 
+neue Sterne in der Datenbank registrieren, Daten bearbeiten und Einträge löschen.
 
-
-A simple demo project using MEAN stack plus Bootstrap. It's a single page app 
-which allow the user to navigate through the database of stars and planets. 
-The user can view the detailed information about each star by clicking it, 
-can edit the information about the star and also can add new stars to the catalog.
 
 ## Verwendete Software
 
@@ -29,18 +26,22 @@ Plattform und verwendet als Host für die MongoDB-Datenbank die mLab.
 
 - Angular: Routing, Observables, Forms, eigene Form Validator für Zahlen-Input, Http Requests
 
-- Bootstrap: Dropdowns, Tooltips
+- Bootstrap: Navbar, Cards, Dropdowns, Tooltips
 
 - MongoDB: Daten dauerhaft in DB gespeichert
 
-- Sonstige: Listenfilter, Listensortierung 
+- Sonstige: Listenfilter, Listensortierung, versteckte Scrollleiste
 
 
-## TO DO
+## Erweiterungsmöglichkeiten
 
 - Beim editieren der Daten weitere Planeten hinzufügen
 
 - Daten von Planeten editieren
+
+- Beim clicken eines Planeten die entsprechende Zeile in der Tabelle hervorheben
+
+- Auswahlt von verschiedene Maßeinheiten(Lichtjahr, Parsec, Kilometer)
 
 
 
