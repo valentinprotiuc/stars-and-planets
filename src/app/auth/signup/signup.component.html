@@ -5,11 +5,11 @@
         <form (ngSubmit)="onSignup(f)" #f="ngForm">
           <div class="form-group">
             <label class="card-text" for="email">E-Mail</label>
-            <input class="form-control" type="email" id="email" name="email" ngModel>
+            <input class="form-control" type="email" id="email" name="email" ngModel required>
           </div>
           <div class="form-group">
             <label class="card-text" for="password">Passwort</label>
-            <input class="form-control" type="password" id="password" name="password" ngModel>
+            <input class="form-control" type="password" id="password" name="password" ngModel required>
           </div>
           <span class="help-block">{{helpMessage}}</span>
           <button class="btn btn-primary" type="submit">Registrieren</button>
