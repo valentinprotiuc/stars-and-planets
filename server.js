@@ -75,7 +75,7 @@ app.post('/signup', (req, res) => {
     res.status("400");
     res.send("Ungültige Eingabe!");
   } else {
-    const match = db.collection('users').findOne({email: req.body});
+    const match = db.collection('users').findOne({email: req.body.email});
     if (Object.keys(match).length !== 0) {
       res.status("400");
       res.send("Email bereits registriert!");
