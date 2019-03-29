@@ -1,12 +1,12 @@
 //Install express server
-import express from 'express';
-import path from 'path';
-import MongoClient from 'mongodb.MongoClient';
-// const MongoClient = require('mongodb').MongoClient;
-import bodyParser from 'body-parser';
-import https from 'https';
+const express = require('express');
+const path = require('path');
+const MongoClient = require('mongodb').MongoClient;
+const bodyParser = require('body-parser');
+const https = require("https");
 
 const app = express();
+
 const uri = 'mongodb://heroku_3h2xwfxr:spmc4d27eot7nc4qmgokqijuvf@ds215633.mlab.com:15633/heroku_3h2xwfxr';
 const client = new MongoClient(uri, {useNewUrlParser: true});
 const dbName = 'heroku_3h2xwfxr';
