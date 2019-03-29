@@ -12,7 +12,7 @@
             <input class="form-control" type="password" id="password" name="password" ngModel required>
           </div>
           <button class="btn btn-primary" type="submit">Registrieren</button>
-          <div><span class="help-block">{{helpMessage}}</span></div>
+          <div><span class="help-block" *ngIf="!(helpMessage==='')">{{helpMessage}}</span></div>
         </form>
       </div>
     </div>

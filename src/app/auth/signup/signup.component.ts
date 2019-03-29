@@ -18,6 +18,7 @@ export class SignupComponent implements OnInit {
   }
 
   onSignup(form: NgForm) {
+    this.helpMessage = '';
 
     this.serverService.registerUser({email: form.value.email, password: form.value.password}).subscribe(
       (response) => {
