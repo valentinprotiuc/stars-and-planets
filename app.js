@@ -1,8 +1,8 @@
-//Install express server
 const express = require('express');
 const path = require('path');
 const MongoClient = require('mongodb').MongoClient;
 const bodyParser = require('body-parser');
+const passport = require('passport');
 const https = require("https");
 
 const app = express();
@@ -11,6 +11,9 @@ const uri = 'mongodb://heroku_3h2xwfxr:spmc4d27eot7nc4qmgokqijuvf@ds215633.mlab.
 const client = new MongoClient(uri, {useNewUrlParser: true});
 const dbName = 'heroku_3h2xwfxr';
 let db;
+
+require('./api/models/db');
+require();
 
 app.use(express.static(__dirname + '/dist/stars-and-planets'));
 app.use(bodyParser.json());
@@ -74,6 +77,9 @@ app.all('*', function (req, res) {
   res.redirect("https://stars-and-planets.herokuapp.com/");
 });
 
+// Die Seite geht in Schlafmodus wenn länger nicht aktiv(Einstellung der Heroku Platform).
+// Deswegen dauert das Aufrufen der Seite manchmal bis zu einer Minute.
+// Die App macht jede 10 Minuten ein Request, um wach zu bleiben und lange Ladezeit zu vermeiden.
 setInterval(() => {
   https.get("https://stars-and-planets.herokuapp.com");
 }, 600000);
