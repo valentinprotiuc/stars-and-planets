@@ -24,7 +24,7 @@ Plattform und verwendet als Host für die MongoDB-Datenbank die mLab.
 
 ## Implementierte Funktionalität
 
-- Angular: Routing, Observables, Forms, eigene Form Validator für Zahlen-Input, Http Requests
+- Angular: Routing, Observables, Reactive und Template Forms, eigene Form Validator für Zahlen-Input, Http Requests
 
 - Bootstrap: Navbar, Cards, Dropdowns, Tooltips
 

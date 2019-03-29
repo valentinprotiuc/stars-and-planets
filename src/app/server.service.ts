@@ -35,4 +35,8 @@ export class ServerService {
   removeStarFromDB(star: Star) {
     return this.http.delete('https://stars-and-planets.herokuapp.com/data/' + star.name);
   }
+
+  registerUser(credentials: {}) {
+    return this.http.post('https://stars-and-planets.herokuapp.com/signup', credentials);
+  }
 }

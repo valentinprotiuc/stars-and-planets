@@ -70,10 +70,24 @@ app.delete('/data/:name', (req, res) => {
   })
 });
 
+app.post('/signup', (req, res) => {
+  if (!req.body.email || !req.body.password) {
+    res.status("400");
+    res.send("Ungültige Eingabe!");
+  } else {
+    const match = db.collection('users').findOne({email: req.body});
+    if (match) res.send("Email schon registriert!");
+    db.collection('users').insert(req.body, (error, result) => {
+      if (error) throw error;
+      res.send("Erfolgreich registriert!");
+    });
+  }
+});
+
 app.all('*', function (req, res) {
   res.redirect("https://stars-and-planets.herokuapp.com/");
 });
 
-setInterval(()=>{
+setInterval(() => {
   https.get("https://stars-and-planets.herokuapp.com");
 }, 600000);

@@ -17,7 +17,9 @@ import {StarAddComponent} from './stars/star-add/star-add.component';
 import {HttpClientModule} from '@angular/common/http';
 import {ServerService} from './server.service';
 import {StarService} from './stars/star.service';
-import {ReactiveFormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {SigninComponent} from './auth/signin/signin.component';
+import {SignupComponent} from './auth/signup/signup.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,9 @@ import {ReactiveFormsModule} from '@angular/forms';
     StarEditComponent,
     StarsNavComponent,
     StarsWelcomeComponent,
-    StarAddComponent
+    StarAddComponent,
+    SigninComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
@@ -40,6 +44,7 @@ import {ReactiveFormsModule} from '@angular/forms';
     AccordionModule.forRoot(),
     AppRouting,
     HttpClientModule,
+    FormsModule,
     ReactiveFormsModule
   ],
   providers: [ServerService, StarService],
