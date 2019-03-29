@@ -1,16 +1,16 @@
 //Install express server
-const express = require('express');
-const path = require('path');
-const MongoClient = require('mongodb').MongoClient;
-const bodyParser = require('body-parser');
-const https = require("https");
+import express from 'express';
+import path from 'path';
+import MongoClient from 'mongodb.MongoClient';
+// const MongoClient = require('mongodb').MongoClient;
+import bodyParser from 'body-parser';
+import https from 'https';
 
 const app = express();
-
 const uri = 'mongodb://heroku_3h2xwfxr:spmc4d27eot7nc4qmgokqijuvf@ds215633.mlab.com:15633/heroku_3h2xwfxr';
 const client = new MongoClient(uri, {useNewUrlParser: true});
 const dbName = 'heroku_3h2xwfxr';
-var db;
+let db;
 
 app.use(express.static(__dirname + '/dist/stars-and-planets'));
 app.use(bodyParser.json());
@@ -68,24 +68,6 @@ app.delete('/data/:name', (req, res) => {
       res.send(result);
     });
   })
-});
-
-app.post('/signup', (req, res) => {
-  if (!req.body.email || !req.body.password) {
-    res.status("400");
-    res.send("Ungültige Eingabe!");
-  } else {
-    const match = db.collection('users').findOne({email: req.body.email});
-    if (Object.keys(match).length !== 0) {
-      res.status("400");
-      res.send("Email bereits registriert!");
-    } else {
-      db.collection('users').insert(req.body, (error, result) => {
-        if (error) throw error;
-        res.send("Erfolgreich registriert!");
-      });
-    }
-  }
 });
 
 app.all('*', function (req, res) {
