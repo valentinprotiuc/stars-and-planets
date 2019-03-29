@@ -79,7 +79,7 @@ app.post('/signup', (req, res) => {
     if (Object.keys(match).length !== 0) res.send("Email bereits registriert!");
     db.collection('users').insert(req.body, (error, result) => {
       if (error) throw error;
-      res.send(JSON.parse("Erfolgreich registriert!"));
+      res.send("Erfolgreich registriert!");
     });
   }
 });

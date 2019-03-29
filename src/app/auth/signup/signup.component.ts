@@ -21,7 +21,7 @@ export class SignupComponent implements OnInit {
 
     this.serverService.registerUser({email: form.value.email, password: form.value.password}).subscribe(
       (response) => {
-        this.helpMessage = response.toString();
+        this.helpMessage = response.error.text.toString();
       },
       (error) => {
         throw error;
