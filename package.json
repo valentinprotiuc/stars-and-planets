@@ -1,6 +1,6 @@
 {
   "name": "stars-and-planets",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "scripts": {
     "ng": "ng",
     "start": "node app.js",
