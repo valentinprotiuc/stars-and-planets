@@ -25,7 +25,7 @@ export class SignupComponent implements OnInit {
         this.helpMessage = 'Erfolgreich registriert!';
       },
       (error) => {
-        throw error;
+        this.helpMessage = error.error.text;
       }
     );
   }
