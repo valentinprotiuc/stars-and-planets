@@ -43,6 +43,7 @@ export class StarService {
         this.starListChanged.next(response);
         this.currentlySelectedStar = this.getStar(star.name);
         this.starSelected.next(this.getStar(star.name));
+        this.router.navigate(['stars/details/']);
       },
       (error) => {
         throw error;
@@ -50,7 +51,7 @@ export class StarService {
     );
   }
 
-  updateStar(star: Star, initialName: string) {
+  updateStar(star: Star) {
     this.serverService.updateStarInDB(star).subscribe(
       (response: Star[]) => {
         console.log(response);

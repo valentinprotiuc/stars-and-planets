@@ -42,15 +42,13 @@ export class StarEditComponent implements OnInit, OnDestroy {
     this.editStarForm.value.planets.forEach((planet) => {
       this.star.orbitingPlanets.push(planet as Planet);
     });
-
-    const initialName = this.starService.currentlySelectedStar.name;
     this.star.name = this.editStarForm.value.starName;
     this.star.spectralType = this.editStarForm.value.spectralType;
     this.star.solarMass = this.editStarForm.value.solarMass;
     this.star.solarRadius = this.editStarForm.value.solarRadius;
     this.star.effectiveTemperature = this.editStarForm.value.effectiveTemperature;
     this.star.distance = this.editStarForm.value.distance;
-    this.starService.updateStar(this.star, initialName);
+    this.starService.updateStar(this.star);
   }
 
   onRemovePlanet(planet: Planet) {

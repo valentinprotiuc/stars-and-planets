@@ -47,7 +47,6 @@ export class StarAddComponent implements OnInit {
       new Star('fakeId', this.newStarForm.value.starName, this.newStarForm.value.spectralType, this.newStarForm.value.solarMass,
         this.newStarForm.value.solarRadius, this.newStarForm.value.effectiveTemperature, this.newStarForm.value.distance, planets)
     );
-    this.router.navigate(['stars/details/']);
   }
 
   onCancel() {
