@@ -7,7 +7,6 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const passport = require('passport');
 const https = require("https");
-const Star = mongoose.model('Star');
 
 const app = express();
 
@@ -19,7 +18,10 @@ const port = 8080;
 let db;*/
 
 require('./api/models/db');
+require('./api/models/stars');
 require('./api/config/passport');
+const Star = mongoose.model('Star');
+
 
 app.use(express.static(__dirname + '/dist/stars-and-planets'));
 app.use(bodyParser.urlencoded({extended: true}));
@@ -57,7 +59,10 @@ app.put('/data', (req, res) => {
   const star = new Star(req.body);
   star.save((error, star) => {
     if (error) return console.error(err);
-    res.send(star);
+    Star.find((error, stars) => {
+      if (error) return console.error(err);
+      res.send(stars);
+    });
   });
 
   /*db.collection('stars').insert(req.body, (error, result) => {
