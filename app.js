@@ -52,12 +52,12 @@ app.post('/data', (req, res) => {
   delete data._id;*/
 
   //const doc = await Star.findOne({_id: ObjectId(req.body.star._id)});
-  console.log("The id: ", req.body.id);
+ /* console.log("The id: ", req.body.id);
   console.log("The id: ", req.body.star._id);
   console.log("The star: ", req.body.star);
   Star.findById(req.body.id, (error, doc)=>{
     console.log("The doc: ", doc);
-  });
+  });*/
   /*
     doc.name = req.body.star.name;
     doc.spectralType = req.body.star.spectralType;
@@ -80,14 +80,17 @@ app.post('/data', (req, res) => {
       if (error) return console.error(err);
       res.send(stars);
     });*/
-  /*  Star.replaceOne({name: req.body.star.name}, req.body.star, {upsert: true}, (err, rawResponse) => {
+  const data = JSON.parse(JSON.stringify(req.body.star));
+  delete data._id;
+
+  Star.replaceOne({_id: ObjectId(req.body.star._id)}, data, {upsert: true}, (err, rawResponse) => {
       if (error) return console.error(err);
       console.log(rawResponse);
       Star.find((error, stars) => {
         if (error) return console.error(err);
         res.send(stars);
       });
-    });*/
+    });
 });
 
 app.delete('/data/:name', (req, res) => {
