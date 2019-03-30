@@ -9,7 +9,7 @@ const auth = jwt({
 
 const ctrlProfile = require('../controllers/profile');
 const ctrlAuth = require('../controllers/authentication');
-const ctrlData = require('../controller/data');
+const ctrlData = require('../controllers/data');
 
 
 // Profil
