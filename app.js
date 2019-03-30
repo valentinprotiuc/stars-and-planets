@@ -17,7 +17,7 @@ const dbName = 'heroku_3h2xwfxr';
 let db;
 
 require('./api/models/db');
-require('./api/config/passport');
+//require('./api/config/passport');
 
 app.use(express.static(__dirname + '/dist/stars-and-planets'));
 app.use(bodyParser.urlencoded({extended: true}));
