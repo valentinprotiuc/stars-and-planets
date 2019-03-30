@@ -48,9 +48,9 @@ app.put('/data', (req, res) => {
 });
 
 app.post('/data', (req, res) => {
-  var data = req.body.star;
+  let data = req.body.star;
   delete data._id;
-  Star.where({_id: req.body.star._id}).update(data);
+  Star.where({_id: req.body.star._id}).update(data).exec();
   Star.find((error, stars) => {
     if (error) return console.error(err);
     res.send(stars);
@@ -69,13 +69,17 @@ app.post('/data', (req, res) => {
 });
 
 app.delete('/data/:name', (req, res) => {
-  db.collection('stars').deleteOne({name: req.params.name}, (error, result) => {
+
+  Star.deleteOne({})
+
+
+ /* db.collection('stars').deleteOne({name: req.params.name}, (error, result) => {
     if (error) throw error;
     db.collection('stars').find({}).toArray((error, result) => {
       if (error) throw err;
       res.send(result);
     });
-  })
+  })*/
 });
 
 app.all('*', function (req, res) {
