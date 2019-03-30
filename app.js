@@ -1,4 +1,5 @@
 const express = require('express');
+const mongoose = require('mongoose');
 const path = require('path');
 const favicon = require('serve-favicon');
 //const MongoClient = require('mongodb').MongoClient;
@@ -40,6 +41,10 @@ app.get('/', function (req, res) {
 
 
 app.get('/data', (req, res) => {
+  Star.find((error, stars) => {
+    if (error) return console.error(err);
+    res.send(stars);
+  });
 
   /*db.collection('stars').find({}).toArray((error, result) => {
     if (error) throw err;
