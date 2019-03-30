@@ -10,16 +10,10 @@ const https = require("https");
 
 const app = express();
 
-const port = 8080;
-
-//const uri = 'mongodb://heroku_3h2xwfxr:spmc4d27eot7nc4qmgokqijuvf@ds215633.mlab.com:15633/heroku_3h2xwfxr';
-//const client = new MongoClient(uri, {useNewUrlParser: true});
-/*const dbName = 'heroku_3h2xwfxr';
-let db;*/
 
 require('./api/models/db');
-require('./api/models/stars');
 require('./api/config/passport');
+
 const Star = mongoose.model('Star');
 
 
@@ -27,14 +21,6 @@ app.use(express.static(__dirname + '/dist/stars-and-planets'));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 app.use(cors());
-
-
-/*client.connect((err, client) => {
-  if (err) throw err;
-  db = client.db(dbName);
-  app.listen(process.env.PORT || 8080);
-});*/
-
 
 app.get('/', function (req, res) {
 
@@ -47,11 +33,6 @@ app.get('/data', (req, res) => {
     if (error) return console.error(err);
     res.send(stars);
   });
-
-  /*db.collection('stars').find({}).toArray((error, result) => {
-    if (error) throw err;
-    res.send(result);
-  });*/
 });
 
 
@@ -64,22 +45,19 @@ app.put('/data', (req, res) => {
       res.send(stars);
     });
   });
-
-  /*db.collection('stars').insert(req.body, (error, result) => {
-    if (error) throw error;
-    db.collection('stars').find({}).toArray((error, result) => {
-      if (error) throw err;
-      res.send(result);
-    });
-  });*/
 });
-
-/*
 
 app.post('/data', (req, res) => {
   var data = req.body.star;
   delete data._id;
-  db.collection('stars').updateOne({"name": req.body.initialName}, {$set: data}, (error, result) => {
+  Star.where({_id: req.body.star._id}).update(data);
+  Star.find((error, stars) => {
+    if (error) return console.error(err);
+    res.send(stars);
+  });
+
+
+  /*db.collection('stars').updateOne({"name": req.body.initialName}, {$set: data}, (error, result) => {
       if (error) throw error;
       else console.log(result);
       db.collection('stars').find({}).toArray((error, result) => {
@@ -87,7 +65,7 @@ app.post('/data', (req, res) => {
         res.send(result);
       });
     }
-  )
+  )*/
 });
 
 app.delete('/data/:name', (req, res) => {
@@ -98,7 +76,7 @@ app.delete('/data/:name', (req, res) => {
       res.send(result);
     });
   })
-});*/
+});
 
 app.all('*', function (req, res) {
   res.redirect("https://stars-and-planets.herokuapp.com/");
@@ -113,4 +91,4 @@ setInterval(() => {
 }, 600000);
 
 
-app.listen(process.env.PORT || port);
+app.listen(process.env.PORT || 8080);
