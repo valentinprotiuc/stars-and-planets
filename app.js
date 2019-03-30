@@ -53,8 +53,9 @@ app.post('/data', (req, res) => {
 
   //const doc = await Star.findOne({_id: ObjectId(req.body.star._id)});
   console.log("The id: ", req.body.star._id);
-  const doc = await Star.findById(req.body.star._id);
-  console.log(doc);
+  Star.findById(req.body.star._id, (error, doc)=>{
+    console.log("The doc: ", doc);
+  });
   /*
     doc.name = req.body.star.name;
     doc.spectralType = req.body.star.spectralType;
