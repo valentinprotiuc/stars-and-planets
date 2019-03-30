@@ -48,5 +48,19 @@ export class AuthenticationService {
     this.router.navigateByUrl('/');
   }
 
+  public getUserDetails(): UserDetails {
+    const token = this.getToken();
+    let payload;
+    if (token) {
+      payload = token.split('.')[1];
+      payload = window.atob(payload);
+      return JSON.parse(payload);
+    } else {
+      return null;
+    }
+  }
+
+
+
 
 }

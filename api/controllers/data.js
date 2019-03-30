@@ -4,7 +4,7 @@ const Star = mongoose.model('Star');
 
 module.exports.add = (req, res) => {
 
-  const star = new Star(req.body);
+  const star = new Star(req.body.noIdStar);
 
   star.save((error, star) => {
     if (error) return console.error(err);
@@ -47,7 +47,7 @@ module.exports.update = (req, res) => {
 };
 
 module.exports.remove = (req, res) => {
-  Star.deleteOne({name: req.params.name}, (error, mongooseDeleteResult) => {
+  Star.deleteOne({_id: mongoose.Types.ObjectId(req.body.star._id)}, (error, mongooseDeleteResult) => {
     if (error) return console.error(err);
     Star.find((error, stars) => {
       if (error) return console.error(err);

@@ -21,7 +21,7 @@ export class ServerService {
       distance: +star.distance,
       orbitingPlanets: star.orbitingPlanets
     };
-    return this.http.put('https://stars-and-planets.herokuapp.com/data', noIdStar);
+    return this.http.put('https://stars-and-planets.herokuapp.com/api/addData', {noIdStar});
   }
 
   getStarsFromDB() {
@@ -29,14 +29,10 @@ export class ServerService {
   }
 
   updateStarInDB(star: Star) {
-    return this.http.post('https://stars-and-planets.herokuapp.com/data', {star});
+    return this.http.post('https://stars-and-planets.herokuapp.com/api/updateData', {star});
   }
 
   removeStarFromDB(star: Star) {
-    return this.http.delete('https://stars-and-planets.herokuapp.com/data/' + star.name);
-  }
-
-  registerUser(credentials: {}) {
-    return this.http.post('https://stars-and-planets.herokuapp.com/signup', credentials);
+    return this.http.post('https://stars-and-planets.herokuapp.com/api/removeData', {star});
   }
 }
