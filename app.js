@@ -48,7 +48,10 @@ app.put('/data', (req, res) => {
 
 app.post('/data', (req, res) => {
 
-  Star.findById(req.body.star.id, (error, doc) => {
+  console.log(req);
+
+  Star.findById(req.body.star._id, (error, doc) => {
+
     if (error) return console.error(err);
     doc.name = req.body.star.name;
     doc.spectralType = req.body.star.spectralType;
@@ -57,7 +60,7 @@ app.post('/data', (req, res) => {
     doc.effectiveTemperature = req.body.star.effectiveTemperature;
     doc.distance = req.body.star.distance;
     doc.orbitingPlanets = req.body.star.orbitingPlanets;
-    doc.save((error, file, count)=>{
+    doc.save((error, document, affectedCount)=>{
       if (error) return console.error(err);
       Star.find((error, stars) => {
         if (error) return console.error(err);
