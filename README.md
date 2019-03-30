@@ -7,7 +7,7 @@ neue Sterne in der Datenbank registrieren, Daten bearbeiten und Einträge lösch
 
 ## Verwendete Software
 
-MongoDB `3.2.2`
+Mongoose `5.4.20`
 
 Express `4.16.4`
 

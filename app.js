@@ -51,6 +51,7 @@ app.post('/data', (req, res) => {
   let data = req.body.star;
   delete data._id;
   Star.findOneAndUpdate({name: req.body.star.name}, data, (error, doc) => {
+    console.log(doc);
     if (error) return console.error(err);
     Star.find((error, stars) => {
       if (error) return console.error(err);
