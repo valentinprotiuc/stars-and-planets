@@ -51,7 +51,6 @@ export class StarEditComponent implements OnInit, OnDestroy {
     this.star.effectiveTemperature = this.editStarForm.value.effectiveTemperature;
     this.star.distance = this.editStarForm.value.distance;
     this.starService.updateStar(this.star, initialName);
-    this.router.navigate(['stars/details']);
   }
 
   onRemovePlanet(planet: Planet) {

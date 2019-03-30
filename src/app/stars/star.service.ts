@@ -3,6 +3,7 @@ import {Star} from './star.model';
 import {HttpClient} from '@angular/common/http';
 import {ServerService} from '../server.service';
 import {Subject} from 'rxjs';
+import {Router} from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -57,6 +58,7 @@ export class StarService {
         this.starListChanged.next(response);
         this.currentlySelectedStar = this.getStar(star.name);
         this.starSelected.next(this.getStar(star.name));
+        this.router.navigate(['stars/details']);
       },
       (error) => {
         throw error;
@@ -90,6 +92,6 @@ export class StarService {
     return this.stars.find(i => i.name === starName);
   }
 
-  constructor(private http: HttpClient, private serverService: ServerService) {
+  constructor(private http: HttpClient, private serverService: ServerService, private router: Router) {
   }
 }
