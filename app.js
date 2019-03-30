@@ -1,30 +1,34 @@
 const express = require('express');
 const path = require('path');
-const MongoClient = require('mongodb').MongoClient;
+//const MongoClient = require('mongodb').MongoClient;
 const bodyParser = require('body-parser');
+const cors = require('cors');
 const passport = require('passport');
-const https = require("https");
+//const https = require("https");
 
 const app = express();
 
-const uri = 'mongodb://heroku_3h2xwfxr:spmc4d27eot7nc4qmgokqijuvf@ds215633.mlab.com:15633/heroku_3h2xwfxr';
-const client = new MongoClient(uri, {useNewUrlParser: true});
+const port = 8080;
+
+//const uri = 'mongodb://heroku_3h2xwfxr:spmc4d27eot7nc4qmgokqijuvf@ds215633.mlab.com:15633/heroku_3h2xwfxr';
+//const client = new MongoClient(uri, {useNewUrlParser: true});
 const dbName = 'heroku_3h2xwfxr';
 let db;
 
-/*require('./api/models/db');
-require('./api/config/passport');*/
+require('./api/models/db');
+require('./api/config/passport');
 
 app.use(express.static(__dirname + '/dist/stars-and-planets'));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
+app.use(cors());
 
 
-client.connect((err, client) => {
+/*client.connect((err, client) => {
   if (err) throw err;
   db = client.db(dbName);
   app.listen(process.env.PORT || 8080);
-});
+});*/
 
 
 app.get('/', function (req, res) {
@@ -32,6 +36,7 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname + '/dist/stars-and-planets/index.html'));
 });
 
+/*
 app.get('/data', (req, res) => {
   db.collection('stars').find({}).toArray((error, result) => {
     if (error) throw err;
@@ -84,3 +89,6 @@ app.all('*', function (req, res) {
 setInterval(() => {
   https.get("https://stars-and-planets.herokuapp.com");
 }, 600000);
+*/
+
+app.listen(process.env.PORT || port);
