@@ -48,14 +48,16 @@ app.put('/data', (req, res) => {
 });
 
 app.post('/data', (req, res) => {
-  let data = req.body.star;
-  delete data._id;
+ /* let data = req.body.star;
+  delete data._id;*/
 
   //const doc = await Star.findOne({_id: ObjectId(req.body.star._id)});
+  console.log("The id: ", req.body.id);
   console.log("The id: ", req.body.star._id);
   console.log("The star: ", req.body.star);
-  Star.findById(req.body.star._id, (error, doc)=>{
+  Star.findById(req.body.id, (error, doc)=>{
     console.log("The doc: ", doc);
+    res.end();
   });
   /*
     doc.name = req.body.star.name;

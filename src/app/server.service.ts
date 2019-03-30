@@ -28,9 +28,9 @@ export class ServerService {
     return this.http.get('https://stars-and-planets.herokuapp.com/data');
   }
 
-  updateStarInDB(star: Star, initialName: string) {
-    console.log('Star: ', star);
-    return this.http.post('https://stars-and-planets.herokuapp.com/data', {star, initialName});
+  updateStarInDB(star: Star) {
+    const id: string = star._id;
+    return this.http.post('https://stars-and-planets.herokuapp.com/data', {star, id});
   }
 
   removeStarFromDB(star: Star) {
