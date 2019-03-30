@@ -63,7 +63,7 @@ app.post('/data', (req, res) => {
       if (error) return console.error(err);
       res.send(stars);
     });*/
-  Star.replaceOne({name: req.body.star.name}, data, {upsert: true}, (err, rawResponse) => {
+  Star.replaceOne({name: req.body.star.name}, req.body.star, {upsert: true}, (err, rawResponse) => {
     if (error) return console.error(err);
     console.log(rawResponse);
     Star.find((error, stars) => {
