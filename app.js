@@ -51,7 +51,9 @@ app.post('/data', (req, res) => {
   let data = req.body.star;
   delete data._id;
 
-  const doc = await Star.findOne({_id: ObjectId(req.body.star._id)});
+  //const doc = await Star.findOne({_id: ObjectId(req.body.star._id)});
+  console.log("The id: ", req.body.star._id);
+  const doc = await Star.findById(req.body.star._id);
   console.log(doc);
   /*
     doc.name = req.body.star.name;
