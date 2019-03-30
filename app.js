@@ -51,38 +51,38 @@ app.post('/data', (req, res) => {
   let data = req.body.star;
   delete data._id;
 
- const doc = await Star.findOne({"_id.$oid": req.body.star._id});
+  const doc = await Star.findOne({_id: ObjectId(req.body.star._id)});
   console.log(doc);
-/*
-  doc.name = req.body.star.name;
-  doc.spectralType = req.body.star.spectralType;
-  doc.solarMass = req.body.star.solarMass;
-  doc.solarRadius = req.body.star.solarRadius;
-  doc.effectiveTemperature = req.body.star.effectiveTemperature;
-  doc.name = req.body.star.name;
-  doc.name = req.body.star.name;
-*/
-  Star.findOneAndUpdate({name: initialName}, data, (error, doc) => {
-     console.log(doc);
-     if (error) return console.error(err);
-     Star.find((error, stars) => {
-       if (error) return console.error(err);
-       res.send(stars);
-     });
-   });
+  /*
+    doc.name = req.body.star.name;
+    doc.spectralType = req.body.star.spectralType;
+    doc.solarMass = req.body.star.solarMass;
+    doc.solarRadius = req.body.star.solarRadius;
+    doc.effectiveTemperature = req.body.star.effectiveTemperature;
+    doc.name = req.body.star.name;
+    doc.name = req.body.star.name;
+  */
+  /*Star.findOneAndUpdate({name: initialName}, data, (error, doc) => {
+    console.log(doc);
+    if (error) return console.error(err);
+    Star.find((error, stars) => {
+      if (error) return console.error(err);
+      res.send(stars);
+    });
+  });
   /* Star.where({name: req.body.star.name}).update(data).exec();
    Star.find((error, stars) => {
       if (error) return console.error(err);
       res.send(stars);
     });*/
-/*  Star.replaceOne({name: req.body.star.name}, req.body.star, {upsert: true}, (err, rawResponse) => {
-    if (error) return console.error(err);
-    console.log(rawResponse);
-    Star.find((error, stars) => {
+  /*  Star.replaceOne({name: req.body.star.name}, req.body.star, {upsert: true}, (err, rawResponse) => {
       if (error) return console.error(err);
-      res.send(stars);
-    });
-  });*/
+      console.log(rawResponse);
+      Star.find((error, stars) => {
+        if (error) return console.error(err);
+        res.send(stars);
+      });
+    });*/
 });
 
 app.delete('/data/:name', (req, res) => {
