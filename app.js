@@ -7,14 +7,12 @@ const cors = require('cors');
 const passport = require('passport');
 const https = require("https");
 
-const app = express();
-
-
 require('./api/models/db');
 require('./api/config/passport');
 
+const routesApi = require('./api/routes/index');
 const Star = mongoose.model('Star');
-
+const app = express();
 
 app.use(express.static(__dirname + '/dist/stars-and-planets'));
 app.use(bodyParser.urlencoded({extended: true}));
@@ -26,6 +24,13 @@ app.use('/api', routesApi);
 app.get('/', function (req, res) {
 
   res.sendFile(path.join(__dirname + '/dist/stars-and-planets/index.html'));
+});
+
+app.use(function (err, req, res, next) {
+  if (err.name === 'UnauthorizedError') {
+    res.status(401);
+    res.json({"message" : err.name + ": " + err.message});
+  }
 });
 
 
