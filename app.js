@@ -20,6 +20,8 @@ app.use(express.static(__dirname + '/dist/stars-and-planets'));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 app.use(cors());
+app.use(passport.initialize());
+app.use('/api', routesApi);
 
 app.get('/', function (req, res) {
 
@@ -53,6 +55,7 @@ app.post('/data', (req, res) => {
   Star.findById(req.body.star._id, (error, doc) => {
 
     if (error) return console.error(err);
+    // should check if any found
     doc.name = req.body.star.name;
     doc.spectralType = req.body.star.spectralType;
     doc.solarMass = req.body.star.solarMass;
@@ -96,3 +99,5 @@ setInterval(() => {
 
 
 app.listen(process.env.PORT || 8080);
+
+module.exports = app;

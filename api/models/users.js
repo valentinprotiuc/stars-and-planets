@@ -35,7 +35,7 @@ userSchema.methods.generateJwt = function() {
     email: this.email,
     name: this.name,
     exp: parseInt(expiry.getTime() / 1000),
-  }, process.env.SESSION_SECRET); // For security purpose the secret is set as an environment variable
+  }, process.env.SESSION_SECRET); // Aus Sicherheitsgründen ist die Variable SESSION_SECRET in der Heroku-Umgebung definiert
 };
 
 mongoose.model('User', userSchema);

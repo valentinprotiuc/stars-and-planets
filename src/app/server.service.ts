@@ -25,7 +25,7 @@ export class ServerService {
   }
 
   getStarsFromDB() {
-    return this.http.get('https://stars-and-planets.herokuapp.com/data');
+    return this.http.get('https://stars-and-planets.herokuapp.com/api/getData');
   }
 
   updateStarInDB(star: Star) {
