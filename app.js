@@ -57,7 +57,6 @@ app.post('/data', (req, res) => {
   console.log("The star: ", req.body.star);
   Star.findById(req.body.id, (error, doc)=>{
     console.log("The doc: ", doc);
-    res.end();
   });
   /*
     doc.name = req.body.star.name;
