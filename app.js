@@ -69,7 +69,7 @@ app.post('/data', (req, res) => {
     Star.find((error, stars) => {
       if (error) return console.error(err);
       res.send(stars);
-
+    });
   });
 });
 
