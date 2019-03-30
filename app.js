@@ -2,11 +2,11 @@ const express = require('express');
 const mongoose = require('mongoose');
 const path = require('path');
 const favicon = require('serve-favicon');
-//const MongoClient = require('mongodb').MongoClient;
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const passport = require('passport');
 const https = require("https");
+const ObjectId = require('mongodb').ObjectID;
 
 const app = express();
 
@@ -50,22 +50,18 @@ app.put('/data', (req, res) => {
 app.post('/data', (req, res) => {
   let data = req.body.star;
   delete data._id;
-  Star.where({_id: req.body.star._id}).update(data).exec();
+  Star.findOneAndUpdate({_id: ObjectId(req.body.star._id)}, data, (error, doc) => {
+    if (error) return console.error(err);
+    Star.find((error, stars) => {
+      if (error) return console.error(err);
+      res.send(stars);
+    });
+  });
+ /* Star.where({_id: req.body.star._id}).update(data).exec();
   Star.find((error, stars) => {
     if (error) return console.error(err);
     res.send(stars);
-  });
-
-
-  /*db.collection('stars').updateOne({"name": req.body.initialName}, {$set: data}, (error, result) => {
-      if (error) throw error;
-      else console.log(result);
-      db.collection('stars').find({}).toArray((error, result) => {
-        if (error) throw err;
-        res.send(result);
-      });
-    }
-  )*/
+  });*/
 });
 
 app.delete('/data/:name', (req, res) => {
@@ -73,13 +69,13 @@ app.delete('/data/:name', (req, res) => {
   Star.deleteOne({})
 
 
- /* db.collection('stars').deleteOne({name: req.params.name}, (error, result) => {
-    if (error) throw error;
-    db.collection('stars').find({}).toArray((error, result) => {
-      if (error) throw err;
-      res.send(result);
-    });
-  })*/
+  /* db.collection('stars').deleteOne({name: req.params.name}, (error, result) => {
+     if (error) throw error;
+     db.collection('stars').find({}).toArray((error, result) => {
+       if (error) throw err;
+       res.send(result);
+     });
+   })*/
 });
 
 app.all('*', function (req, res) {
