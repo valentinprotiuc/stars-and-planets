@@ -48,6 +48,25 @@ app.put('/data', (req, res) => {
 });
 
 app.post('/data', (req, res) => {
+
+  Star.findById(req.body.id, (error, doc)=>{
+    if (error) return console.error(err);
+    doc.name = req.body.star.name;
+    doc.spectralType = req.body.star.spectralType;
+    doc.solarMass = req.body.star.solarMass;
+    doc.solarRadius = req.body.star.solarRadius;
+    doc.effectiveTemperature = req.body.star.effectiveTemperature;
+    doc.distance = req.body.star.distance;
+    doc.orbitingPlanets = req.body.star.orbitingPlanets;
+    doc.save();
+
+    Star.find((error, stars) => {
+      if (error) return console.error(err);
+      res.send(stars);
+    });
+  });
+
+
  /* let data = req.body.star;
   delete data._id;*/
 
@@ -80,17 +99,16 @@ app.post('/data', (req, res) => {
       if (error) return console.error(err);
       res.send(stars);
     });*/
-  const data = JSON.parse(JSON.stringify(req.body.star));
-  delete data._id;
 
-  Star.replaceOne({_id: ObjectId(req.body.star._id)}, data, {upsert: true}, (err, rawResponse) => {
+
+ /* Star.replaceOne({_id: ObjectId(req.body.star._id)}, data, {upsert: true}, (err, rawResponse) => {
       if (error) return console.error(err);
       console.log(rawResponse);
       Star.find((error, stars) => {
         if (error) return console.error(err);
         res.send(stars);
       });
-    });
+    });*/
 });
 
 app.delete('/data/:name', (req, res) => {
