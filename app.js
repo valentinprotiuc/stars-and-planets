@@ -50,6 +50,10 @@ app.put('/data', (req, res) => {
 app.post('/data', (req, res) => {
   let data = req.body.star;
   delete data._id;
+
+  const doc = await Star.findOne({name: req.body.star.name});
+  console.log(doc);
+
   /* Star.findOneAndUpdate({name: req.body.star.name}, data, (error, doc) => {
      console.log(doc);
      if (error) return console.error(err);
@@ -63,14 +67,14 @@ app.post('/data', (req, res) => {
       if (error) return console.error(err);
       res.send(stars);
     });*/
-  Star.replaceOne({name: req.body.star.name}, req.body.star, {upsert: true}, (err, rawResponse) => {
+/*  Star.replaceOne({name: req.body.star.name}, req.body.star, {upsert: true}, (err, rawResponse) => {
     if (error) return console.error(err);
     console.log(rawResponse);
     Star.find((error, stars) => {
       if (error) return console.error(err);
       res.send(stars);
     });
-  });
+  });*/
 });
 
 app.delete('/data/:name', (req, res) => {
