@@ -50,32 +50,29 @@ app.put('/data', (req, res) => {
 app.post('/data', (req, res) => {
   let data = req.body.star;
   delete data._id;
-  Star.findOneAndUpdate({_id: ObjectId(req.body.star._id)}, data, (error, doc) => {
+  Star.findOneAndUpdate({name: req.body.star.name}, data, (error, doc) => {
     if (error) return console.error(err);
     Star.find((error, stars) => {
       if (error) return console.error(err);
       res.send(stars);
     });
   });
- /* Star.where({_id: req.body.star._id}).update(data).exec();
-  Star.find((error, stars) => {
-    if (error) return console.error(err);
-    res.send(stars);
-  });*/
+  /* Star.where({_id: req.body.star._id}).update(data).exec();
+   Star.find((error, stars) => {
+     if (error) return console.error(err);
+     res.send(stars);
+   });*/
 });
 
 app.delete('/data/:name', (req, res) => {
 
-  Star.deleteOne({})
-
-
-  /* db.collection('stars').deleteOne({name: req.params.name}, (error, result) => {
-     if (error) throw error;
-     db.collection('stars').find({}).toArray((error, result) => {
-       if (error) throw err;
-       res.send(result);
-     });
-   })*/
+  Star.deleteOne({name: req.params.name}, (error, mongooseDeleteResult) => {
+    if (error) return console.error(err);
+    Star.find((error, stars) => {
+      if (error) return console.error(err);
+      res.send(stars);
+    });
+  })
 });
 
 app.all('*', function (req, res) {
