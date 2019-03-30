@@ -38,3 +38,4 @@ userSchema.methods.generateJwt = function() {
   }, process.env.SESSION_SECRET); // For security purpose the secret is set as an environment variable
 };
 
+mongoose.model('User', userSchema);
