@@ -50,19 +50,27 @@ app.put('/data', (req, res) => {
 app.post('/data', (req, res) => {
   let data = req.body.star;
   delete data._id;
- /* Star.findOneAndUpdate({name: req.body.star.name}, data, (error, doc) => {
-    console.log(doc);
+  /* Star.findOneAndUpdate({name: req.body.star.name}, data, (error, doc) => {
+     console.log(doc);
+     if (error) return console.error(err);
+     Star.find((error, stars) => {
+       if (error) return console.error(err);
+       res.send(stars);
+     });
+   });*/
+  /* Star.where({name: req.body.star.name}).update(data).exec();
+   Star.find((error, stars) => {
+      if (error) return console.error(err);
+      res.send(stars);
+    });*/
+  Star.update({name: req.body.star.name}, data, {upsert: true, overwrite: true}, (err, rawResponse) => {
     if (error) return console.error(err);
+    console.log(rawResponse);
     Star.find((error, stars) => {
       if (error) return console.error(err);
       res.send(stars);
-    });
-  });*/
-  Star.where({name: req.body.star.name}).update(data).exec();
-  Star.find((error, stars) => {
-     if (error) return console.error(err);
-     res.send(stars);
-   });
+
+  });
 });
 
 app.delete('/data/:name', (req, res) => {
