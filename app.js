@@ -6,7 +6,6 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const passport = require('passport');
 const https = require("https");
-const ObjectId = require('mongodb').ObjectID;
 
 const app = express();
 
@@ -49,7 +48,7 @@ app.put('/data', (req, res) => {
 
 app.post('/data', (req, res) => {
 
-  Star.findById(req.body.id, (error, doc)=>{
+  Star.findById(req.body.id, (error, doc) => {
     if (error) return console.error(err);
     doc.name = req.body.star.name;
     doc.spectralType = req.body.star.spectralType;
@@ -65,50 +64,6 @@ app.post('/data', (req, res) => {
       res.send(stars);
     });
   });
-
-
- /* let data = req.body.star;
-  delete data._id;*/
-
-  //const doc = await Star.findOne({_id: ObjectId(req.body.star._id)});
- /* console.log("The id: ", req.body.id);
-  console.log("The id: ", req.body.star._id);
-  console.log("The star: ", req.body.star);
-  Star.findById(req.body.id, (error, doc)=>{
-    console.log("The doc: ", doc);
-  });*/
-  /*
-    doc.name = req.body.star.name;
-    doc.spectralType = req.body.star.spectralType;
-    doc.solarMass = req.body.star.solarMass;
-    doc.solarRadius = req.body.star.solarRadius;
-    doc.effectiveTemperature = req.body.star.effectiveTemperature;
-    doc.name = req.body.star.name;
-    doc.name = req.body.star.name;
-  */
-  /*Star.findOneAndUpdate({name: initialName}, data, (error, doc) => {
-    console.log(doc);
-    if (error) return console.error(err);
-    Star.find((error, stars) => {
-      if (error) return console.error(err);
-      res.send(stars);
-    });
-  });
-  /* Star.where({name: req.body.star.name}).update(data).exec();
-   Star.find((error, stars) => {
-      if (error) return console.error(err);
-      res.send(stars);
-    });*/
-
-
- /* Star.replaceOne({_id: ObjectId(req.body.star._id)}, data, {upsert: true}, (err, rawResponse) => {
-      if (error) return console.error(err);
-      console.log(rawResponse);
-      Star.find((error, stars) => {
-        if (error) return console.error(err);
-        res.send(stars);
-      });
-    });*/
 });
 
 app.delete('/data/:name', (req, res) => {
