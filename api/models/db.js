@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 let gracefulShutdown;
-const dbURI = MONGODB_URI; // Definiert in der Heroku-Umgebung
+const dbURI = process.env.MONGODB_URI; // Definiert in der Heroku-Umgebung
 
 mongoose.connect(dbURI);
 
