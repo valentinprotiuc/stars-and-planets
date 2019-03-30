@@ -5,7 +5,8 @@ const favicon = require('serve-favicon');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const passport = require('passport');
-//const https = require("https");
+const https = require("https");
+const Star = mongoose.model('Star');
 
 const app = express();
 
@@ -13,8 +14,8 @@ const port = 8080;
 
 //const uri = 'mongodb://heroku_3h2xwfxr:spmc4d27eot7nc4qmgokqijuvf@ds215633.mlab.com:15633/heroku_3h2xwfxr';
 //const client = new MongoClient(uri, {useNewUrlParser: true});
-const dbName = 'heroku_3h2xwfxr';
-let db;
+/*const dbName = 'heroku_3h2xwfxr';
+let db;*/
 
 require('./api/models/db');
 require('./api/config/passport');
@@ -37,24 +38,33 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname + '/dist/stars-and-planets/index.html'));
 });
 
-/*
+
 app.get('/data', (req, res) => {
-  db.collection('stars').find({}).toArray((error, result) => {
+
+  /*db.collection('stars').find({}).toArray((error, result) => {
     if (error) throw err;
     res.send(result);
-  });
+  });*/
 });
 
 
 app.put('/data', (req, res) => {
-  db.collection('stars').insert(req.body, (error, result) => {
+  const star = new Star(req.body);
+  star.save((error, star) => {
+    if (error) return console.error(err);
+    res.send(star);
+  });
+
+  /*db.collection('stars').insert(req.body, (error, result) => {
     if (error) throw error;
     db.collection('stars').find({}).toArray((error, result) => {
       if (error) throw err;
       res.send(result);
     });
-  });
+  });*/
 });
+
+/*
 
 app.post('/data', (req, res) => {
   var data = req.body.star;
@@ -78,11 +88,12 @@ app.delete('/data/:name', (req, res) => {
       res.send(result);
     });
   })
-});
+});*/
 
 app.all('*', function (req, res) {
   res.redirect("https://stars-and-planets.herokuapp.com/");
 });
+
 
 // Die Seite geht in Schlafmodus wenn länger nicht aktiv(Einstellung der Heroku Platform).
 // Deswegen dauert das Aufrufen der Seite manchmal bis zu einer Minute.
@@ -90,6 +101,6 @@ app.all('*', function (req, res) {
 setInterval(() => {
   https.get("https://stars-and-planets.herokuapp.com");
 }, 600000);
-*/
+
 
 app.listen(process.env.PORT || port);

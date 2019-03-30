@@ -4,21 +4,23 @@ const dbURI = 'mongodb://heroku_3h2xwfxr:spmc4d27eot7nc4qmgokqijuvf@ds215633.mla
 
 mongoose.connect(dbURI);
 
+const db = mongoose.connection;
+
 // CONNECTION EVENTS
-mongoose.connection.on('connected', function() {
+db.on('connected', function() {
   console.log('Mongoose connected to ' + dbURI);
 });
-mongoose.connection.on('error', function(err) {
+db.on('error', function(err) {
   console.log('Mongoose connection error: ' + err);
 });
-mongoose.connection.on('disconnected', function() {
+db.on('disconnected', function() {
   console.log('Mongoose disconnected');
 });
 
 // CAPTURE APP TERMINATION / RESTART EVENTS
 // To be called when process is restarted or terminated
 gracefulShutdown = function(msg, callback) {
-  mongoose.connection.close(function() {
+  db.close(function() {
     console.log('Mongoose disconnected through ' + msg);
     callback();
   });
