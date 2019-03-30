@@ -57,8 +57,7 @@ app.post('/data', (req, res) => {
     doc.effectiveTemperature = req.body.star.effectiveTemperature;
     doc.distance = req.body.star.distance;
     doc.orbitingPlanets = req.body.star.orbitingPlanets;
-    doc.save((err, product, numAffected) => {
-      if (error) return console.error(err);
+    doc.save().then((value) => {
       Star.find((error, stars) => {
         if (error) return console.error(err);
         res.send(stars);
