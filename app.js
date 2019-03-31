@@ -11,7 +11,6 @@ require('./api/models/db');
 require('./api/config/passport');
 
 const routesApi = require('./api/routes/index');
-const Star = mongoose.model('Star');
 const app = express();
 
 app.use(express.static(__dirname + '/dist/stars-and-planets'));

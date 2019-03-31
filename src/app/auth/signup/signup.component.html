@@ -5,6 +5,10 @@
         <form (ngSubmit)="onSignup(f)" #f="ngForm">
           <div><h6>Bitte keine echte Daten eingeben!</h6></div>
           <div class="form-group">
+            <label class="card-text" for="name">Name</label>
+            <input class="form-control" type="name" id="name" name="name" ngModel required>
+          </div>
+          <div class="form-group">
             <label class="card-text" for="email">E-Mail</label>
             <input class="form-control" type="email" id="email" name="email" ngModel required>
           </div>

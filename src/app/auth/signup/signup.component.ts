@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {NgForm} from '@angular/forms';
-import {ServerService} from '../../server.service';
+import {AuthenticationService, TokenPayload} from '../../authentication.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-signup',
@@ -9,24 +10,29 @@ import {ServerService} from '../../server.service';
 })
 export class SignupComponent implements OnInit {
 
-  helpMessage = '';
+  credentials: TokenPayload = {
+    email: '',
+    name: '',
+    password: ''
+  };
 
-  constructor(private serverService: ServerService) {
+  constructor(private auth: AuthenticationService, private router: Router) {
   }
 
   ngOnInit() {
   }
 
   onSignup(form: NgForm) {
-    /*this.helpMessage = '';
-
-    this.serverService.registerUser({email: form.value.email, password: form.value.password}).subscribe(
-      (response) => {
-        this.helpMessage = 'Erfolgreich registriert!';
+    this.credentials.email = form.value.email;
+    this.credentials.name = form.value.name;
+    this.credentials.password = form.value.password;
+    this.auth.register(this.credentials).subscribe(
+      () => {
+        this.router.navigateByUrl('/profile');
       },
       (error) => {
-        this.helpMessage = error.error.text;
-      }
-    );*/
+        throw error;
+      },
+    );
   }
 }

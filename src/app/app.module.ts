@@ -20,6 +20,7 @@ import {StarService} from './stars/star.service';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {SigninComponent} from './auth/signin/signin.component';
 import {SignupComponent} from './auth/signup/signup.component';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import {SignupComponent} from './auth/signup/signup.component';
     StarsWelcomeComponent,
     StarAddComponent,
     SigninComponent,
-    SignupComponent
+    SignupComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
