@@ -76,4 +76,9 @@ export class StarAddComponent implements OnInit {
       return null;
     }
   }
+
+  removePlanetForm(planetFormGroup: FormGroup) {
+    console.log('1: ', planetFormGroup);
+    console.log('2: ', this.newStarForm.get('planets'));
+  }
 }
