@@ -9,3 +9,11 @@ a {
 .navbar-expand-sm {
   background-color: #203a46;
 }
+
+.active{
+  border-bottom: 5px solid #42A948;
+}
+
+.navbar{
+  padding-bottom: 0 !important;
+}
