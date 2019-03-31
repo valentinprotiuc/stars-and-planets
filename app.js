@@ -33,63 +33,6 @@ app.use(function (err, req, res, next) {
   }
 });
 
-
-app.get('/data', (req, res) => {
-  Star.find((error, stars) => {
-    if (error) return console.error(err);
-    res.send(stars);
-  });
-});
-
-
-app.put('/data', (req, res) => {
-  const star = new Star(req.body);
-  star.save((error, star) => {
-    if (error) return console.error(err);
-    Star.find((error, stars) => {
-      if (error) return console.error(err);
-      res.send(stars);
-    });
-  });
-});
-
-app.post('/data', (req, res) => {
-
-  console.log(req);
-
-  Star.findById(req.body.star._id, (error, doc) => {
-
-    if (error) return console.error(err);
-    // should check if any found
-    doc.name = req.body.star.name;
-    doc.spectralType = req.body.star.spectralType;
-    doc.solarMass = req.body.star.solarMass;
-    doc.solarRadius = req.body.star.solarRadius;
-    doc.effectiveTemperature = req.body.star.effectiveTemperature;
-    doc.distance = req.body.star.distance;
-    doc.orbitingPlanets = req.body.star.orbitingPlanets;
-    doc.save((error, document, affectedCount)=>{
-      if (error) return console.error(err);
-      Star.find((error, stars) => {
-        if (error) return console.error(err);
-        res.send(stars);
-      });
-    });
-
-  });
-});
-
-app.delete('/data/:name', (req, res) => {
-
-  Star.deleteOne({name: req.params.name}, (error, mongooseDeleteResult) => {
-    if (error) return console.error(err);
-    Star.find((error, stars) => {
-      if (error) return console.error(err);
-      res.send(stars);
-    });
-  })
-});
-
 app.all('*', function (req, res) {
   res.redirect("https://stars-and-planets.herokuapp.com/");
 });

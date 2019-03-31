@@ -18,7 +18,7 @@ export class SignupComponent implements OnInit {
   }
 
   onSignup(form: NgForm) {
-    this.helpMessage = '';
+    /*this.helpMessage = '';
 
     this.serverService.registerUser({email: form.value.email, password: form.value.password}).subscribe(
       (response) => {
@@ -27,6 +27,6 @@ export class SignupComponent implements OnInit {
       (error) => {
         this.helpMessage = error.error.text;
       }
-    );
+    );*/
   }
 }

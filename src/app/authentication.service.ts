@@ -60,7 +60,14 @@ export class AuthenticationService {
     }
   }
 
-
+  public isLoggedIn(): boolean {
+    const user = this.getUserDetails();
+    if (user) {
+      return user.exp > Date.now() / 1000;
+    } else {
+      return false;
+    }
+  }
 
 
 }
