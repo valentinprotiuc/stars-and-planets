@@ -9,21 +9,22 @@ import {StarAddComponent} from './stars/star-add/star-add.component';
 import {SignupComponent} from './auth/signup/signup.component';
 import {SigninComponent} from './auth/signin/signin.component';
 import {ProfileComponent} from './profile/profile.component';
+import {AuthGuardService} from './auth-guard.service';
 
 const appRoutes: Routes = [
   {path: '', redirectTo: '/stars', pathMatch: 'full'},
   {
     path: 'stars', component: StarsComponent, children: [
       {path: '', component: StarsWelcomeComponent},
-      {path: 'add', component: StarAddComponent},
-      {path: 'edit', component: StarEditComponent},
+      {path: 'add', component: StarAddComponent, canActivate: [AuthGuardService]},
+      {path: 'edit', component: StarEditComponent, canActivate: [AuthGuardService]},
       {path: 'details', component: StarDetailsComponent}
     ]
   },
   {path: 'planets', component: PlanetsComponent},
   {path: 'signup', component: SignupComponent},
   {path: 'signin', component: SigninComponent},
-  {path: 'profile', component: ProfileComponent}
+  {path: 'profile', component: ProfileComponent, canActivate: [AuthGuardService]}
 ];
 
 @NgModule({

@@ -22,6 +22,7 @@ import {SigninComponent} from './auth/signin/signin.component';
 import {SignupComponent} from './auth/signup/signup.component';
 import {ProfileComponent} from './profile/profile.component';
 import {AuthenticationService} from './authentication.service';
+import {AuthGuardService} from './auth-guard.service';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,7 @@ import {AuthenticationService} from './authentication.service';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [ServerService, StarService, AuthenticationService],
+  providers: [ServerService, StarService, AuthenticationService, AuthGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
