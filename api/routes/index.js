@@ -22,8 +22,8 @@ router.post('/login', ctrlAuth.login);
 // Hinzufügen, Löschen, Aktualisieren, Finden
 
 router.get('/getData', ctrlData.get);
-router.put('/addData', ctrlData.add);
-router.post('/updateData', ctrlData.update);
-router.post('/removeData', ctrlData.remove);
+router.put('/addData', auth, ctrlData.add);
+router.post('/updateData', auth, ctrlData.update);
+router.post('/removeData', auth, ctrlData.remove);
 
 module.exports = router;
