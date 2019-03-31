@@ -105,6 +105,12 @@ export class StarEditComponent implements OnInit, OnDestroy {
   }
 
   removePlanetForm(planetFormGroup: FormGroup) {
-
+    let ind = -1;
+    (this.editStarForm.get('planets') as FormArray).controls.forEach((item, index) => {
+      if (planetFormGroup.value.planetName === item.value.planetName) {
+        ind = index;
+      }
+    });
+    (this.editStarForm.get('planets') as FormArray).removeAt(ind);
   }
 }
