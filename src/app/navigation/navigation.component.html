@@ -13,24 +13,35 @@
   </ul>
   <ul class="nav navbar-nav ml-auto">
     <li class="nav-item" dropdown>
-      <a class="nav-link" role="button" aria-controls="dropdown-basic" dropdownToggle>Konto<span class="caret"></span></a>
+      <a class="nav-link" role="button" aria-controls="dropdown-basic" dropdownToggle>Konto<span
+        class="caret"></span></a>
       <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu"
           role="menu" aria-labelledby="button-basic">
-        <li role="menuitem"><a class="dropdown-item">Anmelden</a></li>
-        <li role="menuitem"><a class="dropdown-item">Registrieren</a></li>
+        <li role="menuitem" *ngIf="!auth.isLoggedIn()">
+          <a class="dropdown-item" routerLink="/signin">Anmelden</a>
+        </li>
+        <li role="menuitem" *ngIf="auth.isLoggedIn()">
+          <a class="dropdown-item" routerLink="/profile">{{auth.getUserDetails()?.name}}</a>
+        </li>
+        <li role="menuitem" *ngIf="!auth.isLoggedIn()">
+          <a class="dropdown-item" routerLink="/sighup">Registrieren</a>
+        </li>
+        <li role="menuitem" *ngIf="auth.isLoggedIn()">
+          <a class="dropdown-item" (click)="auth.logout()">Abmelden</a>
+        </li>
       </ul>
     </li>
-   <!-- <div class="btn-group" dropdown>
-      <button id="button-basic" dropdownToggle type="button" class="btn btn-primary dropdown-toggle"
-              aria-controls="dropdown-basic">
-        Konto <span class="caret"></span>
-      </button>
-      <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu"
-          role="menu" aria-labelledby="button-basic">
-        <li role="menuitem"><a class="dropdown-item">Anmelden</a></li>
-        <li role="menuitem"><a class="dropdown-item">Registrieren</a></li>
-      </ul>
-    </div>-->
+    <!-- <div class="btn-group" dropdown>
+       <button id="button-basic" dropdownToggle type="button" class="btn btn-primary dropdown-toggle"
+               aria-controls="dropdown-basic">
+         Konto <span class="caret"></span>
+       </button>
+       <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu"
+           role="menu" aria-labelledby="button-basic">
+         <li role="menuitem"><a class="dropdown-item">Anmelden</a></li>
+         <li role="menuitem"><a class="dropdown-item">Registrieren</a></li>
+       </ul>
+     </div>-->
     <li class="nav-item">
       <a class="nav-link" role="button" href="https://github.com/valentinprotiuc/stars-and-planets"><i
         class="fa fa-github white-icon"></i>

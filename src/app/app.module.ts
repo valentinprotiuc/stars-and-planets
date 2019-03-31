@@ -20,7 +20,8 @@ import {StarService} from './stars/star.service';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {SigninComponent} from './auth/signin/signin.component';
 import {SignupComponent} from './auth/signup/signup.component';
-import { ProfileComponent } from './profile/profile.component';
+import {ProfileComponent} from './profile/profile.component';
+import {AuthenticationService} from './authentication.service';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,7 @@ import { ProfileComponent } from './profile/profile.component';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [ServerService, StarService],
+  providers: [ServerService, StarService, AuthenticationService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
