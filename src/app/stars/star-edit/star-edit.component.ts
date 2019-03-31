@@ -104,4 +104,7 @@ export class StarEditComponent implements OnInit, OnDestroy {
     this.subscription.unsubscribe();
   }
 
+  removePlanetForm(planetFormGroup: FormGroup) {
+
+  }
 }

@@ -78,7 +78,12 @@ export class StarAddComponent implements OnInit {
   }
 
   removePlanetForm(planetFormGroup: FormGroup) {
-    console.log('1: ', planetFormGroup);
-    console.log('2: ', this.newStarForm.get('planets'));
+    let ind = -1;
+    (this.newStarForm.get('planets') as FormArray).controls.forEach((item, index) => {
+      if (planetFormGroup.value.planetName === item.value.planetName) {
+        ind = index;
+      }
+    });
+    (this.newStarForm.get('planets') as FormArray).removeAt(ind);
   }
 }
