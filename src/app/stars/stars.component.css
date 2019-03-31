@@ -11,8 +11,8 @@
 .fixed-height-col {
   display: block;
   overflow-y: auto;
-  height: calc(100vh - 12.5rem) ;
-  max-height: calc(100vh - 12.5rem);
+  height: calc(100vh - 5rem) ;
+  max-height: calc(100vh - 5rem);
   /*scrollbar-width: none;
   -ms-overflow-style: none;*/
 }
