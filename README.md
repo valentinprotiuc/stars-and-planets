@@ -1,6 +1,6 @@
 # Sterne&Planeten
 
-Einfache Demo Single-Page-Webanwendung, die einen Sternkatalog darstellt. 
+Einfaches Demo, implementiert als Single-Page-Webanwendung, das einen Sternkatalog darstellt. 
 Der Nutzer kann sich die Datenbank mit Sternen und Planeten als Gast ansehen, oder kann sich
 registrieren und vollen Zugriff bekommen. Eingeloggte Nutzer dürfen 
 neue Sterne in der Datenbank registrieren, Daten bearbeiten und Einträge löschen.
