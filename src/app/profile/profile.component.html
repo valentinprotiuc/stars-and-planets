@@ -1,12 +1,17 @@
 <div class="row justify-content-md-center justify-content-sm-center">
-  <div class="col-md-4 form-horizontal">
-    <div class="form-group">
-      <label class="control-label">Name</label>
-      <p class="form-control-static">{{ details?.name }}</p>
-    </div>
-    <div class="form-group">
-      <label class="control-label">E-Mail</label>
-      <p class="form-control-static">{{ details?.email }}</p>
-    </div>
+  <div class="col-md-4 vertical-center">
+    <h4>Dein Profil</h4>
+    <table class="table table-borderless">
+      <tbody>
+      <tr>
+        <td class=".font-weight-bold">Name:</td>
+        <td>{{ details?.name }}</td>
+      </tr>
+      <tr>
+        <td class=".font-weight-bold">E-Mail:</td>
+        <td>{{ details?.email }}</td>
+      </tr>
+      </tbody>
+    </table>
   </div>
 </div>
