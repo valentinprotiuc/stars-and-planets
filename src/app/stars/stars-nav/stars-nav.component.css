@@ -3,10 +3,10 @@
   overflow-y: auto;
   height: calc(100vh - 12.5rem) ;
   max-height: calc(100vh - 12.5rem);
-  scrollbar-width: none;
-  -ms-overflow-style: none;
+  /*scrollbar-width: none;
+  -ms-overflow-style: none;*/
 }
-.fixed-height::-webkit-scrollbar { width: 0 !important }
+/*.fixed-height::-webkit-scrollbar { width: 0 !important }*/
 
 .divider-right {
   border-right: 1px solid lightgray;

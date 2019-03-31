@@ -50,8 +50,6 @@ export class StarAddComponent implements OnInit {
   }
 
   onCancel() {
-    // Todo: Clean the form and navigate away
-
     this.router.navigate(['stars']);
   }
 
