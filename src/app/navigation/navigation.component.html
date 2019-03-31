@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-sm navbar-dark">
+<nav class="navbar fixed-top navbar-expand-sm navbar-dark">
   <!-- Brand -->
   <a class="navbar-brand" role="button" routerLink="">Sterne&Planeten</a>
 
@@ -24,7 +24,7 @@
           <a class="dropdown-item" routerLink="/profile">{{auth.getUserDetails()?.name}}</a>
         </li>
         <li role="menuitem" *ngIf="!auth.isLoggedIn()">
-          <a class="dropdown-item" routerLink="/sighup">Registrieren</a>
+          <a class="dropdown-item" routerLink="/signup">Registrieren</a>
         </li>
         <li role="menuitem" *ngIf="auth.isLoggedIn()">
           <a class="dropdown-item" (click)="auth.logout()">Abmelden</a>

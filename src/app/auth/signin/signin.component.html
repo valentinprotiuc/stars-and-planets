@@ -1,19 +1,16 @@
-<div class="row justify-content-md-center justify-content-sm-center">
-  <div class="col-xs-12 col-sm-8 col-md-4">
-    <div class="card">
-      <div class="card-body text-center">
-        <form (ngSubmit)="onSignin(f)" #f="ngForm">
-          <div class="form-group">
-            <label class="card-text" for="email">E-Mail</label>
-            <input class="form-control" type="email" id="email" name="email" placeholder="test@testmail.de" ngModel>
-          </div>
-          <div class="form-group">
-            <label class="card-text" for="password">Passwort</label>
-            <input class="form-control" type="password" id="password" name="password" placeholder="testpasswort" ngModel>
-          </div>
-          <button class="btn btn-primary" type="submit">Anmelden</button>
-        </form>
+<div class="row text-center justify-content-md-center">
+  <div class="col-xs-12 col-sm-6 col-md-2 vertical-center">
+    <form (ngSubmit)="onSignin(f)" #f="ngForm">
+      <h2>Bitte anmelden</h2>
+      <div class="form-group">
+        <input class="form-control" type="email" id="email" name="email" placeholder="E-Mail-Adresse" ngModel>
+        <input class="form-control" type="password" id="password" name="password" placeholder="Passwort"
+               aria-describedby="passwordHelpInline" ngModel>
+        <small id="passwordHelpInline" class="form-text text-muted">Zum testen können Sie 'test@testmail.de' als E-Mail
+          und 'passwort' als Passwort eingeben
+        </small>
       </div>
-    </div>
+      <button class="btn btn-primary btn-block" type="submit">Anmelden</button>
+    </form>
   </div>
 </div>

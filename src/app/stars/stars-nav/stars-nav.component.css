@@ -1,7 +1,8 @@
 .fixed-height {
   display: block;
   overflow-y: auto;
-  max-height: calc(100vh - 12rem);
+  height: calc(100vh - 12.5rem) ;
+  max-height: calc(100vh - 12.5rem);
   scrollbar-width: none;
   -ms-overflow-style: none;
 }
