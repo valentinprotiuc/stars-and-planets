@@ -3,6 +3,7 @@ import {StarService} from './star.service';
 import {Star} from './star.model';
 import {ActivatedRoute, Router} from '@angular/router';
 import {Subscription} from 'rxjs';
+import {AuthenticationService} from '../authentication.service';
 
 @Component({
   selector: 'app-stars',
@@ -14,7 +15,8 @@ export class StarsComponent implements OnInit, OnDestroy {
   selectedStar: Star;
   private subscription: Subscription;
 
-  constructor(private starService: StarService, private router: Router, private route: ActivatedRoute) {
+  constructor(private starService: StarService, private router: Router, private route: ActivatedRoute,
+              public auth: AuthenticationService) {
   }
 
   ngOnInit() {

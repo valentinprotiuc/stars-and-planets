@@ -1,13 +1,13 @@
 <div class="row">
   <div class="col-md-4 panel-border">
     <div class="btn-group btn-block">
-      <button type="button" class="btn btn-outline-primary" (click)="onAddStar()">
+      <button type="button" class="btn btn-outline-primary" (click)="onAddStar()" [disabled]="!auth.isLoggedIn()">
         <span class="fa fa-plus-square-o"></span> Neu
       </button>
-      <button type="button" class="btn btn-outline-success" (click)="onEditStar()">
+      <button type="button" class="btn btn-outline-success" (click)="onEditStar()" [disabled]="!auth.isLoggedIn()">
         <span class="fa fa-edit"></span> Bearbeiten
       </button>
-      <button type="button" class="btn btn-outline-danger" (click)="onRemoveStar()">
+      <button type="button" class="btn btn-outline-danger" (click)="onRemoveStar()" [disabled]="!auth.isLoggedIn()">
         <span class="fa fa-minus-square-o"></span> Entfernen
       </button>
     </div>
