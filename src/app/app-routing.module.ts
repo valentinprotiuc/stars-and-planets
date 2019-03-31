@@ -8,6 +8,7 @@ import {StarDetailsComponent} from './stars/star-details/star-details.component'
 import {StarAddComponent} from './stars/star-add/star-add.component';
 import {SignupComponent} from './auth/signup/signup.component';
 import {SigninComponent} from './auth/signin/signin.component';
+import {ProfileComponent} from './profile/profile.component';
 
 const appRoutes: Routes = [
   {path: '', redirectTo: '/stars', pathMatch: 'full'},
@@ -21,7 +22,8 @@ const appRoutes: Routes = [
   },
   {path: 'planets', component: PlanetsComponent},
   {path: 'signup', component: SignupComponent},
-  {path: 'signin', component: SigninComponent}
+  {path: 'signin', component: SigninComponent},
+  {path: 'profile', component: ProfileComponent}
 ];
 
 @NgModule({
