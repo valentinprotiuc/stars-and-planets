@@ -1,9 +1,9 @@
 import {Injectable} from '@angular/core';
 import {Star} from './star.model';
 import {HttpClient} from '@angular/common/http';
-import {ServerService} from '../server.service';
 import {Subject} from 'rxjs';
 import {Router} from '@angular/router';
+import {AuthenticationService} from '../authentication.service';
 
 @Injectable({
   providedIn: 'root'
@@ -37,7 +37,7 @@ export class StarService {
 
   // Redirecting requests to server service
   addStar(star: Star) {
-    this.serverService.addStarToDB(star).subscribe(
+    this.auth.addStarToDB(star).subscribe(
       (response: Star[]) => {
         this.stars = response;
         this.starListChanged.next(response);
@@ -52,7 +52,7 @@ export class StarService {
   }
 
   updateStar(star: Star) {
-    this.serverService.updateStarInDB(star).subscribe(
+    this.auth.updateStarInDB(star).subscribe(
       (response: Star[]) => {
         console.log(response);
         this.stars = response;
@@ -68,7 +68,7 @@ export class StarService {
   }
 
   getStarList() {
-    this.serverService.getStarsFromDB().subscribe(
+    this.auth.getStarsFromDB().subscribe(
       (response: Star[]) => {
         this.stars = response;
         this.starListChanged.next(response);
@@ -78,7 +78,7 @@ export class StarService {
   }
 
   removeStar(star: Star) {
-    this.serverService.removeStarFromDB(star).subscribe(
+    this.auth.removeStarFromDB(star).subscribe(
       (response: Star[]) => {
         this.stars = response;
         this.starListChanged.next(response);
@@ -93,6 +93,6 @@ export class StarService {
     return this.stars.find(i => i.name === starName);
   }
 
-  constructor(private http: HttpClient, private serverService: ServerService, private router: Router) {
+  constructor(private http: HttpClient, private auth: AuthenticationService, private router: Router) {
   }
 }

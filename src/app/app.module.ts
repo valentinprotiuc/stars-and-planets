@@ -15,7 +15,6 @@ import {StarsNavComponent} from './stars/stars-nav/stars-nav.component';
 import {StarsWelcomeComponent} from './stars/stars-welcome/stars-welcome.component';
 import {StarAddComponent} from './stars/star-add/star-add.component';
 import {HttpClientModule} from '@angular/common/http';
-import {ServerService} from './server.service';
 import {StarService} from './stars/star.service';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {SigninComponent} from './auth/signin/signin.component';
@@ -51,7 +50,7 @@ import {AuthGuardService} from './auth-guard.service';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [ServerService, StarService, AuthenticationService, AuthGuardService],
+  providers: [StarService, AuthenticationService, AuthGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

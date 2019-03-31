@@ -3,6 +3,7 @@ import {HttpClient} from '@angular/common/http';
 import {Router} from '@angular/router';
 import {Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
+import {Star} from './stars/star.model';
 
 export interface UserDetails {
   _id: string;
@@ -65,13 +66,13 @@ export class AuthenticationService {
     }
   }
 
-  private request(method: 'post'|'get', type: 'login'|'register'|'profile', user?: TokenPayload): Observable<any> {
+  private request(method: 'post' | 'get', type: 'login' | 'register' | 'profile', user?: TokenPayload): Observable<any> {
     let base;
 
     if (method === 'post') {
       base = this.http.post(`/api/${type}`, user);
     } else {
-      base = this.http.get(`/api/${type}`, { headers: { Authorization: `Bearer ${this.getToken()}` }});
+      base = this.http.get(`/api/${type}`, {headers: {Authorization: `Bearer ${this.getToken()}`}});
     }
 
     const request = base.pipe(
@@ -102,5 +103,37 @@ export class AuthenticationService {
     this.token = '';
     window.localStorage.removeItem('mean-token');
     this.router.navigateByUrl('/');
+  }
+
+  addStarToDB(star: Star) {
+
+    // Todo: use delete star._id to remove the id instead of defining a new object. Maybe first clone
+
+    console.log(star);
+    const noIdStar = {
+      name: star.name,
+      spectralType: star.spectralType,
+      solarMass: +star.solarMass,
+      solarRadius: +star.solarRadius,
+      effectiveTemperature: +star.effectiveTemperature,
+      distance: +star.distance,
+      orbitingPlanets: star.orbitingPlanets
+    };
+    return this.http.put('https://stars-and-planets.herokuapp.com/api/addData', {noIdStar},
+      {headers: {Authorization: `Bearer ${this.getToken()}`}});
+  }
+
+  getStarsFromDB() {
+    return this.http.get('https://stars-and-planets.herokuapp.com/api/getData');
+  }
+
+  updateStarInDB(star: Star) {
+    return this.http.post('https://stars-and-planets.herokuapp.com/api/updateData', {star},
+      {headers: {Authorization: `Bearer ${this.getToken()}`}});
+  }
+
+  removeStarFromDB(star: Star) {
+    return this.http.post('https://stars-and-planets.herokuapp.com/api/removeData', {star},
+      {headers: {Authorization: `Bearer ${this.getToken()}`}});
   }
 }
