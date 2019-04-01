@@ -30,3 +30,7 @@
 .padding-bottom {
   padding-bottom: 1rem;
 }
+
+.card-body{
+  background-color: #f2f2f2;
+}

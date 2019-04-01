@@ -56,31 +56,41 @@
         </div>
         <div class="form-row">
           <div class="form-group col-md-6">
-            <label for="planetClass">Planetenklasse:</label>
+            <label for="planetClass" tooltip="PHL-Klassifikation">Planetenklasse:</label>
             <input type="text" class="form-control" formControlName="planetClass" id="planetClass">
           </div>
           <div class="form-group col-md-6">
-            <label for="planetPeriod">Umlaufzeit:</label>
+            <label for="planetPeriod">Umlaufzeit:
+              <em class="comment-light" tooltip="Tage">(in T)</em>
+            </label>
             <input type="text" class="form-control" formControlName="planetPeriod" id="planetPeriod">
           </div>
         </div>
         <div class="form-row">
           <div class="form-group col-md-6">
-            <label for="planetMass">Masse:</label>
+            <label for="planetMass">Masse:
+              <em class="comment-light" tooltip="Erdmasse">(in M⊕)</em>
+            </label>
             <input type="text" class="form-control" formControlName="planetMass" id="planetMass">
           </div>
           <div class="form-group col-md-6">
-            <label for="planetRadius">Radius:</label>
+            <label for="planetRadius">Radius:
+              <em class="comment-light" tooltip="Erdradius">(in R⊕)</em>
+            </label>
             <input type="text" class="form-control" formControlName="planetRadius" id="planetRadius">
           </div>
         </div>
         <div class="form-row">
           <div class="form-group col-md-6">
-            <label for="planetDistance">Entfernung:</label>
+            <label for="planetDistance">Entfernung:
+              <em class="comment-light" tooltip="Lichtjahr">(in Lj)</em>
+            </label>
             <input type="text" class="form-control" formControlName="planetDistance" id="planetDistance">
           </div>
           <div class="form-group col-md-6">
-            <label for="planetESI">Erdähnlichkeitsindex:</label>
+            <label for="planetESI">Erdähnlichkeitsindex:
+              <em class="comment-light" tooltip="Earth Similarity Index von PHL">(in ESI)</em>
+            </label>
             <input type="text" class="form-control" formControlName="planetESI" id="planetESI">
           </div>
         </div>
