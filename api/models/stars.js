@@ -10,19 +10,24 @@ let planetsSchema = new mongoose.Schema({
     type: String
   },
   planetMass: {
-    type: String
+    type: Number,
+    default: null
   },
   planetRadius: {
-    type: String
+    type: Number,
+    default: null
   },
   planetPeriod: {
-    type: String
+    type: Number,
+    default: null
   },
   planetDistance: {
-    type: String
+    type: Number,
+    default: null
   },
   planetESI: {
-    type: String
+    type: Number,
+    default: null
   },
 
 });
@@ -38,15 +43,19 @@ let starsSchema = new mongoose.Schema({
   },
   solarMass: {
     type: Number,
+    default: null
   },
   solarRadius: {
     type: Number,
+    default: null
   },
   effectiveTemperature: {
     type: Number,
+    default: null
   },
   distance: {
     type: Number,
+    default: null
   },
   orbitingPlanets: [planetsSchema]
 });

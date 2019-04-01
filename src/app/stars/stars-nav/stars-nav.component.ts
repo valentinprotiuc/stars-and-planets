@@ -36,8 +36,8 @@ export class StarsNavComponent implements OnInit, OnDestroy {
   sortList(param: string) {
 
     this.stars = this.stars.sort((star1, star2) => {
-      const value1 = (param === 'mass') ? star1.solarMass : ((param === 'distance') ? star1.distance : star1.name.toLowerCase());
-      const value2 = (param === 'mass') ? star2.solarMass : ((param === 'distance') ? star2.distance : star2.name.toLowerCase());
+      const value1 = (param === 'mass') ? +star1.solarMass : ((param === 'distance') ? +star1.distance : star1.name.toLowerCase());
+      const value2 = (param === 'mass') ? +star2.solarMass : ((param === 'distance') ? +star2.distance : star2.name.toLowerCase());
       if (value1 > value2) {
         return 1;
       }

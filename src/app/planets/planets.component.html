@@ -3,24 +3,24 @@
     <table class="table table-bordered table-striped table-hover">
       <thead>
       <tr ngc>
-        <th>Name</th>
-        <th>Klasse</th>
-        <th>Masse</th>
-        <th>Radius</th>
-        <th>Umlaufzeit</th>
-        <th>Entfernung</th>
-        <th>ESI</th>
+        <th>Name <span class="fa fa-sort pointer" (click)="sort('name')"></span></th>
+        <th>Klasse <span class="fa fa-sort pointer" (click)="sort('class')"></span></th>
+        <th>Masse <span class="fa fa-sort pointer" (click)="sort('mass')"></span></th>
+        <th>Radius <span class="fa fa-sort pointer" (click)="sort('radius')"></span></th>
+        <th>Umlaufzeit <span class="fa fa-sort pointer" (click)="sort('period')"></span></th>
+        <th>Entfernung <span class="fa fa-sort pointer" (click)="sort('dist')"></span></th>
+        <th>ESI <span class="fa fa-sort pointer" (click)="sort('esi')"></span></th>
       </tr>
       </thead>
       <tbody>
       <tr *ngFor="let planet of planets">
         <td>{{planet.planetName}}</td>
         <td>{{(planet.planetClass == null) || (planet.planetClass == '') ? 'unbekannt' : planet.planetClass}}</td>
-        <td>{{(planet.planetMass == null) || (planet.planetMass == '') ? 'unbekannt' : planet.planetMass}}</td>
-        <td>{{(planet.planetRadius == null) || (planet.planetRadius == '') ? 'unbekannt' : planet.planetRadius}}</td>
-        <td>{{(planet.planetPeriod == null) || (planet.planetPeriod == '') ? 'unbekannt' : planet.planetPeriod}}</td>
-        <td>{{(planet.planetDistance == null) || (planet.planetDistance == '') ? 'unbekannt' : planet.planetDistance}}</td>
-        <td>{{(planet.planetESI == null) || (planet.planetESI == '') ? 'unbekannt' : planet.planetESI}}</td>
+        <td>{{planet.planetMass == null ? 'unbekannt' : planet.planetMass}}</td>
+        <td>{{planet.planetRadius == null ? 'unbekannt' : planet.planetRadius}}</td>
+        <td>{{planet.planetPeriod == null ? 'unbekannt' : planet.planetPeriod}}</td>
+        <td>{{planet.planetDistance == null ? 'unbekannt' : planet.planetDistance}}</td>
+        <td>{{planet.planetESI == null ? 'unbekannt' : planet.planetESI}}</td>
       </tr>
       </tbody>
     </table>
