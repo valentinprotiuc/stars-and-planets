@@ -1,6 +1,6 @@
 <h2>Neuen Stern hinzufügen</h2>
 
-<form [formGroup]="newStarForm" (ngSubmit)="onSubmit()">
+<form class="padding-bottom" [formGroup]="newStarForm" (ngSubmit)="onSubmit()">
   <div class="form-group">
     <label for="starName">Name des Sterns: <strong style="color: red">*</strong></label>
     <input type="text" class="form-control" formControlName="starName" id="starName">

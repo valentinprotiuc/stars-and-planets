@@ -1,5 +1,5 @@
 <h2>Daten des Sterns editieren</h2>
-<form [formGroup]="editStarForm" (ngSubmit)="onSubmit()">
+<form class="padding-bottom" [formGroup]="editStarForm" (ngSubmit)="onSubmit()">
   <div class="form-group">
     <label for="starName">Name des Sterns: <strong style="color: red">*</strong></label>
     <input type="text" class="form-control" formControlName="starName" id="starName">
