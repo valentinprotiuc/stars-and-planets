@@ -3,7 +3,7 @@
     <table class="table table-bordered table-striped table-hover">
       <thead>
       <tr ngc>
-        <th>Name <span class="fa fa-sort pointer" (click)="sort('name')"></span></th>
+        <th>Name <span class="fa fa-sort pointer" tooltip="Click mich!" #pop="bs-tooltip" (click)="sort('name');pop.hide()"></span></th>
         <th>Klasse <span class="fa fa-sort pointer" (click)="sort('class')"></span></th>
         <th>Masse <span class="fa fa-sort pointer" (click)="sort('mass')"></span></th>
         <th>Radius <span class="fa fa-sort pointer" (click)="sort('radius')"></span></th>

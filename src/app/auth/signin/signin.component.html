@@ -7,9 +7,11 @@
         <input class="form-control" type="password" id="password" name="password" placeholder="Passwort"
                aria-describedby="passwordHelpInline" ngModel>
         <small id="passwordHelpInline" class="form-text text-muted">Zum testen können Sie 'test@testmail.de' als E-Mail
-          und 'passwort' als Passwort eingeben
+          und 'passwort' als Passwort eingeben oder ein neues Konto registrieren.
         </small>
       </div>
+      <hr>
+      <p>Noch kein Konto? Dann hier <a routerLink="/signup">registrieren</a>.</p>
       <button class="btn btn-primary btn-block" type="submit">Anmelden</button>
     </form>
   </div>
