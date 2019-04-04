@@ -22,6 +22,7 @@ import {SignupComponent} from './auth/signup/signup.component';
 import {ProfileComponent} from './profile/profile.component';
 import {AuthenticationService} from './authentication.service';
 import {AuthGuardService} from './auth-guard.service';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import {AuthGuardService} from './auth-guard.service';
     StarAddComponent,
     SigninComponent,
     SignupComponent,
-    ProfileComponent
+    ProfileComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

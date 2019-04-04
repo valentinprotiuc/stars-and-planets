@@ -21,8 +21,7 @@ app.use(passport.initialize());
 app.use('/api', routesApi);
 
 app.get('/', function (req, res) {
-
-  res.sendFile(path.join(__dirname + '/dist/stars-and-planets/index.html'));
+  res.sendFile(path.join(__dirname, '/dist/stars-and-planets/index.html'));
 });
 
 app.use(function (err, req, res, next) {

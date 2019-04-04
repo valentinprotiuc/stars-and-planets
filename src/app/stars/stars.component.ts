@@ -41,7 +41,9 @@ export class StarsComponent implements OnInit, OnDestroy {
   }
 
   onRemoveStar() {
-    this.starService.removeStar(this.selectedStar);
-    this.router.navigate(['stars']);
+    if (confirm('Möchten Sie wirklich diesen Eintrag löschen?')) {
+      this.starService.removeStar(this.selectedStar);
+      this.router.navigate(['stars']);
+    }
   }
 }

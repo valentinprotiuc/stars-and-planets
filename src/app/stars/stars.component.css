@@ -3,9 +3,10 @@
 }
 
 .limited-height {
-  height: calc(100vh - 5.5rem);
-  max-height: calc(100vh - 5.5rem);
+  height: calc(100vh - 3rem);
+  max-height: calc(100vh - 3rem);
   overflow-y: auto;
+  padding-top: 2rem;
 }
 
 .fixed-height-col {

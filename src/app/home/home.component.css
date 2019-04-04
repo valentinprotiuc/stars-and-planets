@@ -1,0 +1,52 @@
+.full-height {
+  height: calc(100vh - 3rem);
+  max-height: calc(100vh - 3rem);
+}
+
+.no-padding {
+  padding: 0;
+}
+
+#guest-access {
+  background-image: url("../../assets/explorer.jpg");
+  transition: filter 1s ease-in-out;
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
+  background-size: cover;
+  cursor: pointer;
+
+}
+
+#guest-access:hover {
+  -webkit-filter: grayscale(0%);
+  filter: grayscale(0%);
+}
+
+#user-access {
+  background-image: url("../../assets/astronaut.jpg");
+  transition: filter 1s ease-in-out;
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
+  background-size: cover;
+  cursor: pointer;
+
+}
+
+#user-access:hover {
+  -webkit-filter: grayscale(0%);
+  filter: grayscale(0%);
+}
+
+.vertical-center {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.light-shadow-text {
+  color: #fff0b3;
+  font-size: 2rem;
+  text-shadow: 1px 1px grey;
+}

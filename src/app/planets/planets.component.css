@@ -1,3 +1,7 @@
-.pointer{
+.pointer {
   cursor: pointer;
+}
+
+.padding-top {
+  padding-top: 2rem;
 }

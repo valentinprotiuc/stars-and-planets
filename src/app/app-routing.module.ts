@@ -10,9 +10,10 @@ import {SignupComponent} from './auth/signup/signup.component';
 import {SigninComponent} from './auth/signin/signin.component';
 import {ProfileComponent} from './profile/profile.component';
 import {AuthGuardService} from './auth-guard.service';
+import {HomeComponent} from './home/home.component';
 
 const appRoutes: Routes = [
-  {path: '', redirectTo: '/stars', pathMatch: 'full'},
+  {path: '', component: HomeComponent},
   {
     path: 'stars', component: StarsComponent, children: [
       {path: '', component: StarsWelcomeComponent},

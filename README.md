@@ -34,10 +34,16 @@ Plattform und verwendet als Host für die MongoDB-Datenbank die mLab.
 - MongoDB: Daten von Sternen und Planeten,als auch Daten von Nutzer in DB gespeichert. 
 Passwort nicht gespeichert, statt dessen salt und hash.
 
-- Sonstige: Listenfilter, Listensortierung
+- Sonstige: Listenfilter, Listensortierung, Google Analytics
 
 
 ## Erweiterungsmöglichkeiten
+
+- Drucken, Teilen
+
+- Autor des Eintrags speichern
+
+- Einloggen mit Google, Facebook
 
 - Daten von Planeten editieren
 
