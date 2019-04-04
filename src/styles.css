@@ -4,3 +4,20 @@ html, body {
   font-family: Georgia, serif;
 
 }
+
+.btn-circle {
+  width: 30px;
+  height: 30px;
+  padding: 6px 0px;
+  border-radius: 15px;
+  text-align: center;
+  font-size: 12px;
+  line-height: 1.42857;
+}
+
+.absolute-position{
+  margin: 0;
+  position: absolute;
+  top: 95%;
+  left: 97%;
+}
