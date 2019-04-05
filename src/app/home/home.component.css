@@ -2,38 +2,18 @@
   height: calc(100vh - 3rem);
   max-height: calc(100vh - 3rem);
   background-color: grey;
-}
-
-.no-padding {
   padding: 0;
 }
 
 #guest-access {
   background-image: url("../../assets/explorer.jpg");
-  transition: filter 1s ease-in-out;
-  -webkit-filter: grayscale(100%);
-  filter: grayscale(100%);
-  background-size: cover;
-  cursor: pointer;
-
-}
-
-#guest-access:hover {
-  -webkit-filter: grayscale(0%);
-  filter: grayscale(0%);
 }
 
 #user-access {
   background-image: url("../../assets/astronaut.jpg");
-  transition: filter 1s ease-in-out;
-  -webkit-filter: grayscale(100%);
-  filter: grayscale(100%);
-  background-size: cover;
-  cursor: pointer;
-
 }
 
-#user-access:hover {
+#guest-access:hover, #user-access:hover {
   -webkit-filter: grayscale(0%);
   filter: grayscale(0%);
 }
@@ -46,8 +26,29 @@
   transform: translate(-50%, -50%);
 }
 
-.light-shadow-text {
-  color: #fff0b3;
+.gray-filter {
+  transition: filter 1s ease-in-out;
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
+  background-size: cover;
+  cursor: pointer;
+}
+
+.glow {
+  text-transform: uppercase;
   font-size: 2rem;
-  text-shadow: 1px 1px grey;
+  color: #fff;
+  transition: text-shadow 3s ease-in-out;
+}
+
+div:hover > .glow {
+  text-shadow: 0 0 5px #fff,
+  0 0 10px #fff,
+  0 0 20px #fff,
+  0 0 40px #ffd633,
+  0 0 80px #ffd633,
+  0 0 90px #ffd633,
+  0 0 100px #ffd633,
+  0 0 150px #ffd633,
+  0 0 200px #ffd633;
 }
