@@ -6,15 +6,15 @@ import {StarService} from '../stars/star.service';
   providedIn: 'root'
 })
 export class PlanetService {
+  private planets: Planet[] = [];
 
   getPlanets() {
-    const planets: Planet[] = [];
     this.starService.stars.forEach(
       (star) => {
-        planets.push(...star.orbitingPlanets);
+        this.planets.push(...star.orbitingPlanets);
       }
     );
-    return planets;
+    return this.planets;
   }
 
   constructor(private starService: StarService) {

@@ -3,14 +3,13 @@
     <table class="table table-bordered table-striped table-hover">
       <thead>
       <tr ngc>
-        <th>Name <span class="fa fa-sort pointer" mdbTooltip="Click mich!" placement="top" #pop="mdb-tooltip"
-                       (click)="sort('name');pop.hide()"></span></th>
-        <th>Klasse <span class="fa fa-sort pointer" (click)="sort('class')"></span></th>
-        <th>Masse <span class="fa fa-sort pointer" (click)="sort('mass')"></span></th>
-        <th>Radius <span class="fa fa-sort pointer" (click)="sort('radius')"></span></th>
-        <th>Umlaufzeit <span class="fa fa-sort pointer" (click)="sort('period')"></span></th>
-        <th>Entfernung <span class="fa fa-sort pointer" (click)="sort('dist')"></span></th>
-        <th>ESI <span class="fa fa-sort pointer" (click)="sort('esi')"></span></th>
+        <th>Name <span class="fa fa-sort pointer" mdbTooltip="Sortieren" placement="top" (click)="sort('name')"></span></th>
+        <th>Klasse <span class="fa fa-sort pointer" mdbTooltip="Sortieren" placement="top" (click)="sort('class')"></span></th>
+        <th>Masse <span class="fa fa-sort pointer" mdbTooltip="Sortieren" placement="top"(click)="sort('mass')"></span></th>
+        <th>Radius <span class="fa fa-sort pointer" mdbTooltip="Sortieren" placement="top"(click)="sort('radius')"></span></th>
+        <th>Umlaufzeit <span class="fa fa-sort pointer" mdbTooltip="Sortieren" placement="top"(click)="sort('period')"></span></th>
+        <th>Entfernung <span class="fa fa-sort pointer" mdbTooltip="Sortieren" placement="top" (click)="sort('dist')"></span></th>
+        <th>ESI <span class="fa fa-sort pointer" mdbTooltip="Sortieren" placement="top" (click)="sort('esi')"></span></th>
       </tr>
       </thead>
       <tbody>

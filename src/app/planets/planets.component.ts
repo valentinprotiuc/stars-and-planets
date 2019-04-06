@@ -1,7 +1,7 @@
-import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Planet} from './planet.model';
 import {PlanetService} from './planet.service';
-import {TooltipDirective} from 'ngx-bootstrap';
+import {StarService} from '../stars/star.service';
 
 @Component({
   selector: 'app-planets',
@@ -9,21 +9,24 @@ import {TooltipDirective} from 'ngx-bootstrap';
   styleUrls: ['./planets.component.scss'],
   providers: [PlanetService]
 })
-export class PlanetsComponent implements OnInit, AfterViewInit {
+export class PlanetsComponent implements OnInit {
 
   planets: Planet[] = [];
   sortParam: string;
-  @ViewChild('pop') pop: TooltipDirective;
 
-  constructor(private planetService: PlanetService) {
+  constructor(private planetService: PlanetService, private starService: StarService) {
   }
 
   ngOnInit() {
-    this.planets = this.planetService.getPlanets();
-  }
-
-  ngAfterViewInit() {
-    this.pop.show();
+    this.starService.getStarList();
+    this.starService.starListChanged.subscribe(
+      () => {
+        this.planets = this.planetService.getPlanets();
+      },
+      (error) => {
+        throw error;
+      }
+    );
   }
 
   sort(param: 'name' | 'class' | 'mass' | 'radius' | 'period' | 'dist' | 'esi') {
