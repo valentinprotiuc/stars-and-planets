@@ -6,7 +6,7 @@ import {TooltipDirective} from 'ngx-bootstrap';
 @Component({
   selector: 'app-planets',
   templateUrl: './planets.component.html',
-  styleUrls: ['./planets.component.css'],
+  styleUrls: ['./planets.component.scss'],
   providers: [PlanetService]
 })
 export class PlanetsComponent implements OnInit, AfterViewInit {

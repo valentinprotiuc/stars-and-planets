@@ -8,7 +8,7 @@ import {FormArray, FormControl, FormGroup, Validators} from '@angular/forms';
 @Component({
   selector: 'app-star-add',
   templateUrl: './star-add.component.html',
-  styleUrls: ['./star-add.component.css']
+  styleUrls: ['./star-add.component.scss']
 })
 export class StarAddComponent implements OnInit {
 

@@ -9,7 +9,7 @@ import {Subscription} from 'rxjs';
 @Component({
   selector: 'app-star-edit',
   templateUrl: './star-edit.component.html',
-  styleUrls: ['./star-edit.component.css']
+  styleUrls: ['./star-edit.component.scss']
 })
 export class StarEditComponent implements OnInit, OnDestroy {
 

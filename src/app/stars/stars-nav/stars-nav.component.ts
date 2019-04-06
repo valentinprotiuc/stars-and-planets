@@ -7,7 +7,7 @@ import {Planet} from '../../planets/planet.model';
 @Component({
   selector: 'app-stars-nav',
   templateUrl: './stars-nav.component.html',
-  styleUrls: ['./stars-nav.component.css']
+  styleUrls: ['./stars-nav.component.scss']
 })
 export class StarsNavComponent implements OnInit, OnDestroy {
 

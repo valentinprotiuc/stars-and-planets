@@ -23,11 +23,19 @@
               "src/assets"
             ],
             "styles": [
-              "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "node_modules/font-awesome/css/font-awesome.min.css",
-              "src/styles.css"
+              "node_modules/@fortawesome/fontawesome-free/scss/fontawesome.scss",
+              "node_modules/@fortawesome/fontawesome-free/scss/solid.scss",
+              "node_modules/@fortawesome/fontawesome-free/scss/regular.scss",
+              "node_modules/@fortawesome/fontawesome-free/scss/brands.scss",
+              "node_modules/bootstrap/scss/bootstrap.scss",
+              "node_modules/angular-bootstrap-md/scss/mdb-free.scss",
+              "src/styles.scss"
             ],
-            "scripts": [],
+            "scripts": [
+              "node_modules/chart.js/dist/Chart.js",
+              "node_modules/hammerjs/hammer.min.js"
+            ],
             "es5BrowserSupport": true
           },
           "configurations": {
@@ -134,5 +142,10 @@
       }
     }
   },
-  "defaultProject": "stars-and-planets"
+  "defaultProject": "stars-and-planets",
+  "schematics": {
+    "@schematics/angular:component": {
+      "styleext": "scss"
+    }
+  }
 }

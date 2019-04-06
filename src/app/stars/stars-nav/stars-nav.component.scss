@@ -1,11 +1,12 @@
 .fixed-height {
   display: block;
   overflow-y: auto;
-  height: calc(100vh - 12.5rem) ;
-  max-height: calc(100vh - 12.5rem);
+  height: calc(100vh - 14rem);
+  max-height: calc(100vh - 14rem);
   /*scrollbar-width: none;
   -ms-overflow-style: none;*/
 }
+
 /*.fixed-height::-webkit-scrollbar { width: 0 !important }*/
 
 .divider-right {
@@ -13,9 +14,9 @@
 }
 
 .padding-bottom {
-  padding-bottom: 2px;
+  padding-bottom: 0;
 }
 
-.cursor-pointer{
-  cursor: pointer;
+.no-padding{
+  padding: 0;
 }

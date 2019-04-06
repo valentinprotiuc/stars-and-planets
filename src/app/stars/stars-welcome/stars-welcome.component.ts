@@ -4,7 +4,7 @@ import {AuthenticationService} from '../../authentication.service';
 @Component({
   selector: 'app-stars-welcome',
   templateUrl: './stars-welcome.component.html',
-  styleUrls: ['./stars-welcome.component.css']
+  styleUrls: ['./stars-welcome.component.scss']
 })
 export class StarsWelcomeComponent implements OnInit {
 

@@ -3,21 +3,26 @@
                                              (keyup)="filterStarList()" #searchFilter></div>
   <div class="col-md-4">
     <div class="btn-group btn-block" dropdown>
-      <button id="button-basic" dropdownToggle type="button" class="btn btn-info dropdown-toggle"
-              aria-controls="dropdown-basic">
+      <button mdbBtn type="button" color="indigo" class="dropdown-toggle" id="button-basic" dropdownToggle
+              mdbWavesEffect>
         Sortieren <span class="caret"></span>
       </button>
-      <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu"
-          role="menu" aria-labelledby="button-basic">
-        <li role="menuitem" (click)="sortList('name')"><a class="dropdown-item cursor-pointer">Name</a></li>
-        <li role="menuitem" (click)="sortList('distance')"><a class="dropdown-item cursor-pointer">Entfernung</a></li>
-        <li role="menuitem" (click)="sortList('mass')"><a class="dropdown-item cursor-pointer">Masse</a></li>
+      <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu" role="menu">
+        <li role="menuitem" (click)="sortList('name')">
+          <a class="dropdown-item waves-light" mdbWavesEffect>Name</a>
+        </li>
+        <li role="menuitem" (click)="sortList('distance')">
+          <a class="dropdown-item waves-light" mdbWavesEffect>Entfernung</a>
+        </li>
+        <li role="menuitem" (click)="sortList('mass')">
+          <a class="dropdown-item waves-light" mdbWavesEffect>Masse</a>
+        </li>
       </ul>
     </div>
   </div>
 </div>
-<ul class="nav flex-column fixed-height">
-  <li class="nav-item" *ngFor="let star of stars">
+<ul class="list-group col-12 fixed-height no-padding">
+  <li class="list-group-item no-padding" *ngFor="let star of stars">
     <app-star-item [star]="star"></app-star-item>
   </li>
 </ul>

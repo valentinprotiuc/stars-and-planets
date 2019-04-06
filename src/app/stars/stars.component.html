@@ -1,14 +1,19 @@
 <div class="row limited-height">
   <div class="col-md-4 panel-border">
-    <div class="btn-group btn-block box-shadow" tooltip="Nicht angemeldet!" [isDisabled]="auth.isLoggedIn()">
-      <button type="button" class="btn btn-primary" (click)="onAddStar()" [disabled]="!auth.isLoggedIn()">
-        <span class="fa fa-plus-square-o"></span> Neu
+    <div class="btn-group btn-block" role="group" tooltip="Nicht angemeldet!" [isDisabled]="auth.isLoggedIn()">
+      <button type="button" mdbBtn color="primary" mdbWavesEffect (click)="onAddStar()"
+              [disabled]="!auth.isLoggedIn()">
+        <mdb-icon fas icon="plus"></mdb-icon>
+        Neu
       </button>
-      <button type="button" class="btn btn-success" (click)="onEditStar()" [disabled]="!auth.isLoggedIn()">
-        <span class="fa fa-edit"></span> Bearbeiten
+      <button mdbBtn type="button" color="indigo" mdbWavesEffect (click)="onEditStar()" [disabled]="!auth.isLoggedIn()">
+        <mdb-icon fas icon="pen"></mdb-icon>
+        Bearbeiten
       </button>
-      <button type="button" class="btn btn-danger" (click)="onRemoveStar()" [disabled]="!auth.isLoggedIn()">
-        <span class="fa fa-minus-square-o"></span> Entfernen
+      <button type="button" mdbBtn color="primary" mdbWavesEffect (click)="onRemoveStar()"
+              [disabled]="!auth.isLoggedIn()">
+        <mdb-icon fas icon="minus"></mdb-icon>
+        Entfernen
       </button>
     </div>
     <hr>
@@ -18,7 +23,5 @@
     <router-outlet></router-outlet>
   </div>
 </div>
-<a role="button" href="https://github.com/valentinprotiuc/stars-and-planets/tree/master/src/app/stars"
-   class="btn btn-info btn-circle absolute-position"><span class="fa fa-question"
-                                                           tooltip="Zum Code dieser Seite"></span></a>
+
 

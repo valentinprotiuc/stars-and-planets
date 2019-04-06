@@ -23,6 +23,7 @@ import {ProfileComponent} from './profile/profile.component';
 import {AuthenticationService} from './authentication.service';
 import {AuthGuardService} from './auth-guard.service';
 import { HomeComponent } from './home/home.component';
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
 
 @NgModule({
   declarations: [
@@ -47,6 +48,7 @@ import { HomeComponent } from './home/home.component';
     BsDropdownModule.forRoot(),
     TooltipModule.forRoot(),
     AccordionModule.forRoot(),
+    MDBBootstrapModule.forRoot(),
     AppRouting,
     HttpClientModule,
     FormsModule,

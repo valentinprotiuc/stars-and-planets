@@ -1,40 +1,45 @@
-<nav class="navbar fixed-top navbar-expand-sm navbar-dark">
+<mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark indigo fixed-top">
   <!-- Brand -->
-  <a class="navbar-brand" role="button" routerLink="">Sterne&Planeten</a>
+  <mdb-navbar-brand>
+    <a class="navbar-brand" role="button" routerLink="">Sterne&Planeten</a>
+  </mdb-navbar-brand>
+
 
   <!-- Links -->
-  <ul class="navbar-nav">
-    <li class="nav-item" routerLinkActive="active">
-      <a class="nav-link" role="button" routerLink="/stars">Sterne</a>
-    </li>
-    <li class="nav-item" routerLinkActive="active">
-      <a class="nav-link" role="button" routerLink="/planets">Planeten</a>
-    </li>
-  </ul>
-  <ul class="nav navbar-nav ml-auto">
-    <li class="nav-item" dropdown routerLinkActive="active">
-      <a class="nav-link dropdown-toggle" role="button" aria-controls="dropdown-basic" dropdownToggle><span
-        class="caret"></span>Konto</a>
-      <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu dropdown-menu-right"
-          role="menu" aria-labelledby="button-basic">
-        <li role="menuitem" *ngIf="!auth.isLoggedIn()">
-          <a class="dropdown-item" routerLink="/signin">Anmelden</a>
-        </li>
-        <li role="menuitem" *ngIf="auth.isLoggedIn()">
-          <a class="dropdown-item" routerLink="/profile">{{auth.getUserDetails()?.name}}</a>
-        </li>
-        <li role="menuitem" *ngIf="!auth.isLoggedIn()">
-          <a class="dropdown-item" routerLink="/signup">Registrieren</a>
-        </li>
-        <li role="menuitem" *ngIf="auth.isLoggedIn()">
-          <a class="dropdown-item" (click)="auth.logout()">Abmelden</a>
-        </li>
-      </ul>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" role="button" href="https://github.com/valentinprotiuc/stars-and-planets">
-        <i class="fa fa-github white-icon"></i>
-      </a>
-    </li>
-  </ul>
-</nav>
+  <links>
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link waves-light" role="button" routerLink="/stars" mdbWavesEffect>Sterne</a>
+      </li>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link waves-light" role="button" routerLink="/planets" mdbWavesEffect>Planeten</a>
+      </li>
+    </ul>
+    <ul class="navbar-nav ml-auto nav-flex-icons">
+      <li class="nav-item dropdown" routerLinkActive="active" dropdown>
+        <a class="nav-link dropdown-toggle waves-light" type="button" dropdownToggle mdbWavesEffect><span
+          class="caret"></span>Konto</a>
+        <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu dropdown dropdown-primary dropdown-menu-right"
+            role="menu">
+          <li role="menuitem" *ngIf="!auth.isLoggedIn()">
+            <a class="dropdown-item waves-light" routerLink="/signin" mdbWavesEffect>Anmelden</a>
+          </li>
+          <li role="menuitem" *ngIf="auth.isLoggedIn()">
+            <a class="dropdown-item waves-light" routerLink="/profile" mdbWavesEffect>{{auth.getUserDetails()?.name}}</a>
+          </li>
+          <li role="menuitem" *ngIf="!auth.isLoggedIn()">
+            <a class="dropdown-item waves-light" routerLink="/signup" mdbWavesEffect>Registrieren</a>
+          </li>
+          <li role="menuitem" *ngIf="auth.isLoggedIn()">
+            <a class="dropdown-item waves-light" (click)="auth.logout()" mdbWavesEffect>Abmelden</a>
+          </li>
+        </ul>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link waves-light" role="button" href="https://github.com/valentinprotiuc/stars-and-planets">
+          <mdb-icon fab icon="github"></mdb-icon>
+        </a>
+      </li>
+    </ul>
+  </links>
+</mdb-navbar>

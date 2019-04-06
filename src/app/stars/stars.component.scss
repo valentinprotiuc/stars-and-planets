@@ -3,8 +3,8 @@
 }
 
 .limited-height {
-  height: calc(100vh - 3rem);
-  max-height: calc(100vh - 3rem);
+  height: calc(100vh - 4rem);
+  max-height: calc(100vh - 4rem);
   overflow-y: auto;
   padding-top: 2rem;
 }
@@ -12,8 +12,9 @@
 .fixed-height-col {
   display: block;
   overflow-y: auto;
-  height: calc(100vh - 5.5rem) ;
-  max-height: calc(100vh - 5.5rem);
+  height: 100% ;
+  max-height: 100%;
+  padding-bottom: 5px;
   /*scrollbar-width: none;
   -ms-overflow-style: none;*/
 }
