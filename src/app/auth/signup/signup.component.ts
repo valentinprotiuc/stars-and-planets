@@ -42,10 +42,11 @@ export class SignupComponent implements OnInit {
   }
 
   onSubmit() {
-    this.credentials.name = this.validationForm.value.name;
-    this.credentials.email = this.validationForm.value.email;
-    this.credentials.password = this.validationForm.value.password;
-
+    this.credentials.name = this.nameFormEx.value;
+    this.credentials.email = this.emailFormEx.value;
+    this.credentials.password = this.passwordFormEx.value;
+    console.log('Cred: ', this.credentials);
+    console.log('Em: ', this.emailFormEx);
     this.auth.register(this.credentials).subscribe(
       () => {
         this.router.navigateByUrl('/profile');
