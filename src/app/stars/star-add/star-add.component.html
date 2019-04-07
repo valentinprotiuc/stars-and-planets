@@ -70,7 +70,8 @@
          [formGroupName]="i">
       <div class="card-body">
         <div class="md-form">
-          <input type="text" class="form-control" formControlName="planetName" id="planetName">
+          <input type="text" class="form-control" formControlName="planetName" id="planetName" minLength="2"
+                 maxLength="50" mdbInput mdbValidate>
           <label for="planetName">Name des Planeten: <strong style="color: red">*</strong></label>
           <mdb-error
             *ngIf="planetFormGroup.get('planetName').invalid &&
@@ -80,7 +81,8 @@
         </div>
         <div class="form-row">
           <div class="md-form col">
-            <input type="text" class="form-control" formControlName="planetClass" id="planetClass">
+            <input type="text" class="form-control" formControlName="planetClass" id="planetClass" minLength="1"
+                   maxLength="50" mdbInput mdbValidate>
             <label for="planetClass" mdbTooltip="PHL-Klassifikation" placement="top">Planetenklasse:</label>
             <mdb-error
               *ngIf="planetFormGroup.get('planetClass').invalid &&
@@ -89,44 +91,45 @@
             </mdb-error>
           </div>
           <div class="md-form col">
-            <input type="text" class="form-control" formControlName="planetPeriod" id="planetPeriod">
+            <input type="text" class="form-control" formControlName="planetPeriod" id="planetPeriod" minLength="1"
+                   maxLength="50" mdbInput mdbValidate>
             <label for="planetPeriod">Umlaufzeit:
               <em class="comment-light" mdbTooltip="Tage" placement="top">(T)</em>
             </label>
             <mdb-error *ngIf="planetFormGroup.get('planetPeriod').invalid &&
             (planetFormGroup.get('planetPeriod').dirty || planetFormGroup.get('planetPeriod').touched)">Ungültige
-              Eingabe.
-              Bitte geben Sie eine Zahl ein.
+              Eingabe. Bitte geben Sie eine Zahl ein.
             </mdb-error>
           </div>
         </div>
         <div class="form-row">
           <div class="md-form col">
-            <input type="text" class="form-control" formControlName="planetMass" id="planetMass">
+            <input type="text" class="form-control" formControlName="planetMass" id="planetMass" minLength="1"
+                   maxLength="50" mdbInput mdbValidate>
             <label for="planetMass">Masse:
               <em class="comment-light" mdbTooltip="Erdmasse" placement="top">(M⊕)</em>
             </label>
             <mdb-error *ngIf="planetFormGroup.get('planetMass').invalid &&
             (planetFormGroup.get('planetMass').dirty || planetFormGroup.get('planetMass').touched)">Ungültige Eingabe.
-              Bitte
-              geben Sie eine Zahl ein.
+              Bitte geben Sie eine Zahl ein.
             </mdb-error>
           </div>
           <div class="md-form col">
-            <input type="text" class="form-control" formControlName="planetRadius" id="planetRadius">
+            <input type="text" class="form-control" formControlName="planetRadius" id="planetRadius" minLength="1"
+                   maxLength="50" mdbInput mdbValidate>
             <label for="planetRadius">Radius:
               <em class="comment-light" mdbTooltip="Erdradius" placement="top">(R⊕)</em>
             </label>
             <mdb-error *ngIf="planetFormGroup.get('planetRadius').invalid &&
             (planetFormGroup.get('planetRadius').dirty || planetFormGroup.get('planetRadius').touched)">Ungültige
-              Eingabe.
-              Bitte geben Sie eine Zahl ein.
+              Eingabe. Bitte geben Sie eine Zahl ein.
             </mdb-error>
           </div>
         </div>
         <div class="form-row">
           <div class="md-form col">
-            <input type="text" class="form-control" formControlName="planetDistance" id="planetDistance">
+            <input type="text" class="form-control" formControlName="planetDistance" id="planetDistance" minLength="1"
+                   maxLength="50" mdbInput mdbValidate>
             <label for="planetDistance">Entfernung:
               <em class="comment-light" mdbTooltip="Lichtjahr" placement="top">(Lj)</em>
             </label>
@@ -136,15 +139,14 @@
             </mdb-error>
           </div>
           <div class="md-form col">
-            <input type="text" class="form-control" formControlName="planetESI" id="planetESI">
+            <input type="text" class="form-control" formControlName="planetESI" id="planetESI" minLength="1"
+                   maxLength="50" mdbInput mdbValidate>
             <label for="planetESI">Erdähnlichkeitsindex:
               <em class="comment-light" mdbTooltip="Earth Similarity Index von PHL" placement="top">(ESI)</em>
             </label>
             <mdb-error *ngIf="planetFormGroup.get('planetESI').invalid &&
             (planetFormGroup.get('planetESI').dirty || planetFormGroup.get('planetESI').touched)">Ungültige Eingabe.
-              Bitte
-              geben Sie
-              eine Zahl ein.
+              Bitte geben Sie eine Zahl ein.
             </mdb-error>
           </div>
         </div>
