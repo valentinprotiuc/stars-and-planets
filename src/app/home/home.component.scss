@@ -65,17 +65,3 @@ div:hover > .glow {
   0 0 150px #ffdb4d,
   0 0 200px #ffd633;
 }
-
-.zoom {
-  animation: scale 40s linear infinite;
-}
-
-@keyframes scale {
-  50% {
-    -webkit-transform:scale(1.2);
-    -moz-transform:scale(1.2);
-    -ms-transform:scale(1.2);
-    -o-transform:scale(1.2);
-    transform:scale(1.2);
-  }
-}
