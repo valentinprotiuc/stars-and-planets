@@ -1,6 +1,41 @@
 <div class="row text-center justify-content-md-center">
-  <div class="col-xs-12 col-sm-6 col-md-2 vertical-center">
-    <form (ngSubmit)="onSignin(f)" #f="ngForm">
+  <div class="col-xs-12 col-sm-6 col-md-3 vertical-center">
+    <mdb-card>
+      <mdb-card-body class="text-center">
+        <h2>Anmelden</h2>
+        <form [formGroup]="validationForm" (ngSubmit)="onSubmit()">
+          <div class="md-form">
+            <input mdbInput mdbValidate formControlName="emailFormEx" minLength="8" maxLength="25" type="email"
+                   class="form-control" id="email-form">
+            <label for="email-form">E-Mail</label>
+            <mdb-error *ngIf="emailFormEx.invalid && (emailFormEx.dirty || emailFormEx.touched)">ungültige Eingabe
+            </mdb-error>
+            <mdb-success *ngIf="emailFormEx.valid && (emailFormEx.dirty || emailFormEx.touched)">gültige Eingabe
+            </mdb-success>
+          </div>
+
+          <div class="md-form">
+            <input mdbInput mdbValidate formControlName="passwordFormEx" minLength="8" maxLength="25" type="password"
+                   class="form-control" id="pass-form">
+            <label for="pass-form">Passwort</label>
+            <mdb-error *ngIf="passwordFormEx.invalid && (passwordFormEx.dirty || passwordFormEx.touched)">ungültige
+              Eingabe
+            </mdb-error>
+            <mdb-success *ngIf="passwordFormEx.valid && (passwordFormEx.dirty || passwordFormEx.touched)">gültige
+              Eingabe
+            </mdb-success>
+          </div>
+          <small id="passwordHelpInline" class="form-text text-muted">Zum testen können Sie 'test@testmail.de' als
+            E-Mail
+            und 'passwort' als Passwort eingeben oder ein neues Konto registrieren.
+          </small>
+          <hr>
+          <p>Noch kein Konto? Dann hier <a routerLink="/signup">registrieren</a>.</p>
+          <button mdbBtn color="indigo" mdbWavesEffect type="submit" [disabled]="!validationForm.valid">Anmelden</button>
+        </form>
+      </mdb-card-body>
+    </mdb-card>
+    <!--<form (ngSubmit)="onSignin(f)" #f="ngForm">
       <h2>Bitte anmelden</h2>
       <div class="form-group">
         <input class="form-control" type="email" id="email" name="email" placeholder="E-Mail-Adresse" ngModel>
@@ -13,6 +48,6 @@
       <hr>
       <p>Noch kein Konto? Dann hier <a routerLink="/signup">registrieren</a>.</p>
       <button mdbBtn color="primary" mdbWavesEffect type="submit">Anmelden</button>
-    </form>
+    </form>-->
   </div>
 </div>

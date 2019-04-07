@@ -1,6 +1,47 @@
 <div class="row text-center justify-content-md-center">
-  <div class="col-xs-12 col-sm-6 col-md-2 vertical-center">
-    <form (ngSubmit)="onSignup(f)" #f="ngForm">
+  <div class="col-xs-12 col-sm-6 col-md-3 vertical-center">
+    <mdb-card>
+      <mdb-card-body class="text-center">
+        <h2>Registrieren</h2>
+        <form [formGroup]="validationForm" (ngSubmit)="onSubmit()">
+          <div class="md-form">
+            <input mdbInput mdbValidate formControlName="nameFormEx" minLength="2" maxLength="30" type="text"
+                   class="form-control" id="name-form">
+            <label for="name-form">Name</label>
+            <mdb-error *ngIf="nameFormEx.invalid && (nameFormEx.dirty || nameFormEx.touched)">ungültige Eingabe
+            </mdb-error>
+            <mdb-success *ngIf="nameFormEx.valid && (nameFormEx.dirty || nameFormEx.touched)">gültige Eingabe
+            </mdb-success>
+          </div>
+          <div class="md-form">
+            <input mdbInput mdbValidate formControlName="emailFormEx" minLength="8" maxLength="25" type="email"
+                   class="form-control" id="email-form">
+            <label for="email-form">E-Mail</label>
+            <mdb-error *ngIf="emailFormEx.invalid && (emailFormEx.dirty || emailFormEx.touched)">ungültige Eingabe
+            </mdb-error>
+            <mdb-success *ngIf="emailFormEx.valid && (emailFormEx.dirty || emailFormEx.touched)">gültige Eingabe
+            </mdb-success>
+          </div>
+          <div class="md-form">
+            <input mdbInput mdbValidate formControlName="passwordFormEx" minLength="8" maxLength="25" type="password"
+                   class="form-control" id="pass-form">
+            <label for="pass-form">Passwort</label>
+            <mdb-error *ngIf="passwordFormEx.invalid && (passwordFormEx.dirty || passwordFormEx.touched)">ungültige
+              Eingabe
+            </mdb-error>
+            <mdb-success *ngIf="passwordFormEx.valid && (passwordFormEx.dirty || passwordFormEx.touched)">gültige
+              Eingabe
+            </mdb-success>
+          </div>
+          <small id="passwordHelpInline" class="form-text text-muted">Achtung! Die Daten werden gespeichert.
+            Bitte keine echte Daten eingeben.
+          </small>
+          <hr>
+          <button mdbBtn color="indigo" mdbWavesEffect type="submit" [disabled]="!validationForm.valid">Anmelden</button>
+        </form>
+      </mdb-card-body>
+    </mdb-card>
+   <!-- <form (ngSubmit)="onSignup(f)" #f="ngForm">
       <h2>Bitte registrieren</h2>
       <div class="form-group">
         <input class="form-control" type="text" id="name" name="name" placeholder="Name" ngModel>
@@ -9,6 +50,6 @@
         <small class="text-muted">Bitte kein echte Daten eingeben!</small>
       </div>
       <button mdbBtn color="primary" mdbWavesEffect type="submit">Registrieren</button>
-    </form>
+    </form>-->
   </div>
 </div>
