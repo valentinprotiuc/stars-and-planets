@@ -1,6 +1,6 @@
 <div class="row limited-height">
   <div class="col-md-4 panel-border">
-    <div class="btn-group btn-block" role="group" tooltip="Nicht angemeldet!" [isDisabled]="auth.isLoggedIn()">
+    <div class="btn-group btn-block" role="group" mdbTooltip="Nicht angemeldet!" placement="bottom" [isDisabled]="auth.isLoggedIn()">
       <button type="button" mdbBtn color="primary" mdbWavesEffect (click)="onAddStar()"
               [disabled]="!auth.isLoggedIn()">
         <mdb-icon fas icon="plus"></mdb-icon>

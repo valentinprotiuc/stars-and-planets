@@ -22,7 +22,8 @@
   </div>
 </div>
 <ul class="list-group col-12 fixed-height no-padding">
-  <li class="list-group-item no-padding" *ngFor="let star of stars">
+  <li class="list-group-item no-padding animated zoomIn" *ngFor="let star of stars; let i = index"
+      [ngStyle]="{'animation-delay.ms':i*50}">
     <app-star-item [star]="star"></app-star-item>
   </li>
 </ul>

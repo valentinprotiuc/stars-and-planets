@@ -12,7 +12,7 @@
     <div class="form-group col-md-6">
       <label class="label-block" for="distance">
         Entfernung zur Erde:
-        <em class="comment-light" tooltip="Lichtjahr">(in Lj)</em>
+        <em class="comment-light" mdbTooltip="Lichtjahr" placement="top">(Lj)</em>
         <span class="help-block help-right" *ngIf="!editStarForm.get('distance').valid">keine Zahl</span>
       </label>
       <input type="text" class="form-control" formControlName="distance" id="distance">
@@ -22,7 +22,7 @@
     <div class="form-group col-md-4">
       <label class="label-block" for="solarMass">
         Masse:
-        <em class="comment-light" tooltip="Sonnenmasse">(in M☉)</em>
+        <em class="comment-light" mdbTooltip="Sonnenmasse" placement="top">(M☉)</em>
         <span class="help-block help-right" *ngIf="!editStarForm.get('solarMass').valid">keine Zahl</span>
       </label>
       <input type="text" class="form-control" formControlName="solarMass" id="solarMass">
@@ -30,7 +30,7 @@
     <div class="form-group col-md-4">
       <label class="label-block" for="solarRadius">
         Radius:
-        <em class="comment-light" tooltip="Sonnenradius">(in R☉)</em>
+        <em class="comment-light" mdbTooltip="Sonnenradius" placement="top">(R☉)</em>
         <span class="help-block help-right" *ngIf="!editStarForm.get('solarRadius').valid">keine Zahl</span>
       </label>
       <input type="text" class="form-control" formControlName="solarRadius" id="solarRadius">
@@ -38,7 +38,7 @@
     <div class="form-group col-md-4">
       <label class="label-block" for="effectiveTemperature">
         Effektive Temperatur:
-        <em class="comment-light" tooltip="Kelvin">(K)</em>
+        <em class="comment-light" mdbTooltip="Kelvin" placement="top">(K)</em>
         <span class="help-block help-right" *ngIf="!editStarForm.get('effectiveTemperature').valid">keine Zahl</span>
       </label>
       <input type="text" class="form-control" formControlName="effectiveTemperature" id="effectiveTemperature">
@@ -62,12 +62,12 @@
         </div>
         <div class="form-row">
           <div class="form-group col-md-6">
-            <label for="planetClass" tooltip="PHL-Klassifikation">Planetenklasse:</label>
+            <label for="planetClass" mdbTooltip="PHL-Klassifikation">Planetenklasse:</label>
             <input type="text" class="form-control" formControlName="planetClass" id="planetClass">
           </div>
           <div class="form-group col-md-6">
             <label for="planetPeriod">Umlaufzeit:
-              <em class="comment-light" tooltip="Tage">(in T)</em>
+              <em class="comment-light" mdbTooltip="Tage" placement="top">(T)</em>
             </label>
             <input type="text" class="form-control" formControlName="planetPeriod" id="planetPeriod">
           </div>
@@ -75,13 +75,13 @@
         <div class="form-row">
           <div class="form-group col-md-6">
             <label for="planetMass">Masse:
-              <em class="comment-light" tooltip="Erdmasse">(in M⊕)</em>
+              <em class="comment-light" mdbTooltip="Erdmasse" placement="top">(M⊕)</em>
             </label>
             <input type="text" class="form-control" formControlName="planetMass" id="planetMass">
           </div>
           <div class="form-group col-md-6">
             <label for="planetRadius">Radius:
-              <em class="comment-light" tooltip="Erdradius">(in R⊕)</em>
+              <em class="comment-light" mdbTooltip="Erdradius" placement="top">(R⊕)</em>
             </label>
             <input type="text" class="form-control" formControlName="planetRadius" id="planetRadius">
           </div>
@@ -89,13 +89,13 @@
         <div class="form-row">
           <div class="form-group col-md-6">
             <label for="planetDistance">Entfernung:
-              <em class="comment-light" tooltip="Lichtjahr">(in Lj)</em>
+              <em class="comment-light" mdbTooltip="Lichtjahr" placement="top">(Lj)</em>
             </label>
             <input type="text" class="form-control" formControlName="planetDistance" id="planetDistance">
           </div>
           <div class="form-group col-md-6">
             <label for="planetESI">Erdähnlichkeitsindex:
-              <em class="comment-light" tooltip="Earth Similarity Index von PHL">(in ESI)</em>
+              <em class="comment-light" mdbTooltip="Earth Similarity Index von PHL" placement="top">(in ESI)</em>
             </label>
             <input type="text" class="form-control" formControlName="planetESI" id="planetESI">
           </div>

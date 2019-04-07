@@ -25,7 +25,7 @@ const appRoutes: Routes = [
   {path: 'planets', component: PlanetsComponent},
   {path: 'signup', component: SignupComponent},
   {path: 'signin', component: SigninComponent},
-  {path: 'profile', component: ProfileComponent, canActivate: [AuthGuardService]}
+  {path: 'profile', component: ProfileComponent, canActivate: [AuthGuardService]},
 ];
 
 @NgModule({
