@@ -25,6 +25,30 @@ export class StarEditComponent implements OnInit, OnDestroy {
     return this.editStarForm.get('planets') as FormArray;
   }
 
+  get starName() {
+    return this.editStarForm.get('starName');
+  }
+
+  get spectralType() {
+    return this.editStarForm.get('spectralType');
+  }
+
+  get solarMass() {
+    return this.editStarForm.get('solarMass');
+  }
+
+  get solarRadius() {
+    return this.editStarForm.get('solarRadius');
+  }
+
+  get effectiveTemperature() {
+    return this.editStarForm.get('effectiveTemperature');
+  }
+
+  get distance() {
+    return this.editStarForm.get('distance');
+  }
+
   prePopulate() {
     this.editStarForm = new FormGroup({
       starName: new FormControl(this.star.name, Validators.required),

@@ -1,113 +1,179 @@
 <h2>Daten des Sterns editieren</h2>
 <form class="padding-bottom" [formGroup]="editStarForm" (ngSubmit)="onSubmit()">
-  <div class="form-group">
+  <div class="md-form">
+    <input type="text" class="form-control" formControlName="starName" id="starName" minLength="2" maxLength="50"
+           mdbInput mdbValidate>
     <label for="starName">Name des Sterns: <strong style="color: red">*</strong></label>
-    <input type="text" class="form-control" formControlName="starName" id="starName">
+    <mdb-error *ngIf="starName.invalid && (starName.dirty || starName.touched)">Ungültige Eingabe.
+    </mdb-error>
   </div>
   <div class="form-row">
-    <div class="form-group col-md-6">
+    <div class="md-form col">
+      <input type="text" class="form-control" formControlName="spectralType" id="spectralType" minLength="1"
+             maxLength="50" mdbInput mdbValidate>
       <label for="spectralType">Spektraltyp: </label>
-      <input type="text" class="form-control" formControlName="spectralType" id="spectralType">
+      <mdb-error *ngIf="spectralType.invalid && (spectralType.dirty || spectralType.touched)">Ungültige Eingabe.
+      </mdb-error>
     </div>
-    <div class="form-group col-md-6">
-      <label class="label-block" for="distance">
-        Entfernung zur Erde:
+    <div class="md-form col">
+      <input type="text" class="form-control" formControlName="distance" id="distance" minLength="1" maxLength="50"
+             mdbInput mdbValidate>
+      <label for="distance">Entfernung zur Erde:
         <em class="comment-light" mdbTooltip="Lichtjahr" placement="top">(Lj)</em>
-        <span class="help-block help-right" *ngIf="!editStarForm.get('distance').valid">keine Zahl</span>
       </label>
-      <input type="text" class="form-control" formControlName="distance" id="distance">
+      <mdb-error *ngIf="distance.invalid && (distance.dirty || distance.touched)">Ungültige Eingabe. Bitte geben Sie
+        eine Zahl ein.
+      </mdb-error>
     </div>
   </div>
   <div class="form-row">
-    <div class="form-group col-md-4">
-      <label class="label-block" for="solarMass">
-        Masse:
+    <div class="md-form col">
+      <input type="text" class="form-control" formControlName="solarMass" id="solarMass" minLength="1" maxLength="50"
+             mdbInput mdbValidate>
+      <label for="solarMass">Masse:
         <em class="comment-light" mdbTooltip="Sonnenmasse" placement="top">(M☉)</em>
-        <span class="help-block help-right" *ngIf="!editStarForm.get('solarMass').valid">keine Zahl</span>
       </label>
-      <input type="text" class="form-control" formControlName="solarMass" id="solarMass">
+      <mdb-error *ngIf="solarMass.invalid && (solarMass.dirty || solarMass.touched)">Ungültige Eingabe. Bitte geben Sie
+        eine Zahl ein.
+      </mdb-error>
     </div>
-    <div class="form-group col-md-4">
-      <label class="label-block" for="solarRadius">
-        Radius:
+    <div class="md-form col">
+      <input type="text" class="form-control" formControlName="solarRadius" id="solarRadius" minLength="1"
+             maxLength="50"
+             mdbInput mdbValidate>
+      <label for="solarRadius">Radius:
         <em class="comment-light" mdbTooltip="Sonnenradius" placement="top">(R☉)</em>
-        <span class="help-block help-right" *ngIf="!editStarForm.get('solarRadius').valid">keine Zahl</span>
       </label>
-      <input type="text" class="form-control" formControlName="solarRadius" id="solarRadius">
+      <mdb-error *ngIf="solarRadius.invalid && (solarRadius.dirty || solarRadius.touched)">Ungültige Eingabe. Bitte
+        geben Sie
+        eine Zahl ein.
+      </mdb-error>
     </div>
-    <div class="form-group col-md-4">
-      <label class="label-block" for="effectiveTemperature">
-        Effektive Temperatur:
+    <div class="md-form col">
+      <input type="text" class="form-control" formControlName="effectiveTemperature" id="effectiveTemperature"
+             minLength="1" maxLength="50"
+             mdbInput mdbValidate>
+      <label for="effectiveTemperature">Effektive Temperatur:
         <em class="comment-light" mdbTooltip="Kelvin" placement="top">(K)</em>
-        <span class="help-block help-right" *ngIf="!editStarForm.get('effectiveTemperature').valid">keine Zahl</span>
       </label>
-      <input type="text" class="form-control" formControlName="effectiveTemperature" id="effectiveTemperature">
+      <mdb-error *ngIf="effectiveTemperature.invalid && (effectiveTemperature.dirty || effectiveTemperature.touched)">
+        Ungültige Eingabe. Bitte geben Sie
+        eine Zahl ein.
+      </mdb-error>
     </div>
   </div>
   <hr>
 
   <div class="planetForm" formArrayName="planets">
     <div><h5 class="inline-header">Umkreisende Planeten:</h5>
-      <span><button type="button" class="btn btn-primary btn-sm" (click)="onAddNewPlanet()"> Neu + </button></span>
+      <span><button mdbBtn type="button" color="indigo" size="sm" mdbWavesEffect
+                    (click)="onAddNewPlanet()"> Neu + </button></span>
     </div>
     <div *ngFor="let planet of star.orbitingPlanets"><span>{{planet.planetName}}  </span>
-      <i role="button" class="fa fa-minus-square-o" style="cursor: pointer" (click)="onRemovePlanet(planet)"></i>
+      <mdb-icon far icon="minus-square" style="cursor: pointer" (click)="onRemovePlanet(planet)"></mdb-icon>
     </div>
     <div class="card" *ngFor="let planetFormGroup of formArray.controls; let i = index"
          [formGroupName]="i">
       <div class="card-body">
-        <div class="form-group">
+        <div class="md-form">
+          <input type="text" class="form-control" formControlName="planetName" id="planetName" minLength="2"
+                 maxLength="50"
+                 mdbInput mdbValidate>
           <label for="planetName">Name des Planeten: <strong style="color: red">*</strong></label>
-          <input type="text" class="form-control" formControlName="planetName" id="planetName">
+          <mdb-error
+            *ngIf="planetFormGroup.get('planetName').invalid &&
+            (planetFormGroup.get('planetName').dirty || planetFormGroup.get('planetName').touched)">
+            Ungültige Eingabe.
+          </mdb-error>
         </div>
         <div class="form-row">
-          <div class="form-group col-md-6">
+          <div class="md-form col">
+            <input type="text" class="form-control" formControlName="planetClass" id="planetClass" minLength="1"
+                   maxLength="50"
+                   mdbInput mdbValidate>
             <label for="planetClass" mdbTooltip="PHL-Klassifikation">Planetenklasse:</label>
-            <input type="text" class="form-control" formControlName="planetClass" id="planetClass">
+            <mdb-error *ngIf="planetFormGroup.get('planetClass').invalid &&
+            (planetFormGroup.get('planetClass').dirty || planetFormGroup.get('planetClass').touched)">Ungültige Eingabe.
+            </mdb-error>
           </div>
-          <div class="form-group col-md-6">
+          <div class="md-form col">
+            <input type="text" class="form-control" formControlName="planetPeriod" id="planetPeriod" minLength="1"
+                   maxLength="50"
+                   mdbInput mdbValidate>
             <label for="planetPeriod">Umlaufzeit:
               <em class="comment-light" mdbTooltip="Tage" placement="top">(T)</em>
             </label>
-            <input type="text" class="form-control" formControlName="planetPeriod" id="planetPeriod">
+            <mdb-error *ngIf="planetFormGroup.get('planetPeriod').invalid &&
+            (planetFormGroup.get('planetPeriod').dirty || planetFormGroup.get('planetPeriod').touched)">Ungültige Eingabe. Bitte
+              geben Sie
+              eine Zahl ein.
+            </mdb-error>
           </div>
         </div>
         <div class="form-row">
-          <div class="form-group col-md-6">
+          <div class="md-form col">
+            <input type="text" class="form-control" formControlName="planetMass" id="planetMass" minLength="1"
+                   maxLength="50"
+                   mdbInput mdbValidate>
             <label for="planetMass">Masse:
               <em class="comment-light" mdbTooltip="Erdmasse" placement="top">(M⊕)</em>
             </label>
-            <input type="text" class="form-control" formControlName="planetMass" id="planetMass">
+            <mdb-error *ngIf="planetFormGroup.get('planetMass').invalid &&
+            (planetFormGroup.get('planetMass').dirty || planetFormGroup.get('planetMass').touched)">Ungültige Eingabe. Bitte
+              geben Sie
+              eine Zahl ein.
+            </mdb-error>
           </div>
-          <div class="form-group col-md-6">
+          <div class="md-form col">
+            <input type="text" class="form-control" formControlName="planetRadius" id="planetRadius" minLength="1"
+                   maxLength="50"
+                   mdbInput mdbValidate>
             <label for="planetRadius">Radius:
               <em class="comment-light" mdbTooltip="Erdradius" placement="top">(R⊕)</em>
             </label>
-            <input type="text" class="form-control" formControlName="planetRadius" id="planetRadius">
+            <mdb-error *ngIf="planetFormGroup.get('planetRadius').invalid &&
+            (planetFormGroup.get('planetRadius').dirty || planetFormGroup.get('planetRadius').touched)">Ungültige Eingabe. Bitte
+              geben Sie
+              eine Zahl ein.
+            </mdb-error>
           </div>
         </div>
         <div class="form-row">
-          <div class="form-group col-md-6">
+          <div class="md-form col">
+            <input type="text" class="form-control" formControlName="planetDistance" id="planetDistance" minLength="1"
+                   maxLength="50"
+                   mdbInput mdbValidate>
             <label for="planetDistance">Entfernung:
               <em class="comment-light" mdbTooltip="Lichtjahr" placement="top">(Lj)</em>
             </label>
-            <input type="text" class="form-control" formControlName="planetDistance" id="planetDistance">
+            <mdb-error *ngIf="planetFormGroup.get('planetDistance').invalid &&
+            (planetFormGroup.get('planetDistance').dirty || planetFormGroup.get('planetDistance').touched)">Ungültige Eingabe. Bitte
+              geben Sie
+              eine Zahl ein.
+            </mdb-error>
           </div>
-          <div class="form-group col-md-6">
+          <div class="md-form col">
+            <input type="text" class="form-control" formControlName="planetESI" id="planetESI" minLength="1"
+                   maxLength="50"
+                   mdbInput mdbValidate>
             <label for="planetESI">Erdähnlichkeitsindex:
               <em class="comment-light" mdbTooltip="Earth Similarity Index von PHL" placement="top">(in ESI)</em>
             </label>
-            <input type="text" class="form-control" formControlName="planetESI" id="planetESI">
+            <mdb-error *ngIf="planetFormGroup.get('planetESI').invalid &&
+            (planetFormGroup.get('planetESI').dirty || planetFormGroup.get('planetESI').touched)">Ungültige Eingabe. Bitte
+              geben Sie
+              eine Zahl ein.
+            </mdb-error>
           </div>
         </div>
-        <button class="btn btn-danger" type="button" (click)="removePlanetForm(planetFormGroup)">Entfernen</button>
+        <button mdbBtn type="button" color="purple" mdbWavesEffect (click)="removePlanetForm(planetFormGroup)">Entfernen</button>
       </div>
     </div>
   </div>
   <hr>
   <span class="help-block"><strong style="color: red">*</strong> Pflichtfeld</span>
   <div class="btn-group float-right">
-    <button class="btn btn-primary" type="submit" [disabled]="!editStarForm.valid">Speichern</button>
-    <button class="btn btn-danger" type="button" (click)="onCancel()">Verwerfen</button>
+    <button  mdbBtn type="submit" color="primary" mdbWavesEffect [disabled]="!editStarForm.valid">Speichern</button>
+    <button mdbBtn type="button" color="purple" mdbWavesEffect (click)="onCancel()">Verwerfen</button>
   </div>
 </form>
