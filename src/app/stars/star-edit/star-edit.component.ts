@@ -81,6 +81,9 @@ export class StarEditComponent implements OnInit, OnDestroy {
   }
 
   onCancel() {
+    this.star = null;
+    this.editStarForm = null;
+    this.newPlanetForm = null;
     this.router.navigate(['stars']);
   }
 
