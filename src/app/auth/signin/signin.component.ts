@@ -33,8 +33,10 @@ export class SigninComponent implements OnInit {
 
   onSubmit() {
 
-    this.credentials.email = this.validationForm.value.email;
-    this.credentials.password = this.validationForm.value.password;
+    this.credentials.email = this.emailFormEx.value;
+    this.credentials.password = this.passwordFormEx.value;
+    console.log('Cred: ', this.credentials);
+    console.log('Em: ', this.emailFormEx);
     this.auth.login(this.credentials).subscribe(
       () => {
         this.router.navigateByUrl('/profile');
