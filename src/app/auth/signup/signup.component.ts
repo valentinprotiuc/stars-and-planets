@@ -26,9 +26,17 @@ export class SignupComponent implements OnInit {
     });
   }
 
-  get nameFormEx() { return this.validationForm.get('nameFormEx'); }
-  get emailFormEx() { return this.validationForm.get('emailFormEx'); }
-  get passwordFormEx() { return this.validationForm.get('passwordFormEx'); }
+  get nameFormEx() {
+    return this.validationForm.get('nameFormEx');
+  }
+
+  get emailFormEx() {
+    return this.validationForm.get('emailFormEx');
+  }
+
+  get passwordFormEx() {
+    return this.validationForm.get('passwordFormEx');
+  }
 
   ngOnInit() {
   }
@@ -37,6 +45,7 @@ export class SignupComponent implements OnInit {
     this.credentials.name = this.validationForm.value.name;
     this.credentials.email = this.validationForm.value.email;
     this.credentials.password = this.validationForm.value.password;
+    console.log('Cred: ', this.credentials);
     this.auth.register(this.credentials).subscribe(
       () => {
         this.router.navigateByUrl('/profile');
