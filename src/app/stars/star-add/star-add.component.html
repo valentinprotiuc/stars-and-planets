@@ -63,7 +63,8 @@
   <hr>
   <div class="planetForm" formArrayName="planets">
     <div><h5 class="inline-header">Umkreisende Planeten:</h5>
-      <span><button type="button" class="btn btn-primary btn-sm" (click)="onAddNewPlanet()"> Neu + </button></span>
+      <span><button mdbBtn type="button" color="indigo" size="sm" mdbWavesEffect
+                    (click)="onAddNewPlanet()"> Neu + </button></span>
     </div>
     <div class="card" *ngFor="let planetFormGroup of formArray.controls; let i = index"
          [formGroupName]="i">
@@ -93,7 +94,8 @@
               <em class="comment-light" mdbTooltip="Tage" placement="top">(T)</em>
             </label>
             <mdb-error *ngIf="planetFormGroup.get('planetPeriod').invalid &&
-            (planetFormGroup.get('planetPeriod').dirty || planetFormGroup.get('planetPeriod').touched)">Ungültige Eingabe.
+            (planetFormGroup.get('planetPeriod').dirty || planetFormGroup.get('planetPeriod').touched)">Ungültige
+              Eingabe.
               Bitte geben Sie eine Zahl ein.
             </mdb-error>
           </div>
@@ -105,7 +107,8 @@
               <em class="comment-light" mdbTooltip="Erdmasse" placement="top">(M⊕)</em>
             </label>
             <mdb-error *ngIf="planetFormGroup.get('planetMass').invalid &&
-            (planetFormGroup.get('planetMass').dirty || planetFormGroup.get('planetMass').touched)">Ungültige Eingabe. Bitte
+            (planetFormGroup.get('planetMass').dirty || planetFormGroup.get('planetMass').touched)">Ungültige Eingabe.
+              Bitte
               geben Sie eine Zahl ein.
             </mdb-error>
           </div>
@@ -115,7 +118,8 @@
               <em class="comment-light" mdbTooltip="Erdradius" placement="top">(R⊕)</em>
             </label>
             <mdb-error *ngIf="planetFormGroup.get('planetRadius').invalid &&
-            (planetFormGroup.get('planetRadius').dirty || planetFormGroup.get('planetRadius').touched)">Ungültige Eingabe.
+            (planetFormGroup.get('planetRadius').dirty || planetFormGroup.get('planetRadius').touched)">Ungültige
+              Eingabe.
               Bitte geben Sie eine Zahl ein.
             </mdb-error>
           </div>
@@ -137,21 +141,24 @@
               <em class="comment-light" mdbTooltip="Earth Similarity Index von PHL" placement="top">(ESI)</em>
             </label>
             <mdb-error *ngIf="planetFormGroup.get('planetESI').invalid &&
-            (planetFormGroup.get('planetESI').dirty || planetFormGroup.get('planetESI').touched)">Ungültige Eingabe. Bitte
+            (planetFormGroup.get('planetESI').dirty || planetFormGroup.get('planetESI').touched)">Ungültige Eingabe.
+              Bitte
               geben Sie
               eine Zahl ein.
             </mdb-error>
           </div>
         </div>
-        <button class="btn btn-danger" type="button" (click)="removePlanetForm(planetFormGroup)">Entfernen</button>
+        <button mdbBtn type="button" color="purple" mdbWavesEffect (click)="removePlanetForm(planetFormGroup)">
+          Entfernen
+        </button>
       </div>
     </div>
   </div>
   <hr>
   <span class="help-block"><strong style="color: red">*</strong> Pflichtfeld</span>
   <div class="btn-group float-right">
-    <button class="btn btn-primary" type="submit" [disabled]="!newStarForm.valid">Speichern</button>
-    <button class="btn btn-secondary" type="button" (click)="onCancel()">Verwerfen</button>
+    <button mdbBtn type="submit" color="primary" mdbWavesEffect [disabled]="!newStarForm.valid">Speichern</button>
+    <button mdbBtn type="button" color="purple" mdbWavesEffect (click)="onCancel()">Verwerfen</button>
   </div>
 </form>
 
