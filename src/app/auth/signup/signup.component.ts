@@ -45,8 +45,6 @@ export class SignupComponent implements OnInit {
     this.credentials.name = this.nameFormEx.value;
     this.credentials.email = this.emailFormEx.value;
     this.credentials.password = this.passwordFormEx.value;
-    console.log('Cred: ', this.credentials);
-    console.log('Em: ', this.emailFormEx);
     this.auth.register(this.credentials).subscribe(
       () => {
         this.router.navigateByUrl('/profile');
