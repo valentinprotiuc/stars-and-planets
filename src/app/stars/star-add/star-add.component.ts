@@ -44,19 +44,19 @@ export class StarAddComponent implements OnInit {
   }
 
   get solarMass() {
-    return this.newStarForm.get('spectralType');
+    return this.newStarForm.get('solarMass');
   }
 
   get solarRadius() {
-    return this.newStarForm.get('spectralType');
+    return this.newStarForm.get('solarRadius');
   }
 
   get effectiveTemperature() {
-    return this.newStarForm.get('spectralType');
+    return this.newStarForm.get('effectiveTemperature');
   }
 
   get distance() {
-    return this.newStarForm.get('spectralType');
+    return this.newStarForm.get('distance');
   }
 
   onSubmit() {

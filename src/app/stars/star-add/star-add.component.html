@@ -5,20 +5,16 @@
     <input type="text" class="form-control" formControlName="starName" id="starName" minLength="2" maxLength="50"
            mdbInput mdbValidate>
     <label for="starName">Name des Sterns: <strong style="color: red">*</strong></label>
-    <mdb-error *ngIf="starName.invalid && (starName.dirty || starName.touched)">Ungültige Eingabe
+    <mdb-error *ngIf="starName.invalid && (starName.dirty || starName.touched)">Ungültige Eingabe.
     </mdb-error>
-    <mdb-success *ngIf="starName.valid && (starName.dirty || starName.touched)">gültige Eingabe
-    </mdb-success>
   </div>
   <div class="form-row">
     <div class="md-form col">
       <input type="text" class="form-control" formControlName="spectralType" id="spectralType" minLength="1"
              maxLength="50" mdbInput mdbValidate>
       <label for="spectralType">Spektraltyp:</label>
-      <mdb-error *ngIf="spectralType.invalid && (spectralType.dirty || spectralType.touched)">Ungültige Eingabe
+      <mdb-error *ngIf="spectralType.invalid && (spectralType.dirty || spectralType.touched)">Ungültige Eingabe.
       </mdb-error>
-      <mdb-success *ngIf="spectralType.valid && (spectralType.dirty || spectralType.touched)">gültige Eingabe
-      </mdb-success>
     </div>
     <div class="md-form col">
       <input type="text" class="form-control" formControlName="distance" id="distance" minLength="1" maxLength="50"
@@ -28,8 +24,6 @@
       </label>
       <mdb-error *ngIf="distance.invalid && (distance.dirty || distance.touched)">Ungültige Eingabe. Geben Sie bitte eine Zahl ein.
       </mdb-error>
-      <mdb-success *ngIf="distance.valid && (distance.dirty || distance.touched)">gültige Eingabe
-      </mdb-success>
     </div>
   </div>
   <div class="form-row">
@@ -41,8 +35,6 @@
       </label>
       <mdb-error *ngIf="solarMass.invalid && (solarMass.dirty || solarMass.touched)">Ungültige Eingabe. Geben Sie bitte eine Zahl ein.
       </mdb-error>
-      <mdb-success *ngIf="solarMass.valid && (solarMass.dirty || solarMass.touched)">gültige Eingabe
-      </mdb-success>
     </div>
     <div class="md-form col">
       <input type="text" class="form-control" formControlName="solarRadius" id="solarRadius" minLength="1"
@@ -53,8 +45,6 @@
       </label>
       <mdb-error *ngIf="solarRadius.invalid && (solarRadius.dirty || solarRadius.touched)">Ungültige Eingabe. Geben Sie bitte eine Zahl ein.
       </mdb-error>
-      <mdb-success *ngIf="solarRadius.valid && (solarRadius.dirty || solarRadius.touched)">gültige Eingabe
-      </mdb-success>
     </div>
     <div class="md-form col">
       <input type="text" class="form-control" formControlName="effectiveTemperature" id="effectiveTemperature"
@@ -75,48 +65,48 @@
     <div class="card" *ngFor="let planetFormGroup of formArray.controls; let i = index"
          [formGroupName]="i">
       <div class="card-body">
-        <div class="form-group">
-          <label for="planetName">Name des Planeten: <strong style="color: red">*</strong></label>
+        <div class="md-form">
           <input type="text" class="form-control" formControlName="planetName" id="planetName">
+          <label for="planetName">Name des Planeten: <strong style="color: red">*</strong></label>
         </div>
         <div class="form-row">
-          <div class="form-group col-md-6">
-            <label for="planetClass" mdbTooltip="PHL-Klassifikation" placement="top">Planetenklasse:</label>
+          <div class="md-form col">
             <input type="text" class="form-control" formControlName="planetClass" id="planetClass">
+            <label for="planetClass" mdbTooltip="PHL-Klassifikation" placement="top">Planetenklasse:</label>
           </div>
-          <div class="form-group col-md-6">
+          <div class="md-form col">
+            <input type="text" class="form-control" formControlName="planetPeriod" id="planetPeriod">
             <label for="planetPeriod">Umlaufzeit:
               <em class="comment-light" mdbTooltip="Tage" placement="top">(T)</em>
             </label>
-            <input type="text" class="form-control" formControlName="planetPeriod" id="planetPeriod">
           </div>
         </div>
         <div class="form-row">
-          <div class="form-group col-md-6">
+          <div class="md-form col">
+            <input type="text" class="form-control" formControlName="planetMass" id="planetMass">
             <label for="planetMass">Masse:
               <em class="comment-light" mdbTooltip="Erdmasse" placement="top">(M⊕)</em>
             </label>
-            <input type="text" class="form-control" formControlName="planetMass" id="planetMass">
           </div>
-          <div class="form-group col-md-6">
+          <div class="md-form col">
+            <input type="text" class="form-control" formControlName="planetRadius" id="planetRadius">
             <label for="planetRadius">Radius:
               <em class="comment-light" mdbTooltip="Erdradius" placement="top">(R⊕)</em>
             </label>
-            <input type="text" class="form-control" formControlName="planetRadius" id="planetRadius">
           </div>
         </div>
         <div class="form-row">
-          <div class="form-group col-md-6">
+          <div class="md-form col">
+            <input type="text" class="form-control" formControlName="planetDistance" id="planetDistance">
             <label for="planetDistance">Entfernung:
               <em class="comment-light" mdbTooltip="Lichtjahr" placement="top">(Lj)</em>
             </label>
-            <input type="text" class="form-control" formControlName="planetDistance" id="planetDistance">
           </div>
-          <div class="form-group col-md-6">
+          <div class="md-form col">
+            <input type="text" class="form-control" formControlName="planetESI" id="planetESI">
             <label for="planetESI">Erdähnlichkeitsindex:
               <em class="comment-light" mdbTooltip="Earth Similarity Index von PHL" placement="top">(ESI)</em>
             </label>
-            <input type="text" class="form-control" formControlName="planetESI" id="planetESI">
           </div>
         </div>
         <button class="btn btn-danger" type="button" (click)="removePlanetForm(planetFormGroup)">Entfernen</button>
