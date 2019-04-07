@@ -1,9 +1,10 @@
 <h2>Neuen Stern hinzufügen</h2>
 
 <form class="padding-bottom" [formGroup]="newStarForm" (ngSubmit)="onSubmit()">
-  <div class="form-group">
+  <div class="md-form">
+    <input type="text" class="form-control" formControlName="starName" id="starName" minLength="2" maxLength="50"
+           mdbInput mdbValidate>
     <label for="starName">Name des Sterns: <strong style="color: red">*</strong></label>
-    <input type="text" class="form-control" formControlName="starName" id="starName">
   </div>
   <div class="form-row">
     <div class="form-group col-md-6">
