@@ -8,8 +8,9 @@
     </div>
   </div>
   <ng-template #elseBlock>
-    <div class="col full-height text-center vertical-center" id="logged-user">
-      <h1 id="welcome-text">Hallo, {{auth.getUserDetails().name}}!</h1></div>
+    <div class="bg">
+      <h1 class="vertical-center" id="welcome-text">Hallo, {{auth.getUserDetails().name}}!</h1>
+    </div>
   </ng-template>
 </div>
 <button mdbBtn type="button" color="primary" rounded="true" mdbWavesEffect>Primary</button>

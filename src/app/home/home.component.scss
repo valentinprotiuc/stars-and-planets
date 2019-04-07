@@ -18,10 +18,12 @@
   filter: grayscale(0%);
 }
 
-#logged-user {
+.bg {
   background-image: url("../../assets/space.jpg");
-  background-repeat: no-repeat;
+  height: 100%;
   background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 #welcome-text {
