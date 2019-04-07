@@ -7,7 +7,7 @@
       <p class="vertical-center glow">Anmelden/Registrien</p>
     </div>
   </div>
-  <div *ngIf="!auth.isLoggedIn()">
+  <div *ngIf="auth.isLoggedIn()">
     <div class="col full-height bg">
       <h1 class="vertical-center" id="welcome-text">Hallo, {{auth.getUserDetails().name}}!</h1>
     </div>
