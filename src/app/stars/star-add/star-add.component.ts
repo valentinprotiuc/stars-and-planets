@@ -35,6 +35,30 @@ export class StarAddComponent implements OnInit {
     return this.newStarForm.get('planets') as FormArray;
   }
 
+  get starName() {
+    return this.newStarForm.get('starName');
+  }
+
+  get spectralType() {
+    return this.newStarForm.get('spectralType');
+  }
+
+  get solarMass() {
+    return this.newStarForm.get('spectralType');
+  }
+
+  get solarRadius() {
+    return this.newStarForm.get('spectralType');
+  }
+
+  get effectiveTemperature() {
+    return this.newStarForm.get('spectralType');
+  }
+
+  get distance() {
+    return this.newStarForm.get('spectralType');
+  }
+
   onSubmit() {
 
     const planets: Planet[] = [];

@@ -5,42 +5,66 @@
     <input type="text" class="form-control" formControlName="starName" id="starName" minLength="2" maxLength="50"
            mdbInput mdbValidate>
     <label for="starName">Name des Sterns: <strong style="color: red">*</strong></label>
+    <mdb-error *ngIf="starName.invalid && (starName.dirty || starName.touched)">Ungültige Eingabe
+    </mdb-error>
+    <mdb-success *ngIf="starName.valid && (starName.dirty || starName.touched)">gültige Eingabe
+    </mdb-success>
   </div>
   <div class="form-row">
-    <div class="form-group col-md-6">
+    <div class="md-form col">
+      <input type="text" class="form-control" formControlName="spectralType" id="spectralType" minLength="1"
+             maxLength="50" mdbInput mdbValidate>
       <label for="spectralType">Spektraltyp:</label>
-      <input type="text" class="form-control" formControlName="spectralType" id="spectralType">
+      <mdb-error *ngIf="spectralType.invalid && (spectralType.dirty || spectralType.touched)">Ungültige Eingabe
+      </mdb-error>
+      <mdb-success *ngIf="spectralType.valid && (spectralType.dirty || spectralType.touched)">gültige Eingabe
+      </mdb-success>
     </div>
-    <div class="form-group col-md-6">
-      <label class="label-block" for="distance">
-        Entfernung zur Erde:
-        <em class="comment-light" mdbTooltip="Lichtjahr" placement="top">(Lj)</em>
-        <span class="help-block help-right" *ngIf="!newStarForm.get('distance').valid">keine Zahl</span>
+    <div class="md-form col">
+      <input type="text" class="form-control" formControlName="distance" id="distance" minLength="1" maxLength="50"
+             mdbInput mdbValidate>
+      <label for="distance">
+        Entfernung zur Erde: <em class="comment-light" mdbTooltip="Lichtjahr" placement="top">(Lj)</em>
       </label>
-      <input type="text" class="form-control" formControlName="distance" id="distance">
+      <mdb-error *ngIf="distance.invalid && (distance.dirty || distance.touched)">Ungültige Eingabe. Geben Sie bitte eine Zahl ein.
+      </mdb-error>
+      <mdb-success *ngIf="distance.valid && (distance.dirty || distance.touched)">gültige Eingabe
+      </mdb-success>
     </div>
   </div>
   <div class="form-row">
-    <div class="form-group col-md-4">
-      <label class="label-block" for="solarMass">Masse:
+    <div class="md-form col">
+      <input type="text" class="form-control" formControlName="solarMass" id="solarMass" minLength="1" maxLength="50"
+             mdbInput mdbValidate>
+      <label for="solarMass">Masse:
         <em class="comment-light" mdbTooltip="Sonnenmasse" placement="top">(M☉)</em>
-        <span class="help-block help-right" *ngIf="!newStarForm.get('solarMass').valid">keine Zahl</span>
       </label>
-      <input type="text" class="form-control" formControlName="solarMass" id="solarMass">
+      <mdb-error *ngIf="solarMass.invalid && (solarMass.dirty || solarMass.touched)">Ungültige Eingabe. Geben Sie bitte eine Zahl ein.
+      </mdb-error>
+      <mdb-success *ngIf="solarMass.valid && (solarMass.dirty || solarMass.touched)">gültige Eingabe
+      </mdb-success>
     </div>
-    <div class="form-group col-md-4">
-      <label class="label-block" for="solarRadius">Radius:
+    <div class="md-form col">
+      <input type="text" class="form-control" formControlName="solarRadius" id="solarRadius" minLength="1"
+             maxLength="50"
+             mdbInput mdbValidate>
+      <label for="solarRadius">Radius:
         <em class="comment-light" mdbTooltip="Sonnenradius" placement="top">(R☉)</em>
-        <span class="help-block help-right" *ngIf="!newStarForm.get('solarRadius').valid">keine Zahl</span>
       </label>
-      <input type="text" class="form-control" formControlName="solarRadius" id="solarRadius">
+      <mdb-error *ngIf="solarRadius.invalid && (solarRadius.dirty || solarRadius.touched)">Ungültige Eingabe. Geben Sie bitte eine Zahl ein.
+      </mdb-error>
+      <mdb-success *ngIf="solarRadius.valid && (solarRadius.dirty || solarRadius.touched)">gültige Eingabe
+      </mdb-success>
     </div>
-    <div class="form-group col-md-4">
-      <label class="label-block" for="effectiveTemperature">Effektive Temperatur:
+    <div class="md-form col">
+      <input type="text" class="form-control" formControlName="effectiveTemperature" id="effectiveTemperature"
+             minLength="1" maxLength="50" mdbInput mdbValidate>
+      <label for="effectiveTemperature">Effektive Temperatur:
         <em class="comment-light" mdbTooltip="Kelvin" placement="top">(K)</em>
-        <span class="help-block help-right" *ngIf="!newStarForm.get('effectiveTemperature').valid">keine Zahl</span>
       </label>
-      <input type="text" class="form-control" formControlName="effectiveTemperature" id="effectiveTemperature">
+      <mdb-error *ngIf="effectiveTemperature.invalid && (effectiveTemperature.dirty || effectiveTemperature.touched)">
+        Ungültige Eingabe. Geben Sie bitte eine Zahl ein.
+      </mdb-error>
     </div>
   </div>
   <hr>
