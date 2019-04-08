@@ -28,6 +28,12 @@
 .welcome-text {
   color: rgba(255, 255, 255, 0.5);
   text-transform: uppercase;
+  transition: color 1s linear;
+  -webkit-transition: color 1s linear;
+}
+
+.welcome-text:hover {
+  color: white;
 }
 
 .vertical-center {
