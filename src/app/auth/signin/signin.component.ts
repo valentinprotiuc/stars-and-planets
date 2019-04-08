@@ -37,7 +37,7 @@ export class SigninComponent implements OnInit {
     this.credentials.password = this.passwordFormEx.value;
     this.auth.login(this.credentials).subscribe(
       () => {
-        this.router.navigateByUrl('/profile');
+        this.router.navigateByUrl('/');
       },
       (error) => {
         throw error;

@@ -47,7 +47,7 @@ export class SignupComponent implements OnInit {
     this.credentials.password = this.passwordFormEx.value;
     this.auth.register(this.credentials).subscribe(
       () => {
-        this.router.navigateByUrl('/profile');
+        this.router.navigateByUrl('/');
       },
       (error) => {
         throw error;
