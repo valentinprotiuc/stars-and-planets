@@ -8,11 +8,12 @@
 </div>
 <ng-template #elseBlock>
   <div class="row">
-    <div class="col-md-12 full-height text-center bg">
+    <div class="col-md-12 full-height text-center bg text-white">
       <div class="vertical-center" >
         <h1 id="welcome-text">Hallo, {{name}}!</h1>
-        <a routerLink="/stars">Sterne entdecken</a>
-        <a routerLink="/planets">Planeten entdecken</a>
+        <hr>
+        <div routerLink="/stars"><mdb-icon fas icon="chevron-left"></mdb-icon><h3>Sterne bewundern</h3></div>
+        <div routerLink="/planets"><h3>Planeten entdecken</h3><mdb-icon fas icon="chevron-right"></mdb-icon></div>
       </div>
     </div>
   </div>
