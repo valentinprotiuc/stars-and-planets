@@ -18,6 +18,8 @@ NodeJS `10.15.3`
 
 Bootstrap `4`
 
+Material Design for Bootstrap(Angular version)
+
 ## Wo die Anwendung lebt
 
 Die Anwendung lebt auf der [Heroku](https://stars-and-planets.herokuapp.com/) 
@@ -29,7 +31,7 @@ Plattform und verwendet als Host für die MongoDB-Datenbank die mLab.
 
 - Express.js: Authentifizierung mit JSON Web Token
 
-- Bootstrap: Navbar, Cards, Dropdowns, Tables, Tooltips
+- Bootstrap + MDB: Navbar, Cards, Dropdowns, Tables, Tooltips, Animation
 
 - MongoDB: Daten von Sternen und Planeten,als auch Daten von Nutzer in DB gespeichert. 
 Passwort nicht gespeichert, statt dessen salt und hash.
