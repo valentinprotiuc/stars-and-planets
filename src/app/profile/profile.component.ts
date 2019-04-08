@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {AuthenticationService, UserDetails} from '../authentication.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-profile',
@@ -10,7 +11,8 @@ export class ProfileComponent implements OnInit {
 
   details: UserDetails;
 
-  constructor(private auth: AuthenticationService) { }
+  constructor(private auth: AuthenticationService, private router: Router) {
+  }
 
   ngOnInit() {
     this.auth.profile().subscribe(user => {
@@ -18,6 +20,11 @@ export class ProfileComponent implements OnInit {
     }, (err) => {
       console.error(err);
     });
+  }
+
+  logout() {
+    this.auth.logout();
+    this.router.navigate(['']);
   }
 
 }
