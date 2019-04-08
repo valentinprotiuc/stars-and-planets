@@ -18,4 +18,8 @@ export class HomeComponent implements OnInit {
     return this.auth.isLoggedIn();
   }
 
+  get name() {
+    return this.auth.getUserDetails().name;
+  }
+
 }
