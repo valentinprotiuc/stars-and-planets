@@ -8,10 +8,14 @@ import {AuthenticationService} from '../authentication.service';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(public auth: AuthenticationService) {
+  constructor(private auth: AuthenticationService) {
   }
 
   ngOnInit() {
+  }
+
+  get status() {
+    return this.auth.isLoggedIn();
   }
 
 }
