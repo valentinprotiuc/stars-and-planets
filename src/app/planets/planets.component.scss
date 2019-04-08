@@ -2,6 +2,9 @@
   cursor: pointer;
 }
 
-.margin-top {
-  margin-top: 2rem;
+.limited-height {
+  height: calc(100vh - 5rem);
+  max-height: calc(100vh - 5rem);
+  overflow-y: auto;
+  padding-top: 2rem;
 }

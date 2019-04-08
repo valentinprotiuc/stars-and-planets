@@ -1,10 +1,16 @@
 <div class="row">
-  <div class="col-sm-12 col-md-6  text-center full-height gray-filter" id="guest-access" routerLink="/stars">
-    <p class="vertical-center glow">Als Gast entdecken</p>
+  <div *ngIf="!auth.isLoggedIn()">
+    <div class="col-sm-12 col-md-6  text-center full-height gray-filter" id="guest-access" routerLink="/stars">
+      <p class="vertical-center glow">Als Gast entdecken</p>
+    </div>
+    <div class="col-sm-12 col-md-6 text-center full-height gray-filter" id="user-access" routerLink="/signin">
+      <p class="vertical-center glow">Anmelden/Registrien</p>
+    </div>
   </div>
-  <div class="col-sm-12 col-md-6 text-center full-height gray-filter" id="user-access" routerLink="/signin">
-    <p class="vertical-center glow">Anmelden/Registrien</p>
-  </div>
+  <a mdbBtn href="https://github.com/valentinprotiuc/stars-and-planets/tree/master/src/app/home"
+     class="btn-circle absolute-position" type="button" color="indigo" mdbWavesEffect>
+    <mdb-icon fas icon="question" class="text-white"></mdb-icon>
+  </a>
   <!--<div>
     <div class="col-sm-12 col-md-6  text-center full-height gray-filter" id="guest-access" routerLink="/stars">
       <p class="vertical-center glow">Als Gast entdecken</p>
