@@ -9,11 +9,22 @@
 <ng-template #elseBlock>
   <div class="row">
     <div class="col-md-12 full-height text-center bg text-white">
-      <div class="vertical-center" >
+      <div class="vertical-center">
         <h1 class="wow fadeIn welcome-text" data-wow-delay="0.5s" data-wow-duration="1.5s">Hallo, {{name}}!</h1>
         <hr>
-        <div class="welcome-text" routerLink="/stars"><mdb-icon fas icon="chevron-left"></mdb-icon><h4>Sterne bewundern</h4></div>
-        <div class="welcome-text" routerLink="/planets"><h4>Planeten entdecken</h4><mdb-icon fas icon="chevron-right"></mdb-icon></div>
+        <div class="row">
+          <div class="col welcome-text" routerLink="/stars">
+            <h4>
+              <mdb-icon fas icon="chevron-left"></mdb-icon>
+              Sterne bewundern
+            </h4>
+          </div>
+          <div class="col welcome-text" routerLink="/planets">
+            <h4>Planeten entdecken
+              <mdb-icon fas icon="chevron-right"></mdb-icon>
+            </h4>
+          </div>
+        </div>
       </div>
     </div>
   </div>
