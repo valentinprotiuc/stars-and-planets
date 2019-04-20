@@ -1,7 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Star} from '../star.model';
 import {StarService} from '../star.service';
-import {Router} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-star-item',
@@ -12,7 +12,7 @@ export class StarItemComponent implements OnInit {
 
   @Input() star: Star;
 
-  constructor(private starService: StarService, private router: Router) {
+  constructor(private starService: StarService, private router: Router, private route: ActivatedRoute) {
   }
 
   ngOnInit() {
@@ -21,6 +21,6 @@ export class StarItemComponent implements OnInit {
   onShowStarDetails() {
     this.starService.currentlySelectedStar = this.star;
     this.starService.starSelected.next(this.star);
-    this.router.navigate(['details']);
+    this.router.navigate(['details'], {relativeTo: this.route});
   }
 }

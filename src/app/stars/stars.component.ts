@@ -1,7 +1,7 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {StarService} from './star.service';
 import {Star} from './star.model';
-import {Router} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {Subscription} from 'rxjs';
 import {AuthenticationService} from '../authentication.service';
 
@@ -15,8 +15,7 @@ export class StarsComponent implements OnInit, OnDestroy {
   selectedStar: Star;
   private subscription: Subscription;
 
-  constructor(private starService: StarService, private router: Router,
-              public auth: AuthenticationService) {
+  constructor(private starService: StarService, private router: Router, private route: ActivatedRoute, public auth: AuthenticationService) {
   }
 
   ngOnInit() {
@@ -33,7 +32,7 @@ export class StarsComponent implements OnInit, OnDestroy {
   }
 
   onAddStar() {
-    this.router.navigate(['add']);
+    this.router.navigate(['add'], {relativeTo: this.route});
   }
 
   onEditStar() {
