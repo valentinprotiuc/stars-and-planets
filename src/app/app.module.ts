@@ -1,5 +1,5 @@
 import {BrowserModule} from '@angular/platform-browser';
-import {NgModule} from '@angular/core';
+import {CUSTOM_ELEMENTS_SCHEMA, NgModule} from '@angular/core';
 
 import {AppComponent} from './app.component';
 
@@ -22,8 +22,8 @@ import {SignupComponent} from './auth/signup/signup.component';
 import {ProfileComponent} from './profile/profile.component';
 import {AuthenticationService} from './authentication.service';
 import {AuthGuardService} from './auth-guard.service';
-import { HomeComponent } from './home/home.component';
-import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import {HomeComponent} from './home/home.component';
+import {MDBBootstrapModule} from 'angular-bootstrap-md';
 
 @NgModule({
   declarations: [
@@ -55,7 +55,8 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
     ReactiveFormsModule
   ],
   providers: [StarService, AuthenticationService, AuthGuardService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule {
 }

@@ -2,7 +2,6 @@ import {Component, ElementRef, OnDestroy, OnInit, ViewChild} from '@angular/core
 import {Star} from '../star.model';
 import {StarService} from '../star.service';
 import {Subscription} from 'rxjs';
-import {Planet} from '../../planets/planet.model';
 
 @Component({
   selector: 'app-stars-nav',
@@ -12,15 +11,7 @@ import {Planet} from '../../planets/planet.model';
 export class StarsNavComponent implements OnInit, OnDestroy {
 
   private subscription: Subscription;
-  stars: Star[] = [
-    new Star('Star', 'Star', 'star', 1, 1, 1, 1, [
-      new Planet('Planet', 'planet', 1, 1, 1, 1, 1)
-    ]), new Star('Star', 'Star', 'star', 1, 1, 1, 1, [
-      new Planet('Planet', 'planet', 1, 1, 1, 1, 1)
-    ]), new Star('Star', 'Star', 'star', 1, 1, 1, 1, [
-      new Planet('Planet', 'planet', 1, 1, 1, 1, 1)
-    ])
-  ];
+  stars: Star[] = [];
   @ViewChild('searchFilter') searchFilter: ElementRef;
 
 

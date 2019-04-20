@@ -1,6 +1,5 @@
 import {Injectable} from '@angular/core';
 import {Star} from './star.model';
-import {HttpClient} from '@angular/common/http';
 import {Subject} from 'rxjs';
 import {Router} from '@angular/router';
 import {AuthenticationService} from '../authentication.service';
@@ -93,6 +92,6 @@ export class StarService {
     return this.stars.find(i => i.name === starName);
   }
 
-  constructor(private http: HttpClient, private auth: AuthenticationService, private router: Router) {
+  constructor(private auth: AuthenticationService, private router: Router) {
   }
 }

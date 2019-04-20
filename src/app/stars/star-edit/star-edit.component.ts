@@ -1,7 +1,7 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {StarService} from '../star.service';
 import {Star} from '../star.model';
-import {ActivatedRoute, Router} from '@angular/router';
+import {Router} from '@angular/router';
 import {Planet} from '../../planets/planet.model';
 import {FormArray, FormControl, FormGroup, Validators} from '@angular/forms';
 import {Subscription} from 'rxjs';
@@ -18,7 +18,7 @@ export class StarEditComponent implements OnInit, OnDestroy {
   newPlanetForm: FormGroup;
   private subscription: Subscription;
 
-  constructor(private starService: StarService, private router: Router, private route: ActivatedRoute) {
+  constructor(private starService: StarService, private router: Router) {
   }
 
   get formArray(): FormArray {
